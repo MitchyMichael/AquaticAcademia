@@ -11,6 +11,11 @@
 		FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AC2A3997DF00B10C97 /* ContentView.swift */; };
 		FC9C30AF2A3997E000B10C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C30AE2A3997E000B10C97 /* Assets.xcassets */; };
 		FC9C30B22A3997E000B10C97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C30B12A3997E000B10C97 /* Preview Assets.xcassets */; };
+		FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30B82A399E1A00B10C97 /* MapView.swift */; };
+		FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */; };
+		FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */; };
+		FC9C30C02A3AEAAE00B10C97 /* AquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BF2A3AEAAE00B10C97 /* AquariumView.swift */; };
+		FC9C30C22A3AEB1E00B10C97 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30C12A3AEB1E00B10C97 /* ShopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		FC9C30AC2A3997DF00B10C97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC9C30AE2A3997E000B10C97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC9C30B12A3997E000B10C97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FC9C30B82A399E1A00B10C97 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		FC9C30BF2A3AEAAE00B10C97 /* AquariumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumView.swift; sourceTree = "<group>"; };
+		FC9C30C12A3AEB1E00B10C97 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */,
-				FC9C30AC2A3997DF00B10C97 /* ContentView.swift */,
+				FC9C30BE2A39AFD300B10C97 /* Views */,
 				FC9C30AE2A3997E000B10C97 /* Assets.xcassets */,
 				FC9C30B02A3997E000B10C97 /* Preview Content */,
 			);
@@ -65,6 +75,19 @@
 				FC9C30B12A3997E000B10C97 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC9C30BE2A39AFD300B10C97 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC9C30AC2A3997DF00B10C97 /* ContentView.swift */,
+				FC9C30C12A3AEB1E00B10C97 /* ShopView.swift */,
+				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
+				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
+				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
+				FC9C30BF2A3AEAAE00B10C97 /* AquariumView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +161,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */,
+				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
+				FC9C30C22A3AEB1E00B10C97 /* ShopView.swift in Sources */,
+				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
+				FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */,
 				FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */,
+				FC9C30C02A3AEAAE00B10C97 /* AquariumView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
