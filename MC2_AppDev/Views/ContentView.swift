@@ -11,6 +11,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ZStack{
+                Text("Logo")
+                    .font(.system(size: 60))
+                    .fontWeight(.bold)
+                    .padding(.bottom, 90)
                 VStack{
                     Spacer()
                     NavigationLink(destination: MapView(), label: {

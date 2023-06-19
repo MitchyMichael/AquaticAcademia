@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MapView: View {
     @Environment(\.dismiss) private var dismiss
-    //    @State private var items = Array(1...100)
     
     @State var levelId = 0
-    @State var isLevelClicked = false
     @State var thisLevelReward = 0
+    
+    @State var isLevelClicked = false
     
     var body: some View {
         NavigationStack{
@@ -201,9 +201,8 @@ struct MapView: View {
                     .padding()
                     Spacer()
                 }
-                
-                
                 .navigationBarBackButtonHidden(true)
+                
                 
                 
             }
