@@ -27,7 +27,30 @@ struct MapView: View {
                         
                         
                         HStack(alignment: .top){
-                            // Level 1
+//                            // Level 1
+//                            VStack{
+//                                Button{
+//                                    levelId = 1
+//                                    thisLevelReward = 100
+//                                    print(levelId)
+//                                    isLevelClicked = true
+//                                } label: {
+//                                    Text("1")
+//                                        .frame(width: 50, height: 50)
+//                                        .background(.gray)
+//                                        .cornerRadius(50)
+//                                        .foregroundColor(.primary)
+//                                        .padding(.trailing, 50)
+//
+//                                }
+//                                .sheet(isPresented: $isLevelClicked){
+//                                    InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward)
+//                                    .padding(.horizontal)
+//                                    .presentationDetents([.height(200), .medium, .large])
+//                                    .presentationDragIndicator(.automatic)
+//                                }
+//                            }
+                            
                             VStack{
                                 Button{
                                     levelId = 1
@@ -44,12 +67,10 @@ struct MapView: View {
                                     
                                 }
                                 .sheet(isPresented: $isLevelClicked){
-                                    InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward)
-                                    .padding(.horizontal)
-                                    .presentationDetents([.height(200), .medium, .large])
-                                    .presentationDragIndicator(.automatic)
+                                    DecisionGameView()
                                 }
                             }
+
                             
                             
                             // Level 2
