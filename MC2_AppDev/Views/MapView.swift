@@ -14,6 +14,7 @@ struct MapView: View {
     @State var thisLevelReward = 0
     
     @State var isLevelClicked = false
+    @State var showDecisionGameView = false
     
     var body: some View {
         NavigationStack{
@@ -27,30 +28,7 @@ struct MapView: View {
                         
                         
                         HStack(alignment: .top){
-//                            // Level 1
-//                            VStack{
-//                                Button{
-//                                    levelId = 1
-//                                    thisLevelReward = 100
-//                                    print(levelId)
-//                                    isLevelClicked = true
-//                                } label: {
-//                                    Text("1")
-//                                        .frame(width: 50, height: 50)
-//                                        .background(.gray)
-//                                        .cornerRadius(50)
-//                                        .foregroundColor(.primary)
-//                                        .padding(.trailing, 50)
-//
-//                                }
-//                                .sheet(isPresented: $isLevelClicked){
-//                                    InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward)
-//                                    .padding(.horizontal)
-//                                    .presentationDetents([.height(200), .medium, .large])
-//                                    .presentationDragIndicator(.automatic)
-//                                }
-//                            }
-                            
+                            // Level 1
                             VStack{
                                 Button{
                                     levelId = 1
@@ -67,11 +45,17 @@ struct MapView: View {
                                     
                                 }
                                 .sheet(isPresented: $isLevelClicked){
-                                    DecisionGameView()
+                                    InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward, showNext: $showDecisionGameView)
+                                        .padding(.horizontal)
+                                        .presentationDetents([.height(200), .medium, .large])
+                                        .presentationDragIndicator(.automatic)
                                 }
+                                .background(
+                                    NavigationLink(destination: DecisionGameView(), isActive: $showDecisionGameView) {
+                                        EmptyView()
+                                    }
+                                )
                             }
-
-                            
                             
                             // Level 2
                             VStack{
@@ -235,36 +219,48 @@ struct MapView: View {
 }
 
 struct InMapPopUp: View {
+    
     @Binding var thisLevelId: Int
     @Binding var thisLevelReward: Int
+    
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var showNext: Bool
+    
     var body: some View {
-        VStack{
-            Spacer()
-            HStack{
-                Text("Level \(thisLevelId)")
+        NavigationStack{
+            VStack{
+                Spacer()
+                HStack{
+                    Text("Level \(thisLevelId)")
+                    Spacer()
+                }
+                
+                HStack{
+                    Text("Rewards:")
+                        .fontWeight(.bold)
+                    Spacer()
+                    Text("$ \(thisLevelReward) (+100 First Time)")
+                }
+                Spacer()
+                
+                Button {
+                    self.presentationMode.wrappedValue.dismiss()
+                    DispatchQueue.main.async {
+                        self.showNext = true
+                    }
+                } label: {
+                    Text("Start Game")
+                        .fontWeight(.bold)
+                        .frame(width: 300)
+                        .padding(.vertical)
+                        .foregroundColor(.primary)
+                        .background(.gray)
+                        .cornerRadius(8)
+                }
+                
                 Spacer()
             }
             
-            HStack{
-                Text("Rewards:")
-                    .fontWeight(.bold)
-                Spacer()
-                Text("$ \(thisLevelReward) (+100 First Time)")
-            }
-            Spacer()
-            Button{
-                
-            } label: {
-                Text("Start Game")
-                    .fontWeight(.bold)
-                    .frame(width: 300)
-                    .padding(.vertical)
-                    .foregroundColor(.primary)
-                    .background(.gray)
-                    .cornerRadius(8)
-               
-            }
-            Spacer()
         }
     }
 }
