@@ -11,30 +11,31 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Text("Logo")
-                    .font(.system(size: 60))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 90)
+                Image("bg_contentview")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
                 VStack{
-                    Spacer()
+                    Image("logo_aquatic_academia")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal, 40)
+                        .padding(.bottom, 100)
+                    
                     NavigationLink(destination: MapView(), label: {
-                            Text("Play")
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 50)
-                                .background(.gray)
-                                .cornerRadius(5)
-                                .padding(.horizontal, 50)
-                                .padding(.bottom, 60)
-                                .foregroundColor(.primary)
+                        Image("tombol_play")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 120)
                     })
+                    
                 }
-               
+                .padding(.bottom, 200)
             }
-            
         }
         .preferredColorScheme(.light)
     }
-        
 }
 
 struct ContentView_Previews: PreviewProvider {
