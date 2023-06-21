@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MapView: View {
+    
     @Environment(\.dismiss) private var dismiss
     
     @State var levelId = 0
@@ -45,7 +46,7 @@ struct MapView: View {
                                     
                                 }
                                 .sheet(isPresented: $isLevelClicked){
-                                    InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward, showNext: $showDecisionGameView)
+                                    MapView_InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward, showNext: $showDecisionGameView)
                                         .padding(.horizontal)
                                         .presentationDetents([.height(200), .medium, .large])
                                         .presentationDragIndicator(.automatic)
@@ -67,13 +68,7 @@ struct MapView: View {
                                     
                                 } label: {
                                     Text("2")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                    
-                                    
-                                    
+                                        .frame(width: 50, height: 50) .background(.gray) .cornerRadius(50) .foregroundColor(.primary)
                                 }
                             }
                             .padding(.top, 40)
@@ -167,15 +162,21 @@ struct MapView: View {
                             .foregroundColor(.primary)
                         })
                         Spacer()
-                        ZStack{
-                            Text("$ 3800")
-                                .padding(.vertical, 10)
-                                .padding(.horizontal, 26)
-                                .background(.gray)
-                                .cornerRadius(5)
-                                .padding(.top, 5)
+                        
+                        HStack{
+                            Text("$")
+                            Spacer()
+                            Text("5000")
                             
                         }
+                        .padding(.horizontal)
+                        .frame(width: 130, height: 48)
+                        .background(.gray)
+                        .cornerRadius(5)
+                        .padding(.top, 5)
+                        
+                        
+                        
                         VStack{
                             NavigationLink(destination: CollectionView(), label: {
                                 ZStack{
@@ -218,7 +219,7 @@ struct MapView: View {
     
 }
 
-struct InMapPopUp: View {
+struct MapView_InMapPopUp: View {
     
     @Binding var thisLevelId: Int
     @Binding var thisLevelReward: Int
