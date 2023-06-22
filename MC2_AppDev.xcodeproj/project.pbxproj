@@ -15,9 +15,8 @@
 		FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30B82A399E1A00B10C97 /* MapView.swift */; };
 		FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */; };
 		FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */; };
-		FC9C30C02A3AEAAE00B10C97 /* AquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BF2A3AEAAE00B10C97 /* AquariumView.swift */; };
-		FC9C30C22A3AEB1E00B10C97 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30C12A3AEB1E00B10C97 /* ShopView.swift */; };
-		FC9C30CA2A442C2C00B10C97 /* ModelData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30C82A442C2C00B10C97 /* ModelData.xcdatamodeld */; };
+		FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */; };
+		FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +29,8 @@
 		FC9C30B82A399E1A00B10C97 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		FC9C30BF2A3AEAAE00B10C97 /* AquariumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumView.swift; sourceTree = "<group>"; };
-		FC9C30C12A3AEB1E00B10C97 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
-		FC9C30C92A442C2C00B10C97 /* ModelData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelData.xcdatamodel; sourceTree = "<group>"; };
+		FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AquariumGameView.swift; sourceTree = "<group>"; };
+		FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +83,12 @@
 		FC9C30BE2A39AFD300B10C97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */,
 				FC9C30AC2A3997DF00B10C97 /* ContentView.swift */,
-				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
-				B0DDCE6B2A3C5538004A74B2 /* DecisionGameView.swift */,
-				FC9C30C12A3AEB1E00B10C97 /* ShopView.swift */,
+				FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
-				FC9C30BF2A3AEAAE00B10C97 /* AquariumView.swift */,
+				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,12 +174,11 @@
 				FC9C30CA2A442C2C00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */,
 				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
-				FC9C30C22A3AEB1E00B10C97 /* ShopView.swift in Sources */,
+				FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */,
 				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
 				FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */,
-				B0DDCE6C2A3C5538004A74B2 /* DecisionGameView.swift in Sources */,
+				FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */,
 				FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */,
-				FC9C30C02A3AEAAE00B10C97 /* AquariumView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

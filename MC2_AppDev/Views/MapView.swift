@@ -42,21 +42,24 @@ struct MapView: View {
                                         .background(.gray)
                                         .cornerRadius(50)
                                         .foregroundColor(.primary)
-                                        .padding(.trailing, 50)
-                                    
+                                }
+                                .onChange(of: isLevelClicked) { newValue in
+                                    levelId = self.levelId
+                                    thisLevelReward = self.thisLevelReward
                                 }
                                 .sheet(isPresented: $isLevelClicked){
                                     MapView_InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward, showNext: $showDecisionGameView)
-                                        .padding(.horizontal)
-                                        .presentationDetents([.height(200), .medium, .large])
-                                        .presentationDragIndicator(.automatic)
+                                    .padding(.horizontal)
+                                    .presentationDetents([.height(200), .medium, .large])
+                                    .presentationDragIndicator(.automatic)
                                 }
                                 .background(
-                                    NavigationLink(destination: DecisionGameView(), isActive: $showDecisionGameView) {
+                                    NavigationLink(destination: AquariumGameView(), isActive: $showDecisionGameView) {
                                         EmptyView()
                                     }
                                 )
                             }
+                            .padding(.trailing, 50)
                             
                             // Level 2
                             VStack{
@@ -68,10 +71,14 @@ struct MapView: View {
                                     
                                 } label: {
                                     Text("2")
-                                        .frame(width: 50, height: 50) .background(.gray) .cornerRadius(50) .foregroundColor(.primary)
+                                        .frame(width: 50, height: 50)
+                                        .background(.gray)
+                                        .cornerRadius(50)
+                                        .foregroundColor(.primary)
                                 }
                             }
                             .padding(.top, 40)
+                            .padding(.leading, 10)
                             
                             
                             // Level 3
@@ -88,12 +95,10 @@ struct MapView: View {
                                         .background(.gray)
                                         .cornerRadius(50)
                                         .foregroundColor(.primary)
-                                    
-                                        .padding(.leading, 50)
-                                    
                                 }
                             }
                             .padding(.top, 140)
+                            .padding(.leading, 50)
                             
                         }
                         .frame(maxWidth: .infinity)
@@ -114,12 +119,10 @@ struct MapView: View {
                                         .background(.gray)
                                         .cornerRadius(50)
                                         .foregroundColor(.primary)
-                                        .padding(.trailing, 20)
-                                    
-                                    
                                 }
                             }
                             .padding(.top, 120)
+                            .padding(.trailing, 20)
                             
                             
                             // Level 4
@@ -136,47 +139,68 @@ struct MapView: View {
                                         .background(.gray)
                                         .cornerRadius(50)
                                         .foregroundColor(.primary)
-                                        .padding(.trailing, 90)
+                                        
                                     
                                     
                                 }
                             }
+                            .padding(.trailing, 40)
+                            
                             
                         }
                         .frame(maxWidth: .infinity)
                         //                        .background(.cyan)
+                        
+                        HStack(alignment: .top){
+                            // Level 7
+                            VStack{
+                                Button{
+                                    levelId = 7
+                                    print(levelId)
+                                    thisLevelReward = 700
+                                    isLevelClicked = true
+                                    
+                                } label: {
+                                    Text("7")
+                                        .frame(width: 50, height: 50)
+                                        .background(.gray)
+                                        .cornerRadius(50)
+                                        .foregroundColor(.primary)
+                                }
+                            }
+                            .padding(.top, 90)
+                            .padding(.leading, 20)
+                            
+                            // Level 6
+                            VStack{
+                                Button{
+                                    levelId = 6
+                                    print(levelId)
+                                    thisLevelReward = 600
+                                    isLevelClicked = true
+                                    
+                                } label: {
+                                    Text("6")
+                                        .frame(width: 50, height: 50)
+                                        .background(.gray)
+                                        .cornerRadius(50)
+                                        .foregroundColor(.primary)
+                                }
+                            }
+                            .padding(.leading, 30)
+                            
+                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .padding(.top, 200)
+                    .padding(.top, 120)
+                    .padding(.bottom, 50)
                 }
+                .scrollIndicators(.hidden)
                 
                 
                 VStack{
                     HStack(alignment: .top){
-                        NavigationLink(destination: ShopView(), label: {
-                            ZStack{
-                                Image(systemName: "circle.fill")
-                                    .font(.system(size: 50))
-                                    .foregroundColor(.gray)
-                                Image(systemName: "cart")
-                            }
-                            .foregroundColor(.primary)
-                        })
                         Spacer()
-                        
-                        HStack{
-                            Text("$")
-                            Spacer()
-                            Text("5000")
-                            
-                        }
-                        .padding(.horizontal)
-                        .frame(width: 130, height: 48)
-                        .background(.gray)
-                        .cornerRadius(5)
-                        .padding(.top, 5)
-                        
-                        
-                        
                         VStack{
                             NavigationLink(destination: CollectionView(), label: {
                                 ZStack{
@@ -188,19 +212,6 @@ struct MapView: View {
                                 .foregroundColor(.primary)
                                 .padding(.bottom, 5)
                             })
-                            
-                            
-                            NavigationLink(destination: AquariumView(), label: {
-                                ZStack{
-                                    Image(systemName: "circle.fill")
-                                        .font(.system(size: 50))
-                                        .foregroundColor(.gray)
-                                    Image(systemName: "fish")
-                                }
-                                .foregroundColor(.primary)
-                            })
-                            
-                            
                         }
                     }
                     .font(.title2)
@@ -208,10 +219,8 @@ struct MapView: View {
                     Spacer()
                 }
                 .navigationBarBackButtonHidden(true)
-                
-                
-                
             }
+//            .background(.blue)
         }
         
     }
@@ -220,13 +229,13 @@ struct MapView: View {
 }
 
 struct MapView_InMapPopUp: View {
-    
+
     @Binding var thisLevelId: Int
     @Binding var thisLevelReward: Int
-    
+
     @Environment(\.presentationMode) var presentationMode
     @Binding var showNext: Bool
-    
+
     var body: some View {
         NavigationStack{
             VStack{
@@ -235,7 +244,6 @@ struct MapView_InMapPopUp: View {
                     Text("Level \(thisLevelId)")
                     Spacer()
                 }
-                
                 HStack{
                     Text("Rewards:")
                         .fontWeight(.bold)
@@ -243,7 +251,6 @@ struct MapView_InMapPopUp: View {
                     Text("$ \(thisLevelReward) (+100 First Time)")
                 }
                 Spacer()
-                
                 Button {
                     self.presentationMode.wrappedValue.dismiss()
                     DispatchQueue.main.async {
@@ -258,10 +265,10 @@ struct MapView_InMapPopUp: View {
                         .background(.gray)
                         .cornerRadius(8)
                 }
-                
+
                 Spacer()
             }
-            
+
         }
     }
 }

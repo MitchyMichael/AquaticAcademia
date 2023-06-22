@@ -27,8 +27,9 @@ struct ContentView: View {
                         Image("tombol_play")
                             .resizable()
                             .scaledToFit()
-                            .padding(.horizontal, 130)
+                            .frame(width: 120)
                     })
+                    
                 }
                 .padding(.bottom, 200)
             }
