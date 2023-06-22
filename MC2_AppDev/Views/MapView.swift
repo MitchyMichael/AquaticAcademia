@@ -15,6 +15,8 @@ struct MapView: View {
     @State var isLevelClicked = false
     @State var thisLevelReward = 0
     
+    @State var showDecisionGameView = false
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -46,7 +48,7 @@ struct MapView: View {
                                     thisLevelReward = self.thisLevelReward
                                 }
                                 .sheet(isPresented: $isLevelClicked){
-                                    InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward)
+                                    MapView_InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward, showNext: $showDecisionGameView)
                                     .padding(.horizontal)
                                     .presentationDetents([.height(200), .medium, .large])
                                     .presentationDragIndicator(.automatic)
@@ -276,6 +278,6 @@ struct MapView_InMapPopUp: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(showDecisionGameView: false)
+        MapView()
     }
 }
