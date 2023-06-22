@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0DDCE6C2A3C5538004A74B2 /* DecisionGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDCE6B2A3C5538004A74B2 /* DecisionGameView.swift */; };
 		FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */; };
 		FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AC2A3997DF00B10C97 /* ContentView.swift */; };
 		FC9C30AF2A3997E000B10C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C30AE2A3997E000B10C97 /* Assets.xcassets */; };
@@ -17,10 +16,10 @@
 		FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */; };
 		FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */; };
 		FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */; };
+		FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30E12A44525E00B10C97 /* ModelData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0DDCE6B2A3C5538004A74B2 /* DecisionGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionGameView.swift; sourceTree = "<group>"; };
 		FC9C30A72A3997DF00B10C97 /* MC2_AppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_AppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_AppDevApp.swift; sourceTree = "<group>"; };
 		FC9C30AC2A3997DF00B10C97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AquariumGameView.swift; sourceTree = "<group>"; };
 		FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableIcon.swift; sourceTree = "<group>"; };
+		FC9C30E22A44525E00B10C97 /* ModelData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 		FC9C30C72A442BDB00B10C97 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FC9C30C82A442C2C00B10C97 /* ModelData.xcdatamodeld */,
+				FC9C30E12A44525E00B10C97 /* ModelData.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -171,8 +171,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9C30CA2A442C2C00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */,
+				FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
 				FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */,
 				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
@@ -381,12 +381,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FC9C30C82A442C2C00B10C97 /* ModelData.xcdatamodeld */ = {
+		FC9C30E12A44525E00B10C97 /* ModelData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FC9C30C92A442C2C00B10C97 /* ModelData.xcdatamodel */,
+				FC9C30E22A44525E00B10C97 /* ModelData.xcdatamodel */,
 			);
-			currentVersion = FC9C30C92A442C2C00B10C97 /* ModelData.xcdatamodel */;
+			currentVersion = FC9C30E22A44525E00B10C97 /* ModelData.xcdatamodel */;
 			path = ModelData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
