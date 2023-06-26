@@ -21,182 +21,115 @@ struct MapView: View {
         NavigationStack{
             ZStack{
                 ScrollView {
-                    LazyVStack(spacing: 20) {
-                        Text("Logo")
-                            .font(.system(size: 60))
-                            .fontWeight(.bold)
-                            .padding(.bottom, 90)
+                    ZStack{
+                        Image("bg_map")
+                            .resizable()
+                            .scaledToFit()
                         
-                        
-                        HStack(alignment: .top){
+                        VStack{
                             // Level 1
                             VStack{
-                                Button{
-                                    levelId = 1
-                                    thisLevelReward = 100
-                                    print(levelId)
-                                    isLevelClicked = true
-                                } label: {
-                                    Text("1")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                }
-                                .onChange(of: isLevelClicked) { newValue in
-                                    levelId = self.levelId
-                                    thisLevelReward = self.thisLevelReward
-                                }
-                                .sheet(isPresented: $isLevelClicked){
-                                    MapView_InMapPopUp(thisLevelId: self.$levelId, thisLevelReward: $thisLevelReward, showNext: $showDecisionGameView)
-                                    .padding(.horizontal)
-                                    .presentationDetents([.height(200), .medium, .large])
-                                    .presentationDragIndicator(.automatic)
-                                }
-                                .background(
-                                    NavigationLink(destination: AquariumGameView(), isActive: $showDecisionGameView) {
-                                        EmptyView()
-                                    }
-                                )
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 1), label: {
+                                    Image("btn_lvl1")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 110)
+                                })
                             }
-                            .padding(.trailing, 50)
+                            .padding(.top, 230)
+                            .padding(.trailing, 100)
                             
-                            // Level 2
+                            //Level 2
                             VStack{
-                                Button{
-                                    levelId = 2
-                                    thisLevelReward = 200
-                                    print(levelId)
-                                    isLevelClicked = true
-                                    
-                                } label: {
-                                    Text("2")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                }
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 2), label: {
+                                    Image("btn_lvl2")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100)
+                                })
                             }
-                            .padding(.top, 40)
-                            .padding(.leading, 10)
-                            
+                            .padding(.top, 60)
+                            .padding(.trailing, 170)
                             
                             // Level 3
                             VStack{
-                                Button{
-                                    levelId = 3
-                                    thisLevelReward = 300
-                                    print(levelId)
-                                    isLevelClicked = true
-                                    
-                                } label: {
-                                    Text("3")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                }
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 3), label: {
+                                    Image("btn_lvl3")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100)
+                                })
                             }
-                            .padding(.top, 140)
-                            .padding(.leading, 50)
-                            
-                        }
-                        .frame(maxWidth: .infinity)
-                        //                        .background(.cyan)
-                        
-                        HStack(alignment: .top){
-                            // Level 5
-                            VStack{
-                                Button{
-                                    levelId = 5
-                                    print(levelId)
-                                    thisLevelReward = 500
-                                    isLevelClicked = true
-                                    
-                                } label: {
-                                    Text("5")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                }
-                            }
-                            .padding(.top, 120)
+                            .padding(.top, 70)
                             .padding(.trailing, 20)
-                            
                             
                             // Level 4
                             VStack{
-                                Button{
-                                    levelId = 4
-                                    print(levelId)
-                                    thisLevelReward = 400
-                                    isLevelClicked = true
-                                    
-                                } label: {
-                                    Text("4")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                        
-                                    
-                                    
-                                }
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 4), label: {
+                                    Image("btn_lvl4")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100)
+                                })
                             }
-                            .padding(.trailing, 40)
+                            .padding(.top, 70)
+                            .padding(.leading, 80)
                             
-                            
-                        }
-                        .frame(maxWidth: .infinity)
-                        //                        .background(.cyan)
-                        
-                        HStack(alignment: .top){
-                            // Level 7
+                            // Level 5
                             VStack{
-                                Button{
-                                    levelId = 7
-                                    print(levelId)
-                                    thisLevelReward = 700
-                                    isLevelClicked = true
-                                    
-                                } label: {
-                                    Text("7")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                }
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 5), label: {
+                                    Image("btn_lvl5")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 150)
+                                })
                             }
-                            .padding(.top, 90)
-                            .padding(.leading, 20)
+                            .padding(.top, 70)
+                            .padding(.trailing, 160)
                             
                             // Level 6
                             VStack{
-                                Button{
-                                    levelId = 6
-                                    print(levelId)
-                                    thisLevelReward = 600
-                                    isLevelClicked = true
-                                    
-                                } label: {
-                                    Text("6")
-                                        .frame(width: 50, height: 50)
-                                        .background(.gray)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.primary)
-                                }
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 6), label: {
+                                    Image("btn_lvl6")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100)
+                                })
                             }
-                            .padding(.leading, 30)
+                            .padding(.top, 60)
+                            .padding(.trailing, 200)
                             
+                            // Level 7
+                            VStack{
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 7), label: {
+                                    Image("btn_lvl7")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100)
+                                })
+                            }
+                            .padding(.top, 70)
+                            .padding(.trailing, 50)
+                            
+                            // Level 8
+                            VStack{
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 8), label: {
+                                    Image("btn_lvl8")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100)
+                                })
+                            }
+                            .padding(.top, 70)
+                            .padding(.leading, 80)
+                            
+                            Spacer()
                         }
-                        .frame(maxWidth: .infinity)
                     }
-                    .padding(.top, 120)
-                    .padding(.bottom, 50)
+                    
                 }
                 .scrollIndicators(.hidden)
-                
+                .ignoresSafeArea()
                 
                 VStack{
                     HStack(alignment: .top){
@@ -220,58 +153,16 @@ struct MapView: View {
                 }
                 .navigationBarBackButtonHidden(true)
             }
-//            .background(.blue)
+            //            .background(.blue)
         }
+        
         
     }
     
     
 }
 
-struct MapView_InMapPopUp: View {
 
-    @Binding var thisLevelId: Int
-    @Binding var thisLevelReward: Int
-
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var showNext: Bool
-
-    var body: some View {
-        NavigationStack{
-            VStack{
-                Spacer()
-                HStack{
-                    Text("Level \(thisLevelId)")
-                    Spacer()
-                }
-                HStack{
-                    Text("Rewards:")
-                        .fontWeight(.bold)
-                    Spacer()
-                    Text("$ \(thisLevelReward) (+100 First Time)")
-                }
-                Spacer()
-                Button {
-                    self.presentationMode.wrappedValue.dismiss()
-                    DispatchQueue.main.async {
-                        self.showNext = true
-                    }
-                } label: {
-                    Text("Start Game")
-                        .fontWeight(.bold)
-                        .frame(width: 300)
-                        .padding(.vertical)
-                        .foregroundColor(.primary)
-                        .background(.gray)
-                        .cornerRadius(8)
-                }
-
-                Spacer()
-            }
-
-        }
-    }
-}
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {

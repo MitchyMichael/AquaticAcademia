@@ -9,20 +9,53 @@ import SwiftUI
 
 struct AquariumGameView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var showText = true
+    @State var levelId: Int
     
     var body: some View {
-        VStack {
-            DraggableIcon()
+        NavigationStack{
+            
+//            VStack {
+//                DraggableIcon()
+//            }
+            
+            ZStack{
+                Text("")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                if showText == true {
+                    VStack{
+                        AquariumGame_PopUpView(levelId: levelId)
+                            .frame(maxWidth: 250)
+                            .padding(.horizontal)
+                            .padding(.top)
+                            
+                        Button{
+                            showText = false
+                        } label: {
+                            Text("Start Label")
+                                .foregroundColor(.primary)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 50)
+                                .background(.white)
+                                .cornerRadius(8)
+                                .padding(.bottom)
+                                
+                        }
+                    }
+                    .background(.gray)
+                    .cornerRadius(8)
+                }
+            }
         }
         .navigationBarBackButtonHidden(true)
         .toolbar{
             ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label : {
-                    Image(systemName: "arrowshape.turn.up.backward.fill")
+                NavigationLink(destination: MapView(), label: {
+                    Image(systemName: "globe.asia.australia.fill")
                         .foregroundColor(.primary)
-                }
+                })
+
             }
         }
         
@@ -31,6 +64,6 @@ struct AquariumGameView: View {
 
 struct AquariumGameView_Previews: PreviewProvider {
     static var previews: some View {
-        AquariumGameView()
+        AquariumGameView(levelId: 0)
     }
 }

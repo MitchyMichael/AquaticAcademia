@@ -32,9 +32,12 @@ struct ContentView: View {
                     
                 }
                 .padding(.bottom, 200)
+                
             }
+            
         }
         .preferredColorScheme(.light)
+        
     }
 }
 

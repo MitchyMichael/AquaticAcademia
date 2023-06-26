@@ -17,6 +17,9 @@
 		FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */; };
 		FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */; };
 		FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30E12A44525E00B10C97 /* ModelData.xcdatamodeld */; };
+		FC9C30E62A496E4D00B10C97 /* InLevel_DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30E52A496E4D00B10C97 /* InLevel_DescriptionView.swift */; };
+		FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30E72A4973C400B10C97 /* InLevel_StorylineView.swift */; };
+		FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AquariumGameView.swift; sourceTree = "<group>"; };
 		FC9C30DE2A444B3900B10C97 /* DraggableIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableIcon.swift; sourceTree = "<group>"; };
 		FC9C30E22A44525E00B10C97 /* ModelData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelData.xcdatamodel; sourceTree = "<group>"; };
+		FC9C30E52A496E4D00B10C97 /* InLevel_DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InLevel_DescriptionView.swift; sourceTree = "<group>"; };
+		FC9C30E72A4973C400B10C97 /* InLevel_StorylineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InLevel_StorylineView.swift; sourceTree = "<group>"; };
+		FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumGame_PopUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +91,13 @@
 			isa = PBXGroup;
 			children = (
 				FC9C30AC2A3997DF00B10C97 /* ContentView.swift */,
+				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
+				FC9C30E52A496E4D00B10C97 /* InLevel_DescriptionView.swift */,
+				FC9C30E72A4973C400B10C97 /* InLevel_StorylineView.swift */,
 				FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */,
+				FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
-				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +188,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */,
+				FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */,
+				FC9C30E62A496E4D00B10C97 /* InLevel_DescriptionView.swift in Sources */,
 				FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */,
 				FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
