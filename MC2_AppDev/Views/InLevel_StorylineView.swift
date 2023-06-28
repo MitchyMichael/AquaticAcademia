@@ -14,7 +14,7 @@ struct InLevel_StorylineView: View {
         NavigationStack{
             
             VStack{
-                Text("Storyline")
+                Text("Storyline \(levelId)")
                     .fontWeight(.bold)
                     .padding()
                 

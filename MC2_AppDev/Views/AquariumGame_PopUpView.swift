@@ -17,7 +17,7 @@ struct AquariumGame_PopUpView: View {
                 .fontWeight(.bold)
                 .padding(.bottom)
                 
-            Text("Objectives 1 \nObjectives 2 \nObjectives 3 \n- Blablablablablablablablablablabla \n- Blablablablablabla")
+            Text("Designing the Perfect Fish Arrangement for Emma's Aquarium. But remember,\n\n 1. Colorful fish is kind of aggresive and is only calm on the same colony\n\n 2. The pufferfish is very sensitive and shy")
             
             
                 
