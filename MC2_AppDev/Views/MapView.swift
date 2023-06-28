@@ -17,6 +17,8 @@ struct MapView: View {
     @State var isLevelClicked = false
     @State var showDecisionGameView = false
     
+    @State var hintCount = 0
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -29,7 +31,7 @@ struct MapView: View {
                         VStack{
                             // Level 1
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 1), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 1, hintCount: 3), label: {
                                     Image("btn_lvl1")
                                         .resizable()
                                         .scaledToFit()
@@ -41,7 +43,7 @@ struct MapView: View {
                             
                             //Level 2
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 2), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 2, hintCount: 2), label: {
                                     Image("btn_lvl2")
                                         .resizable()
                                         .scaledToFit()
@@ -53,7 +55,7 @@ struct MapView: View {
                             
                             // Level 3
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 3), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 3, hintCount: 2), label: {
                                     Image("btn_lvl3")
                                         .resizable()
                                         .scaledToFit()
@@ -65,7 +67,7 @@ struct MapView: View {
                             
                             // Level 4
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 4), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 4, hintCount: 1), label: {
                                     Image("btn_lvl4")
                                         .resizable()
                                         .scaledToFit()
@@ -77,7 +79,7 @@ struct MapView: View {
                             
                             // Level 5
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 5), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 5, hintCount: 0), label: {
                                     Image("btn_lvl5")
                                         .resizable()
                                         .scaledToFit()
@@ -89,7 +91,7 @@ struct MapView: View {
                             
                             // Level 6
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 6), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 6, hintCount: 0), label: {
                                     Image("btn_lvl6")
                                         .resizable()
                                         .scaledToFit()
@@ -101,7 +103,7 @@ struct MapView: View {
                             
                             // Level 7
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 7), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 7, hintCount: 0), label: {
                                     Image("btn_lvl7")
                                         .resizable()
                                         .scaledToFit()
@@ -113,7 +115,7 @@ struct MapView: View {
                             
                             // Level 8
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 8), label: {
+                                NavigationLink(destination: InLevel_DescriptionView(levelId: 8, hintCount: 0), label: {
                                     Image("btn_lvl8")
                                         .resizable()
                                         .scaledToFit()
@@ -136,16 +138,13 @@ struct MapView: View {
                         Spacer()
                         VStack{
                             NavigationLink(destination: CollectionView(), label: {
-                                ZStack{
-                                    Image(systemName: "circle.fill")
-                                        .font(.system(size: 50))
-                                        .foregroundColor(.gray)
-                                    Image(systemName: "book")
-                                }
-                                .foregroundColor(.primary)
-                                .padding(.bottom, 5)
+                                Image("btn_collection")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80)
                             })
                         }
+                        .padding(.top, 80)
                     }
                     .font(.title2)
                     .padding()

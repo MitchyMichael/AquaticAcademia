@@ -22,6 +22,7 @@
 		FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */; };
 		FC9C30EC2A4AE3CE00B10C97 /* LargeAquarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30EB2A4AE3CE00B10C97 /* LargeAquarium.swift */; };
 		FC9C30EE2A4AE41B00B10C97 /* SmallAquarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30ED2A4AE41B00B10C97 /* SmallAquarium.swift */; };
+		FC9C30F02A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30EF2A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumGame_PopUpView.swift; sourceTree = "<group>"; };
 		FC9C30EB2A4AE3CE00B10C97 /* LargeAquarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeAquarium.swift; sourceTree = "<group>"; };
 		FC9C30ED2A4AE41B00B10C97 /* SmallAquarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallAquarium.swift; sourceTree = "<group>"; };
+		FC9C30EF2A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumGame_PopUpObjectivesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				FC9C30E72A4973C400B10C97 /* InLevel_StorylineView.swift */,
 				FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */,
 				FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */,
+				FC9C30EF2A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
 			);
@@ -206,6 +209,7 @@
 				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
 				FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */,
 				FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */,
+				FC9C30F02A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift in Sources */,
 				FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

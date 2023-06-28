@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InLevel_StorylineView: View {
     @State var levelId: Int
+    @State var hintCount: Int
     
     var body: some View {
         NavigationStack{
@@ -26,15 +27,18 @@ struct InLevel_StorylineView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: AquariumGameView(levelId: levelId), label: {
-                    Text("Alright! I got it!")
-                        .foregroundColor(.primary)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 50)
-                        .background(.gray)
-                        .cornerRadius(8)
-                        .padding(.vertical)
-                })
+                VStack{
+                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
+                        Text("Alright! I got it!")
+                            .foregroundColor(.primary)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 50)
+                            .background(.gray)
+                            .cornerRadius(8)
+                            
+                    })
+                }
+                .padding(.vertical)
                 
             }
         }
@@ -44,6 +48,6 @@ struct InLevel_StorylineView: View {
 
 struct InLevel_StorylineView_Previews: PreviewProvider {
     static var previews: some View {
-        InLevel_StorylineView(levelId: 0)
+        InLevel_StorylineView(levelId: 0, hintCount: 0)
     }
 }

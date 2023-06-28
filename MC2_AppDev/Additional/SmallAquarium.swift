@@ -12,11 +12,11 @@ struct SmallAquarium: View {
         HStack{
             Text("Gambar Aquarium 1")
                 .foregroundColor(.primary)
-                .frame(width: 150)
+                .frame(width: 170)
                 .frame(height: 150)
                 .background(.gray)
                 .padding(.bottom)
-            Spacer()
+            
         }
         
     }
@@ -25,5 +25,6 @@ struct SmallAquarium: View {
 struct SmallAquarium_Previews: PreviewProvider {
     static var previews: some View {
         SmallAquarium()
+            .previewLayout(.sizeThatFits)
     }
 }
