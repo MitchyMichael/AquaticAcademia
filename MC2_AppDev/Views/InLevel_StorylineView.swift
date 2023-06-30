@@ -13,32 +13,46 @@ struct InLevel_StorylineView: View {
     
     var body: some View {
         NavigationStack{
-            VStack{
-                Text("Storyline \(levelId)")
-                    .fontWeight(.bold)
-                    .padding()
-                
-                ScrollView{
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+            ZStack{
+                Image("bg_storyline")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                Image("bg_storyline_ruangtamu")
+                    .resizable()
+                    .ignoresSafeArea()
+                HStack{
+                    Image("char_smiling")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 180)
+                    Spacer()
                 }
-                .padding(.horizontal)
-                .scrollIndicators(.hidden)
+                .padding(.bottom, 70)
                 
-                Spacer()
-                
+                    
                 VStack{
-                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
-                        Text("Alright! I got it!")
-                            .foregroundColor(.primary)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 50)
-                            .background(.gray)
-                            .cornerRadius(8)
-                            
-                    })
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Image("mascot")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 250, height: 280, alignment: .topLeading)
+                            .clipped()
+                    }
                 }
-                .padding(.vertical)
                 
+                //                VStack{
+                //                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
+                //                        Text("Alright! I got it!")
+                //                            .foregroundColor(.primary)
+                //                            .padding(.vertical, 8)
+                //                            .padding(.horizontal, 50)
+                //                            .background(.gray)
+                //                            .cornerRadius(8)
+                //                    })
+                //                }
             }
         }
         .navigationBarBackButtonHidden(true)
