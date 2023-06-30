@@ -13,7 +13,6 @@ struct InLevel_StorylineView: View {
     
     var body: some View {
         NavigationStack{
-            
             VStack{
                 Text("Storyline \(levelId)")
                     .fontWeight(.bold)

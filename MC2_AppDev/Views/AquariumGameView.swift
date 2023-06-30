@@ -249,29 +249,17 @@ struct AquariumGameView: View {
     
     func popUpObjectives() -> some View {
         ZStack{
-            Text("")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.black.opacity(0.5))
-            VStack{
-                AquariumGame_PopUpView(levelId: levelId)
-                    .frame(maxWidth: 250)
-                    .padding(.horizontal)
-                    .padding(.top)
-                
-                Button{
-                    showObjectives = false
-                } label: {
-                    Text("Close")
-                        .foregroundColor(.primary)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 50)
-                        .background(.gray)
-                        .cornerRadius(8)
-                }
-                .padding(.vertical)
+            AquariumGame_PopUpView(levelId: levelId)
+            
+            Button{
+                showObjectives = false
+            } label: {
+                Image("btn_start_yellow")
+                    .resizable()
+                    .scaledToFit()
             }
-            .background(.white)
-            .cornerRadius(8)
+            .padding(.top, 200)
+            .padding(.horizontal, 115)
         }
     }
     
