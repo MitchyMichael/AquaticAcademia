@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct MC2_AppDevApp: App {
+    
+    @StateObject private var fishData:FishData = FishData()
+    @AppStorage("firstTime") var firstTime = true
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, fishData.container.viewContext)
+                .onAppear{
+                    if firstTime {
+                        fishData.seedGlossary()
+                        firstTime = false
+                    }
+                }
         }
     }
 }
