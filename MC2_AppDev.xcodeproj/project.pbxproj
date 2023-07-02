@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551670332A51C37100202B13 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551670322A51C37100202B13 /* GlossaryView.swift */; };
 		FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */; };
 		FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AC2A3997DF00B10C97 /* ContentView.swift */; };
 		FC9C30AF2A3997E000B10C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C30AE2A3997E000B10C97 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		551670322A51C37100202B13 /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
 		FC9C30A72A3997DF00B10C97 /* MC2_AppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_AppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_AppDevApp.swift; sourceTree = "<group>"; };
 		FC9C30AC2A3997DF00B10C97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				FC9C30EF2A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
+				551670322A51C37100202B13 /* GlossaryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
 				FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */,
 				FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */,
+				551670332A51C37100202B13 /* GlossaryView.swift in Sources */,
 				FC9C30F02A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift in Sources */,
 				FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */,
 			);
