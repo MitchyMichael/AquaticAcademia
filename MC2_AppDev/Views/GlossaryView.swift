@@ -2,6 +2,8 @@ import SwiftUI
 
 struct GlossaryView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     // hardcoded variables
     @State var fishName = "Naga indosiar"
     @State var fishColonies = ["person.3.fill", "person.3.sequence.fill"]
@@ -19,12 +21,21 @@ struct GlossaryView: View {
                 HStack{
                     Spacer()
                     
-                    Button{
-                        // Button action
-                    } label: {
-                        Image(systemName: "xmark").foregroundColor(.primary).frame(width: 40, height: 40,alignment: .center).background(.red)
-                    }
-                    Spacer().frame(width: 16)
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image("btn_x_red")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 45)
+                        }.padding(.trailing)
+                    
+//                    Button{
+//                        // Button action
+//                    } label: {
+//                        Image(systemName: "xmark").foregroundColor(.primary).frame(width: 40, height: 40,alignment: .center).background(.red)
+//                    }
+//                    Spacer().frame(width: 16)
                 }
                 
                 VStack{
