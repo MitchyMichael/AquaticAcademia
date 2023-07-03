@@ -30,7 +30,7 @@ struct InLevel_StorylineView: View {
                 }
                 .padding(.bottom, 70)
                 
-                    
+                
                 VStack{
                     Spacer()
                     HStack{
@@ -43,16 +43,16 @@ struct InLevel_StorylineView: View {
                     }
                 }
                 
-                //                VStack{
-                //                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
-                //                        Text("Alright! I got it!")
-                //                            .foregroundColor(.primary)
-                //                            .padding(.vertical, 8)
-                //                            .padding(.horizontal, 50)
-                //                            .background(.gray)
-                //                            .cornerRadius(8)
-                //                    })
-                //                }
+                VStack{
+                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
+                        Text("Alright! I got it!")
+                            .foregroundColor(.primary)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 50)
+                            .background(.gray)
+                            .cornerRadius(8)
+                    })
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
