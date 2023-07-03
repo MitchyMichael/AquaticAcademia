@@ -17,7 +17,7 @@ struct MC2_AppDevApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, fishData.container.viewContext)
-                .onAppear{
+                .onAppear {
                     if firstTime {
                         fishData.seedGlossary()
                         firstTime = false
