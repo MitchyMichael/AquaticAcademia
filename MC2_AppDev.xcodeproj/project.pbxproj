@@ -11,6 +11,13 @@
 		B01051242A4EC73700C03A5F /* EndingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01051232A4EC73700C03A5F /* EndingResult.swift */; };
 		B01051272A4ED47300C03A5F /* FishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01051262A4ED47300C03A5F /* FishData.swift */; };
 		B07EF3DB2A53F74C00740ADE /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07EF3DA2A53F74C00740ADE /* Objective.swift */; };
+		551670332A51C37100202B13 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551670322A51C37100202B13 /* GlossaryView.swift */; };
+		551A27332A52C3CB00534E99 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27322A52C3CB00534E99 /* GameState.swift */; };
+		551A27352A52C4A700534E99 /* Aquarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27342A52C4A700534E99 /* Aquarium.swift */; };
+		551A27372A52C5ED00534E99 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27362A52C5ED00534E99 /* Fish.swift */; };
+		551A27392A52D68800534E99 /* GameFishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27382A52D68800534E99 /* GameFishData.swift */; };
+		551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273B2A53F59E00534E99 /* LevelRender.swift */; };
+		551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273D2A540AFA00534E99 /* LevelSolution.swift */; };
 		FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */; };
 		FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C30AC2A3997DF00B10C97 /* ContentView.swift */; };
 		FC9C30AF2A3997E000B10C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C30AE2A3997E000B10C97 /* Assets.xcassets */; };
@@ -33,6 +40,13 @@
 		B01051232A4EC73700C03A5F /* EndingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingResult.swift; sourceTree = "<group>"; };
 		B01051262A4ED47300C03A5F /* FishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishData.swift; sourceTree = "<group>"; };
 		B07EF3DA2A53F74C00740ADE /* Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
+		551670322A51C37100202B13 /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
+		551A27322A52C3CB00534E99 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		551A27342A52C4A700534E99 /* Aquarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aquarium.swift; sourceTree = "<group>"; };
+		551A27362A52C5ED00534E99 /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
+		551A27382A52D68800534E99 /* GameFishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFishData.swift; sourceTree = "<group>"; };
+		551A273B2A53F59E00534E99 /* LevelRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRender.swift; sourceTree = "<group>"; };
+		551A273D2A540AFA00534E99 /* LevelSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSolution.swift; sourceTree = "<group>"; };
 		FC9C30A72A3997DF00B10C97 /* MC2_AppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2_AppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_AppDevApp.swift; sourceTree = "<group>"; };
 		FC9C30AC2A3997DF00B10C97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,14 +76,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B010511E2A4EBBBC00C03A5F /* Story */ = {
+		551A27312A52C39C00534E99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B01051212A4EBCB200C03A5F /* OpeningDialogues.swift */,
 				B01051232A4EC73700C03A5F /* EndingResult.swift */,
 				B07EF3DA2A53F74C00740ADE /* Objective.swift */,
+				551A27322A52C3CB00534E99 /* GameState.swift */,
+				551A27342A52C4A700534E99 /* Aquarium.swift */,
+				551A27362A52C5ED00534E99 /* Fish.swift */,
+				551A27382A52D68800534E99 /* GameFishData.swift */,
 			);
-			path = Story;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		551A273A2A53F58100534E99 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				551A273B2A53F59E00534E99 /* LevelRender.swift */,
+				551A273D2A540AFA00534E99 /* LevelSolution.swift */,
+			);
+			path = Level;
 			sourceTree = "<group>";
 		};
 		FC9C309E2A3997DF00B10C97 = {
@@ -91,6 +118,8 @@
 		FC9C30A92A3997DF00B10C97 /* MC2_AppDev */ = {
 			isa = PBXGroup;
 			children = (
+				551A273A2A53F58100534E99 /* Level */,
+				551A27312A52C39C00534E99 /* Model */,
 				FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */,
 				FC9C30BE2A39AFD300B10C97 /* Views */,
 				FC9C30E42A44549200B10C97 /* Additional */,
@@ -121,6 +150,7 @@
 				FC9C30E92A49840D00B10C97 /* AquariumGame_PopUpView.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
+				551670322A51C37100202B13 /* GlossaryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,8 +158,8 @@
 		FC9C30C72A442BDB00B10C97 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				551670342A51C4F200202B13 /* FishData.swift */,
 				FC9C30E12A44525E00B10C97 /* ModelData.xcdatamodeld */,
-				B01051262A4ED47300C03A5F /* FishData.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -215,22 +245,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */,
-				B01051242A4EC73700C03A5F /* EndingResult.swift in Sources */,
+				551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */,
 				FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */,
 				FC9C30EC2A4AE3CE00B10C97 /* LargeAquarium.swift in Sources */,
 				FC9C30E62A496E4D00B10C97 /* InLevel_DescriptionView.swift in Sources */,
-				B01051272A4ED47300C03A5F /* FishData.swift in Sources */,
-				B01051222A4EBCB200C03A5F /* OpeningDialogues.swift in Sources */,
 				FC9C30AD2A3997DF00B10C97 /* ContentView.swift in Sources */,
 				FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				B07EF3DB2A53F74C00740ADE /* Objective.swift in Sources */,
 				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
 				FC9C30EE2A4AE41B00B10C97 /* SmallAquarium.swift in Sources */,
+				551A27332A52C3CB00534E99 /* GameState.swift in Sources */,
 				FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */,
 				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
 				FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */,
+				551A27352A52C4A700534E99 /* Aquarium.swift in Sources */,
 				FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */,
+				551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */,
+				551670332A51C37100202B13 /* GlossaryView.swift in Sources */,
+				551670352A51C4F200202B13 /* FishData.swift in Sources */,
+				FC9C30F02A4C0E4800B10C97 /* AquariumGame_PopUpObjectivesView.swift in Sources */,
+				551A27372A52C5ED00534E99 /* Fish.swift in Sources */,
 				FC9C30AB2A3997DF00B10C97 /* MC2_AppDevApp.swift in Sources */,
+				551A27392A52D68800534E99 /* GameFishData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
