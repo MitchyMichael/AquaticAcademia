@@ -16,15 +16,7 @@ struct AquariumGame_PopUpView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-//            Text("Objectives \(levelId)")
-//                .font(.title2)
-//                .fontWeight(.bold)
-//                .padding(.bottom)
-//
-//            Text("Designing the Perfect Fish Arrangement for Emma's Aquarium. But remember,\n\n 1. Colorful fish is kind of aggresive and is only calm on the same colony\n\n 2. The pufferfish is very sensitive and shy")
-            
-            
-                
+
         }
 
     }
