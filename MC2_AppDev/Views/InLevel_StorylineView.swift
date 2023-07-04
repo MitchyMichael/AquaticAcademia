@@ -32,13 +32,21 @@ struct InLevel_StorylineView: View {
     @State var salesPersonDialogue1 = level1_part4
     @State var salesPersonDialogue1_count = 0
     
+    @State var mascotTalking = false
+    
+    // notes keyword
+    // smiling
+    // surprised
+    // sad
+    @State var charExpression = "smiling"
+    
     var body: some View {
         NavigationStack{
             ZStack{
                 if levelId == 1 {
-                    Level1View()
-                    Level1Dialogues()
                 }
+                Level1View()
+                Level1Dialogues()
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -100,6 +108,7 @@ struct InLevel_StorylineView: View {
                                         .foregroundColor(.black)
                                         .padding(.bottom, 40)
                                         .padding(.horizontal, 20)
+                                        .onAppear{changeMascotTalkingStatus()}
                                 }
                                 .padding(.top, 200)
                                 .padding(.horizontal, 50)
@@ -130,6 +139,10 @@ struct InLevel_StorylineView: View {
                                                 .foregroundColor(.black)
                                                 .padding(.bottom, 40)
                                                 .padding(.horizontal, 20)
+                                                .onAppear{
+                                                    changeMascotTalkingStatus()
+                                                    charExpression = "surprised"
+                                                }
                                         }
                                         .padding(.bottom, 600)
                                         .padding(.horizontal, 50)
@@ -187,31 +200,61 @@ struct InLevel_StorylineView: View {
     
     func Level1View() -> some View {
         ZStack{
-            Image("bg_storyline_ruangtamu")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            HStack{
-                Image("char_smiling")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 180)
-                Spacer()
-            }
-            .padding(.bottom, 70)
             
-            Image("bg_storyline_air")
-                .resizable()
-                .ignoresSafeArea()
+            if(mascotTalking){
+                Image("bg_storyline_ruangtamu_dark")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                HStack{
+                    Image("char_\(charExpression)_dark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 180)
+                    Spacer()
+                }
+                .padding(.bottom, 70)
+            }else{
+                Image("bg_storyline_ruangtamu")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                HStack{
+                    Image("char_\(charExpression)")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 180)
+                    Spacer()
+                }
+                .padding(.bottom, 70)
+            }
+            if(mascotTalking){
+            
+                Image("bg_storyline_air")
+                    .resizable()
+                    .ignoresSafeArea()
+            }else{
+                Image("bg_storyline_air_dark")
+                    .resizable()
+                    .ignoresSafeArea()
+            }
             VStack{
                 Spacer()
                 HStack{
                     Spacer()
-                    Image("mascot")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 250, height: 280, alignment: .topLeading)
-                        .clipped()
+                    if(mascotTalking){
+                        Image("mascot")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 250, height: 280, alignment: .topLeading)
+                            .clipped()
+                    }else{
+                        Image("mascot_dark")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 250, height: 280, alignment: .topLeading)
+                            .clipped()
+                    }
                 }
             }
             
@@ -219,7 +262,14 @@ struct InLevel_StorylineView: View {
         }
         
     }
+    
+    func changeMascotTalkingStatus(){
+        
+        mascotTalking.toggle()
+    }
 }
+
+
 
 struct InLevel_StorylineView_Previews: PreviewProvider {
     static var previews: some View {
