@@ -217,60 +217,73 @@ struct AquariumGameView: View {
                                 
                                 // Future fish drag and drop location
                                 HStack{
-                                    Image(systemName: "circle")
-                                        .font(.system(size: 60))
-                                        .offset(x: circleDragset1.width, y: circleDragset1.height)
-                                        .gesture(DragGesture()
-                                            .onChanged { gesture in
-                                                let screenWidth = UIScreen.main.bounds.width
-                                                let minOffset = -screenWidth
-                                                let maxOffset = screenWidth
-                                                let screenHeight = UIScreen.main.bounds.height
-                                                let minOffsetHeight = -screenHeight
-                                                let maxOffsetHeight = screenHeight
-                                                
-                                                circleDragset1 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                            }
-                                            .onEnded { _ in
-                                                circleDragset1 = .zero
-                                            }
-                                        )
-                                    Image(systemName: "circle")
-                                        .font(.system(size: 60))
-                                        .offset(x: circleDragset2.width, y: circleDragset2.height)
-                                        .gesture(DragGesture()
-                                            .onChanged { gesture in
-                                                let screenWidth = UIScreen.main.bounds.width
-                                                let minOffset = -screenWidth
-                                                let maxOffset = screenWidth
-                                                let screenHeight = UIScreen.main.bounds.height
-                                                let minOffsetHeight = -screenHeight
-                                                let maxOffsetHeight = screenHeight
-                                                
-                                                circleDragset2 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                            }
-                                            .onEnded { _ in
-                                                circleDragset2 = .zero
-                                            }
-                                        )
-                                    Image(systemName: "circle")
-                                        .font(.system(size: 60))
-                                        .offset(x: circleDragset3.width, y: circleDragset3.height)
-                                        .gesture(DragGesture()
-                                            .onChanged { gesture in
-                                                let screenWidth = UIScreen.main.bounds.width
-                                                let minOffset = -screenWidth
-                                                let maxOffset = screenWidth
-                                                let screenHeight = UIScreen.main.bounds.height
-                                                let minOffsetHeight = -screenHeight
-                                                let maxOffsetHeight = screenHeight
-                                                
-                                                circleDragset3 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                            }
-                                            .onEnded { _ in
-                                                circleDragset3 = .zero
-                                            }
-                                        )
+                                    ZStack{
+                                        Image(systemName: "circle")
+                                            .font(.system(size: 60))
+                                        Image(systemName: "circle")
+                                            .font(.system(size: 60))
+                                            .offset(x: circleDragset1.width, y: circleDragset1.height)
+                                            .gesture(DragGesture()
+                                                .onChanged { gesture in
+                                                    let screenWidth = UIScreen.main.bounds.width
+                                                    let minOffset = -screenWidth
+                                                    let maxOffset = screenWidth
+                                                    let screenHeight = UIScreen.main.bounds.height
+                                                    let minOffsetHeight = -screenHeight
+                                                    let maxOffsetHeight = screenHeight
+                                                    
+                                                    circleDragset1 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
+                                                }
+                                                .onEnded { _ in
+                                                    circleDragset1 = .zero
+                                                }
+                                            )
+                                    }
+                                    ZStack{
+                                        Image(systemName: "circle")
+                                            .font(.system(size: 60))
+                                        Image(systemName: "circle")
+                                            .font(.system(size: 60))
+                                            .offset(x: circleDragset2.width, y: circleDragset2.height)
+                                            .gesture(DragGesture()
+                                                .onChanged { gesture in
+                                                    let screenWidth = UIScreen.main.bounds.width
+                                                    let minOffset = -screenWidth
+                                                    let maxOffset = screenWidth
+                                                    let screenHeight = UIScreen.main.bounds.height
+                                                    let minOffsetHeight = -screenHeight
+                                                    let maxOffsetHeight = screenHeight
+                                                    
+                                                    circleDragset2 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
+                                                }
+                                                .onEnded { _ in
+                                                    circleDragset2 = .zero
+                                                }
+                                            )
+                                    }
+                                    ZStack{
+                                        Image(systemName: "circle")
+                                            .font(.system(size: 60))
+                                        Image(systemName: "circle")
+                                            .font(.system(size: 60))
+                                            .offset(x: circleDragset3.width, y: circleDragset3.height)
+                                            .gesture(DragGesture()
+                                                .onChanged { gesture in
+                                                    let screenWidth = UIScreen.main.bounds.width
+                                                    let minOffset = -screenWidth
+                                                    let maxOffset = screenWidth
+                                                    let screenHeight = UIScreen.main.bounds.height
+                                                    let minOffsetHeight = -screenHeight
+                                                    let maxOffsetHeight = screenHeight
+                                                    
+                                                    circleDragset3 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
+                                                }
+                                                .onEnded { _ in
+                                                    circleDragset3 = .zero
+                                                }
+                                            )
+                                    }
+                                    
                                     Spacer()
                                 }
                                 .padding(.horizontal)
@@ -286,6 +299,7 @@ struct AquariumGameView: View {
                 // Pop up objectives
                 if showObjectives == true {
                     popUpObjectives()
+                        
                 }
                 
             }
@@ -295,7 +309,13 @@ struct AquariumGameView: View {
     
     func popUpObjectives() -> some View {
         ZStack{
+            Text("")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.black)
+                .opacity(0.5)
+            
             AquariumGame_PopUpView(levelId: levelId)
+                .padding(.bottom, 70)
             
             Button{
                 showObjectives = false
@@ -305,8 +325,9 @@ struct AquariumGameView: View {
                     .scaledToFit()
             }
             .padding(.top, 200)
-            .padding(.horizontal, 115)
+            .padding(.horizontal, 120)
         }
+        
     }
     
 }

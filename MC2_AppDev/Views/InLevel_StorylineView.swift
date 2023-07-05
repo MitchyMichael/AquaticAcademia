@@ -47,6 +47,7 @@ struct InLevel_StorylineView: View {
                 }
                 Level1View()
                 Level1Dialogues()
+                
             }
         }
         .navigationBarBackButtonHidden(true)

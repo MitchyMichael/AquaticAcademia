@@ -14,17 +14,15 @@ struct AquariumGame_PopUpView: View {
         VStack(){
             Image("objective_popup")
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .ignoresSafeArea()
-
+                .padding(.horizontal, 40)
         }
-
     }
 }
 
 struct AquariumGame_PopUpView_Previews: PreviewProvider {
     static var previews: some View {
         AquariumGame_PopUpView(levelId: 0)
-            
     }
 }
