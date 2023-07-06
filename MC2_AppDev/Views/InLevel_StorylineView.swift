@@ -44,9 +44,9 @@ struct InLevel_StorylineView: View {
         NavigationStack{
             ZStack{
                 if levelId == 1 {
+                    Level1View()
+                    Level1Dialogues()
                 }
-                Level1View()
-                Level1Dialogues()
             }
         }
         .navigationBarBackButtonHidden(true)

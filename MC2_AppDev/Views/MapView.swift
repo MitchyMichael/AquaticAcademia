@@ -13,11 +13,12 @@ struct MapView: View {
     
     @State var levelId = 0
     @State var thisLevelReward = 0
+    @State var hintCount = 0
     
     @State var isLevelClicked = false
     @State var showDecisionGameView = false
+    @State var showLevelDescription = false
     
-    @State var hintCount = 0
     
     var body: some View {
         NavigationStack{
@@ -31,96 +32,129 @@ struct MapView: View {
                         VStack{
                             // Level 1
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 1, hintCount: 3), label: {
+                                Button {
+                                    showLevelDescription = true
+                                    levelId = 1
+                                    hintCount = 3
+                                } label: {
                                     Image("btn_lvl1")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 110)
-                                })
+                                }
+                                
                             }
                             .padding(.top, 230)
                             .padding(.trailing, 100)
                             
                             //Level 2
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 2, hintCount: 2), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 2
+                                    hintCount = 2
+                                } label: {
                                     Image("btn_lvl2")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100)
-                                })
+                                }
                             }
                             .padding(.top, 60)
                             .padding(.trailing, 170)
                             
                             // Level 3
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 3, hintCount: 2), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 3
+                                    hintCount = 2
+                                } label: {
                                     Image("btn_lvl3")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100)
-                                })
+                                }
                             }
                             .padding(.top, 70)
                             .padding(.trailing, 20)
                             
                             // Level 4
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 4, hintCount: 1), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 4
+                                    hintCount = 1
+                                } label: {
                                     Image("btn_lvl4")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100)
-                                })
+                                }
                             }
                             .padding(.top, 70)
                             .padding(.leading, 80)
                             
                             // Level 5
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 5, hintCount: 0), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 5
+                                    hintCount = 0
+                                } label: {
                                     Image("btn_lvl5")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 150)
-                                })
+                                }
                             }
                             .padding(.top, 70)
                             .padding(.trailing, 160)
                             
                             // Level 6
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 6, hintCount: 0), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 6
+                                    hintCount = 0
+                                } label: {
                                     Image("btn_lvl6")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100)
-                                })
+                                }
                             }
                             .padding(.top, 60)
                             .padding(.trailing, 200)
                             
                             // Level 7
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 7, hintCount: 0), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 7
+                                    hintCount = 0
+                                } label: {
                                     Image("btn_lvl7")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100)
-                                })
+                                }
                             }
                             .padding(.top, 70)
                             .padding(.trailing, 50)
                             
                             // Level 8
                             VStack{
-                                NavigationLink(destination: InLevel_DescriptionView(levelId: 8, hintCount: 0), label: {
+                                Button{
+                                    showLevelDescription = true
+                                    levelId = 8
+                                    hintCount = 0
+                                } label: {
                                     Image("btn_lvl8")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100)
-                                })
+                                }
                             }
                             .padding(.top, 70)
                             .padding(.leading, 80)
@@ -151,10 +185,54 @@ struct MapView: View {
                     Spacer()
                 }
                 .navigationBarBackButtonHidden(true)
+                
+                if showLevelDescription == true {
+                    popUpLevelDescription()
+                    
+                }
+                
+                
             }
             //            .background(.blue)
         }
         
+    }
+    
+    func popUpLevelDescription() -> some View {
+        ZStack{
+            Text("")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.black)
+                .opacity(0.5)
+            InLevel_DescriptionPopUpView(levelId: levelId, hintCount: hintCount)
+            VStack{
+                VStack{
+                    Button {
+                        showLevelDescription = false
+                    } label: {
+                        Image("btn_x_red")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 45)
+                    }
+                }
+                .padding(.top, 80)
+                .padding(.leading, 280)
+                
+                VStack{
+                    NavigationLink(destination: InLevel_StorylineView(levelId: levelId, hintCount: hintCount), label: {
+                        Image("btn_start_yellow")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150)
+                    })
+                }
+                .padding(.top, 450)
+                
+                Spacer()
+            }
+
+        }
     }
     
 }
