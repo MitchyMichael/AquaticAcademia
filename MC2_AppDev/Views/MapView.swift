@@ -205,6 +205,30 @@ struct MapView: View {
                 .background(.black)
                 .opacity(0.5)
             InLevel_DescriptionPopUpView(levelId: levelId, hintCount: hintCount)
+            
+            ScrollView{
+                if levelId == 1 {
+                    Text("\(level1_guiding_info[0])")
+                        .font(.caption)
+                } else if levelId == 2 {
+                    Text("\(level2_guiding_info[0])")
+                        .font(.caption)
+                } else if levelId == 3 {
+                    Text("\(level3_guiding_info[0])")
+                        .font(.caption)
+                } else if levelId == 4 {
+                    Text("\(level4_guiding_info[0])")
+                        .font(.caption)
+                } else {
+                    Text("To Be Done...")
+                        .font(.caption)
+                }
+            }
+            .padding(.horizontal, 90)
+            .padding(.top, 370)
+            .padding(.bottom, 300)
+            
+            
             VStack{
                 VStack{
                     Button {
