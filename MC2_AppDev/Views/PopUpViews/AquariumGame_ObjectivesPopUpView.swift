@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct AquariumGame_PopUpView: View {
+struct AquariumGame_ObjectivesPopUpView: View {
     @State var levelId: Int
     
     var body: some View {
-        VStack(){
+        ZStack {
             Image("objective_popup")
                 .resizable()
                 .scaledToFit()
@@ -23,6 +23,6 @@ struct AquariumGame_PopUpView: View {
 
 struct AquariumGame_PopUpView_Previews: PreviewProvider {
     static var previews: some View {
-        AquariumGame_PopUpView(levelId: 0)
+        AquariumGame_ObjectivesPopUpView(levelId: 0)
     }
 }

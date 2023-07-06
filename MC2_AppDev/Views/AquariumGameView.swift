@@ -314,8 +314,26 @@ struct AquariumGameView: View {
                 .background(.black)
                 .opacity(0.5)
             
-            AquariumGame_PopUpView(levelId: levelId)
+            AquariumGame_ObjectivesPopUpView(levelId: levelId)
                 .padding(.bottom, 70)
+            
+            
+            VStack{
+                ScrollView{
+                    if levelId == 1 {
+                        ForEach(0..<level1_objective.count) { index in
+                            HStack{
+                                Text("\(level1_objective[index])")
+                                Spacer()
+                            }
+                            
+                        }
+                    }
+                }
+                .padding(.top, 280)
+                .padding(.bottom, 340)
+                .padding(.horizontal, 80)
+            }
             
             Button{
                 showObjectives = false
