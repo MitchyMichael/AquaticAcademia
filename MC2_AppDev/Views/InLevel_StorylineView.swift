@@ -46,6 +46,9 @@ struct InLevel_StorylineView: View {
                 if levelId == 1 {
                     Level1View()
                     Level1Dialogues()
+                } else {
+                    Level1View()
+                    Level1Dialogues()
                 }
             }
         }

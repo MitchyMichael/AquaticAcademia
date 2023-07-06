@@ -34,6 +34,7 @@
 		55A1856F2A56A74A00591618 /* Metropolis-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185542A569FF400591618 /* Metropolis-SemiBoldItalic.ttf */; };
 		55A185702A56A74C00591618 /* Metropolis-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1855A2A569FF400591618 /* Metropolis-Thin.ttf */; };
 		55A185712A56A74F00591618 /* Metropolis-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185572A569FF400591618 /* Metropolis-ThinItalic.ttf */; };
+		B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032C42A2A569C420078377D /* GuidingInformation.swift */; };
 		FC8F644A2A54137900C07A6D /* OpeningDialogues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64462A54137900C07A6D /* OpeningDialogues.swift */; };
 		FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64472A54137900C07A6D /* EndingResult.swift */; };
 		FC8F644C2A54137900C07A6D /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64482A54137900C07A6D /* Objective.swift */; };
@@ -84,6 +85,7 @@
 		55A1855C2A569FF500591618 /* Metropolis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-SemiBold.ttf"; sourceTree = "<group>"; };
 		55A1855D2A56A11300591618 /* MC2-AppDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MC2-AppDev-Info.plist"; sourceTree = SOURCE_ROOT; };
 		55A1855E2A56A2AB00591618 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		B032C42A2A569C420078377D /* GuidingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidingInformation.swift; sourceTree = "<group>"; };
 		FC8F64462A54137900C07A6D /* OpeningDialogues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningDialogues.swift; sourceTree = "<group>"; };
 		FC8F64472A54137900C07A6D /* EndingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingResult.swift; sourceTree = "<group>"; };
 		FC8F64482A54137900C07A6D /* Objective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				FC8F64462A54137900C07A6D /* OpeningDialogues.swift */,
 				FC8F64472A54137900C07A6D /* EndingResult.swift */,
 				FC8F64482A54137900C07A6D /* Objective.swift */,
+				B032C42A2A569C420078377D /* GuidingInformation.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -351,6 +354,8 @@
 				FC8F644A2A54137900C07A6D /* OpeningDialogues.swift in Sources */,
 				FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */,
 				FC9C30EA2A49840D00B10C97 /* AquariumGame_ObjectivesPopUpView.swift in Sources */,
+				B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */,
+				FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */,
 				551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */,
 				FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */,
 				FC9C30EC2A4AE3CE00B10C97 /* LargeAquarium.swift in Sources */,

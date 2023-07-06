@@ -16,6 +16,9 @@ struct AquariumGameView: View {
     @State private var circleDragset2 = CGSize.zero
     @State private var circleDragset3 = CGSize.zero
     
+    @State private var savedXPosition = 0.0
+    @State private var savedYPosition = 0.0
+    
     @State var levelId: Int
     
     @State var isEdit = false
@@ -88,15 +91,17 @@ struct AquariumGameView: View {
                             
                             // === If not in edit mode - Aquarium size
                         } else {
-                            HStack{
-                                if isSmallerClicked == true {
-                                    SmallAquarium()
-                                } else {
-                                    LargeAquarium()
-                                }
+                            ScrollView{
                                 
-                                if isSmallerClicked == true{
-                                    Spacer()
+                                HStack{
+                                    if isSmallerClicked == true {
+                                        SmallAquarium()
+                                    } else {
+                                        LargeAquarium()
+                                    }
+                                    if isSmallerClicked == true{
+                                        Spacer()
+                                    }
                                 }
                             }
                             
@@ -117,6 +122,7 @@ struct AquariumGameView: View {
                             .foregroundColor(.primary)
                         }
                         Spacer()
+                        // ini spacer aquarium
                     }
                     .padding(.horizontal)
                     
@@ -223,20 +229,21 @@ struct AquariumGameView: View {
                                         Image(systemName: "circle")
                                             .font(.system(size: 60))
                                             .offset(x: circleDragset1.width, y: circleDragset1.height)
-                                            .gesture(DragGesture()
-                                                .onChanged { gesture in
-                                                    let screenWidth = UIScreen.main.bounds.width
-                                                    let minOffset = -screenWidth
-                                                    let maxOffset = screenWidth
-                                                    let screenHeight = UIScreen.main.bounds.height
-                                                    let minOffsetHeight = -screenHeight
-                                                    let maxOffsetHeight = screenHeight
-                                                    
-                                                    circleDragset1 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                }
-                                                .onEnded { _ in
-                                                    circleDragset1 = .zero
-                                                }
+                                            .gesture(
+                                                DragGesture()
+                                                    .onChanged { gesture in
+                                                        let screenWidth = UIScreen.main.bounds.width
+                                                        let minOffset = -screenWidth
+                                                        let maxOffset = screenWidth
+                                                        let screenHeight = UIScreen.main.bounds.height
+                                                        let minOffsetHeight = -screenHeight
+                                                        let maxOffsetHeight = screenHeight
+                                                        
+                                                        circleDragset1 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
+                                                    }
+                                                    .onEnded { _ in
+                                                        circleDragset1 = .zero
+                                                    }
                                             )
                                     }
                                     ZStack{
@@ -245,20 +252,21 @@ struct AquariumGameView: View {
                                         Image(systemName: "circle")
                                             .font(.system(size: 60))
                                             .offset(x: circleDragset2.width, y: circleDragset2.height)
-                                            .gesture(DragGesture()
-                                                .onChanged { gesture in
-                                                    let screenWidth = UIScreen.main.bounds.width
-                                                    let minOffset = -screenWidth
-                                                    let maxOffset = screenWidth
-                                                    let screenHeight = UIScreen.main.bounds.height
-                                                    let minOffsetHeight = -screenHeight
-                                                    let maxOffsetHeight = screenHeight
-                                                    
-                                                    circleDragset2 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                }
-                                                .onEnded { _ in
-                                                    circleDragset2 = .zero
-                                                }
+                                            .gesture(
+                                                DragGesture()
+                                                    .onChanged { gesture in
+                                                        let screenWidth = UIScreen.main.bounds.width
+                                                        let minOffset = -screenWidth
+                                                        let maxOffset = screenWidth
+                                                        let screenHeight = UIScreen.main.bounds.height
+                                                        let minOffsetHeight = -screenHeight
+                                                        let maxOffsetHeight = screenHeight
+                                                        
+                                                        circleDragset2 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
+                                                    }
+                                                    .onEnded { _ in
+                                                        circleDragset2 = .zero
+                                                    }
                                             )
                                     }
                                     ZStack{
@@ -267,20 +275,27 @@ struct AquariumGameView: View {
                                         Image(systemName: "circle")
                                             .font(.system(size: 60))
                                             .offset(x: circleDragset3.width, y: circleDragset3.height)
-                                            .gesture(DragGesture()
-                                                .onChanged { gesture in
-                                                    let screenWidth = UIScreen.main.bounds.width
-                                                    let minOffset = -screenWidth
-                                                    let maxOffset = screenWidth
-                                                    let screenHeight = UIScreen.main.bounds.height
-                                                    let minOffsetHeight = -screenHeight
-                                                    let maxOffsetHeight = screenHeight
-                                                    
-                                                    circleDragset3 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                }
-                                                .onEnded { _ in
-                                                    circleDragset3 = .zero
-                                                }
+                                            .gesture(
+                                                DragGesture()
+                                                    .onChanged { gesture in
+                                                        let screenWidth = UIScreen.main.bounds.width
+                                                        let minOffset = -screenWidth
+                                                        let maxOffset = screenWidth
+                                                        let screenHeight = UIScreen.main.bounds.height
+                                                        let minOffsetHeight = -screenHeight
+                                                        let maxOffsetHeight = screenHeight
+                                                        
+                                                        circleDragset3 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
+                                                        savedXPosition = min(max(gesture.translation.width, minOffset), maxOffset)
+                                                        savedYPosition = min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight)
+//                                                        let _ = print(savedYPosition)
+//                                                        let _ = print(savedXPosition)
+//                                                        checkPosition()
+//                                                        let _ = print(UIScreen.main.bounds.size.height / 4)
+                                                    }
+                                                    .onEnded { _ in
+                                                        circleDragset3 = .zero
+                                                    }
                                             )
                                     }
                                     
@@ -299,14 +314,19 @@ struct AquariumGameView: View {
                 // Pop up objectives
                 if showObjectives == true {
                     popUpObjectives()
-                        
+                    
                 }
                 
             }
         }
         .navigationBarBackButtonHidden(true)
     }
-    
+    func checkPosition(){
+        if savedYPosition <= -461 && savedXPosition <= 136
+        {
+//        print("hehe")
+        }
+    }
     func popUpObjectives() -> some View {
         ZStack{
             Text("")
@@ -324,6 +344,30 @@ struct AquariumGameView: View {
                         ForEach(0..<level1_objective.count) { index in
                             HStack{
                                 Text("\(level1_objective[index])")
+                                Spacer()
+                            }
+                            
+                        }
+                    } else if levelId == 2 {
+                        ForEach(0..<level2_objective.count) { index in
+                            HStack{
+                                Text("\(level2_objective[index])")
+                                Spacer()
+                            }
+                            
+                        }
+                    } else if levelId == 3 {
+                        ForEach(0..<level3_objective.count) { index in
+                            HStack{
+                                Text("\(level3_objective[index])")
+                                Spacer()
+                            }
+                            
+                        }
+                    } else if levelId == 4 {
+                        ForEach(0..<level4_objective.count) { index in
+                            HStack{
+                                Text("\(level4_objective[index])")
                                 Spacer()
                             }
                             
