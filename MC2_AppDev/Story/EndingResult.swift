@@ -11,11 +11,11 @@ public var good_ending = [
     "Congratulations for your dedication and thoughtful efforts in creating the perfect combination of fish. By also providing ample space and considering behavioral traits, you have fostered a harmonious coexistence among the fishes. This successful endeavor serves as a testament to the importance of research, thoughtful decision-making, and a deep understanding of the needs of each fish species."
 ]
 
-public var bad_ending_fish = [
+public var bad_ending_fish_incompatibility = [
     "Unfortunately, due to a misjudgment in the combination of fish, the aquarium faced a challenging outcome. The incompatible nature of the chosen fish species led to constant conflict and stress within the confined space."
 ]
 
-public var bad_ending_aquarium = [
+public var bad_ending_aquarium_incompatibility = [
     "Regrettably, due to the incorrect placement of fish within the aquarium, an unfavorable outcome unfolded. The limited space and inadequate hiding spots caused immense stress and aggression among the fish. Their overall well-being suffered greatly, leading to declining health and diminished happiness."
 ]
 

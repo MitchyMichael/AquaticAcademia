@@ -14,6 +14,7 @@
 		551A27392A52D68800534E99 /* GameFishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27382A52D68800534E99 /* GameFishData.swift */; };
 		551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273B2A53F59E00534E99 /* LevelRender.swift */; };
 		551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273D2A540AFA00534E99 /* LevelSolution.swift */; };
+		B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032C42A2A569C420078377D /* GuidingInformation.swift */; };
 		FC8F644A2A54137900C07A6D /* OpeningDialogues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64462A54137900C07A6D /* OpeningDialogues.swift */; };
 		FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64472A54137900C07A6D /* EndingResult.swift */; };
 		FC8F644C2A54137900C07A6D /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64482A54137900C07A6D /* Objective.swift */; };
@@ -43,6 +44,7 @@
 		551A27382A52D68800534E99 /* GameFishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFishData.swift; sourceTree = "<group>"; };
 		551A273B2A53F59E00534E99 /* LevelRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRender.swift; sourceTree = "<group>"; };
 		551A273D2A540AFA00534E99 /* LevelSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSolution.swift; sourceTree = "<group>"; };
+		B032C42A2A569C420078377D /* GuidingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidingInformation.swift; sourceTree = "<group>"; };
 		FC8F64462A54137900C07A6D /* OpeningDialogues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningDialogues.swift; sourceTree = "<group>"; };
 		FC8F64472A54137900C07A6D /* EndingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingResult.swift; sourceTree = "<group>"; };
 		FC8F64482A54137900C07A6D /* Objective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				FC8F64462A54137900C07A6D /* OpeningDialogues.swift */,
 				FC8F64472A54137900C07A6D /* EndingResult.swift */,
 				FC8F64482A54137900C07A6D /* Objective.swift */,
+				B032C42A2A569C420078377D /* GuidingInformation.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			files = (
 				FC8F644A2A54137900C07A6D /* OpeningDialogues.swift in Sources */,
 				FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */,
+				B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */,
 				FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */,
 				551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */,
 				FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */,
