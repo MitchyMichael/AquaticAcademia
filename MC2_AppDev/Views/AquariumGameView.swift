@@ -9,25 +9,25 @@ import SwiftUI
 
 struct AquariumGameView: View {
     @Environment(\.dismiss) private var dismiss
+    
+    @State var levelId: Int
+    @State var hintCount: Int
+    
     @State private var showObjectives = true
     @State private var showHint = false
+    @State var isEdit = false
+    @State var isAquariumClicked = false
+    @State var isSmallerClicked = false
+    @State var isGoodEnding = false
+    
+    @State var aquariumId = 0
     
     @State private var circleDragset1 = CGSize.zero
     @State private var circleDragset2 = CGSize.zero
     @State private var circleDragset3 = CGSize.zero
     
-    @State private var savedXPosition = 0.0
-    @State private var savedYPosition = 0.0
-    
-    @State var levelId: Int
-    
-    @State var isEdit = false
-    @State var isAquariumClicked = false
-    @State var aquariumId = 0
-    
-    @State var isSmallerClicked = false
-    
-    @State var hintCount: Int
+//    @State private var savedXPosition = 0.0
+//    @State private var savedYPosition = 0.0
     
     var body: some View {
         NavigationStack{
@@ -91,19 +91,19 @@ struct AquariumGameView: View {
                             
                             // === If not in edit mode - Aquarium size
                         } else {
-                            ScrollView{
-                                
-                                HStack{
-                                    if isSmallerClicked == true {
-                                        SmallAquarium()
-                                    } else {
-                                        LargeAquarium()
-                                    }
-                                    if isSmallerClicked == true{
-                                        Spacer()
-                                    }
+                            
+                            
+                            HStack{
+                                if isSmallerClicked == true {
+                                    SmallAquarium()
+                                } else {
+                                    LargeAquarium()
+                                }
+                                if isSmallerClicked == true{
+                                    Spacer()
                                 }
                             }
+                            
                             
                         }
                         
@@ -121,6 +121,14 @@ struct AquariumGameView: View {
                             .background(.gray)
                             .foregroundColor(.primary)
                         }
+                        
+                        // == Button Good Ending / Bad Ending
+                        Button {
+                            isGoodEnding = true
+                        } label: {
+                            Text("Good Ending")
+                        }
+                        
                         Spacer()
                         // ini spacer aquarium
                     }
@@ -286,12 +294,12 @@ struct AquariumGameView: View {
                                                         let maxOffsetHeight = screenHeight
                                                         
                                                         circleDragset3 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                        savedXPosition = min(max(gesture.translation.width, minOffset), maxOffset)
-                                                        savedYPosition = min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight)
-//                                                        let _ = print(savedYPosition)
-//                                                        let _ = print(savedXPosition)
-//                                                        checkPosition()
-//                                                        let _ = print(UIScreen.main.bounds.size.height / 4)
+//                                                        savedXPosition = min(max(gesture.translation.width, minOffset), maxOffset)
+//                                                        savedYPosition = min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight)
+                                                        //                                                        let _ = print(savedYPosition)
+                                                        //                                                        let _ = print(savedXPosition)
+                                                        //                                                        checkPosition()
+                                                        //                                                        let _ = print(UIScreen.main.bounds.size.height / 4)
                                                     }
                                                     .onEnded { _ in
                                                         circleDragset3 = .zero
@@ -314,19 +322,69 @@ struct AquariumGameView: View {
                 // Pop up objectives
                 if showObjectives == true {
                     popUpObjectives()
-                    
+                }
+                
+                // Pop up good ending
+                if isGoodEnding == true {
+                    popUpGoodEnding()
                 }
                 
             }
         }
         .navigationBarBackButtonHidden(true)
     }
-    func checkPosition(){
-        if savedYPosition <= -461 && savedXPosition <= 136
-        {
-//        print("hehe")
+    
+    func popUpGoodEnding() -> some View {
+        ZStack{
+            VStack{
+                Image("goodending_popup")
+                    .resizable()
+                    .scaledToFit()
+                    .ignoresSafeArea()
+                Spacer()
+            }
+            
+            HStack{
+                Spacer()
+                Image("balon_biru")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.trailing)
+                    .padding(.leading, 300)
+                    .padding(.top, 400)
+            }
+            
+            HStack{
+                Image("balon_merahkuning")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.trailing, 270)
+                    .padding(.leading)
+                    .padding(.top, 550)
+                Spacer()
+            }
+            
+            VStack{
+                ScrollView{
+                    Text("\(good_ending[0])")
+//                        .font(.caption)
+                        .multilineTextAlignment(.center)
+                }
+            }
+            .padding(.top, 480)
+            .padding(.horizontal, 80)
+            .padding(.bottom, 130)
+            
+            VStack{
+                NavigationLink(destination: MapView(), label: {
+                    Text("Back to Map")
+                })
+            }
+            .padding(.top, 550)
         }
+        
     }
+
     func popUpObjectives() -> some View {
         ZStack{
             Text("")
@@ -336,7 +394,6 @@ struct AquariumGameView: View {
             
             AquariumGame_ObjectivesPopUpView(levelId: levelId)
                 .padding(.bottom, 70)
-            
             
             VStack{
                 ScrollView{
