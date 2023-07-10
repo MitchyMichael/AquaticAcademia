@@ -207,6 +207,8 @@ struct MapView: View {
             InLevel_DescriptionPopUpView(levelId: levelId, hintCount: hintCount)
             
             ScrollView{
+//                Text("\(level1_guiding_info[0])")
+//                    .font(.caption)
                 if levelId == 1 {
                     Text("\(level1_guiding_info[0])")
                         .font(.caption)

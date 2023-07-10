@@ -14,7 +14,7 @@
 		551A27392A52D68800534E99 /* GameFishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27382A52D68800534E99 /* GameFishData.swift */; };
 		551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273B2A53F59E00534E99 /* LevelRender.swift */; };
 		551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273D2A540AFA00534E99 /* LevelSolution.swift */; };
-		551A27402A54141400534E99 /* Story in Resources */ = {isa = PBXBuildFile; fileRef = 551A273F2A54141400534E99 /* Story */; };
+		556048F32A56B4CD00F5675E /* AquariumGameViewTemporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556048F22A56B4CD00F5675E /* AquariumGameViewTemporary.swift */; };
 		55A1855F2A56A2AB00591618 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1855E2A56A2AB00591618 /* FontsManager.swift */; };
 		55A185602A56A69300591618 /* Metropolis-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185522A569FF400591618 /* Metropolis-Black.ttf */; };
 		55A185612A56A6C600591618 /* Metropolis-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185582A569FF400591618 /* Metropolis-BoldItalic.ttf */; };
@@ -64,7 +64,7 @@
 		551A27382A52D68800534E99 /* GameFishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFishData.swift; sourceTree = "<group>"; };
 		551A273B2A53F59E00534E99 /* LevelRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRender.swift; sourceTree = "<group>"; };
 		551A273D2A540AFA00534E99 /* LevelSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSolution.swift; sourceTree = "<group>"; };
-		551A273F2A54141400534E99 /* Story */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Story; sourceTree = "<group>"; };
+		556048F22A56B4CD00F5675E /* AquariumGameViewTemporary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumGameViewTemporary.swift; sourceTree = "<group>"; };
 		55A1854B2A569FF400591618 /* Metropolis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Bold.ttf"; sourceTree = "<group>"; };
 		55A1854C2A569FF400591618 /* Metropolis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Regular.ttf"; sourceTree = "<group>"; };
 		55A1854D2A569FF400591618 /* Metropolis-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -206,7 +206,6 @@
 			children = (
 				55A1855D2A56A11300591618 /* MC2-AppDev-Info.plist */,
 				55A1854A2A569EB700591618 /* Fonts */,
-				551A273F2A54141400534E99 /* Story */,
 				FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */,
 				FC9C30BE2A39AFD300B10C97 /* Views */,
 				551A273A2A53F58100534E99 /* Level */,
@@ -235,6 +234,7 @@
 				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
 				FC9C30E72A4973C400B10C97 /* InLevel_StorylineView.swift */,
 				FC9C30D82A444A8300B10C97 /* AquariumGameView.swift */,
+				556048F22A56B4CD00F5675E /* AquariumGameViewTemporary.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
 				551670322A51C37100202B13 /* GlossaryView.swift */,
@@ -335,7 +335,6 @@
 				55A1856A2A56A73F00591618 /* Metropolis-Medium.ttf in Resources */,
 				55A185662A56A73700591618 /* Metropolis-ExtraLight.ttf in Resources */,
 				55A1856F2A56A74A00591618 /* Metropolis-SemiBoldItalic.ttf in Resources */,
-				551A27402A54141400534E99 /* Story in Resources */,
 				55A1856D2A56A74600591618 /* Metropolis-RegularItalic.ttf in Resources */,
 				55A1856B2A56A74200591618 /* Metropolis-MediumItalic.ttf in Resources */,
 				FC9C30B22A3997E000B10C97 /* Preview Assets.xcassets in Resources */,
@@ -355,7 +354,7 @@
 				FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */,
 				FC9C30EA2A49840D00B10C97 /* AquariumGame_ObjectivesPopUpView.swift in Sources */,
 				B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */,
-				FC9C30EA2A49840D00B10C97 /* AquariumGame_PopUpView.swift in Sources */,
+				FC9C30EA2A49840D00B10C97 /* AquariumGame_ObjectivesPopUpView.swift in Sources */,
 				551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */,
 				FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */,
 				FC9C30EC2A4AE3CE00B10C97 /* LargeAquarium.swift in Sources */,
@@ -364,6 +363,7 @@
 				FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
 				FC9C30EE2A4AE41B00B10C97 /* SmallAquarium.swift in Sources */,
+				556048F32A56B4CD00F5675E /* AquariumGameViewTemporary.swift in Sources */,
 				551A27332A52C3CB00534E99 /* GameState.swift in Sources */,
 				FC9C30D92A444A8300B10C97 /* AquariumGameView.swift in Sources */,
 				FC8F644E2A54141200C07A6D /* FishData.swift in Sources */,

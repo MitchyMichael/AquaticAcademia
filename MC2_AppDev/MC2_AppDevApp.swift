@@ -15,14 +15,15 @@ struct MC2_AppDevApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, fishData.container.viewContext)
-                .onAppear {
-                    if firstTime {
-                        fishData.seedGlossary()
-                        firstTime = false
-                    }
-                }
+            AquariumGameViewTemporary()
+//            ContentView()
+//                .environment(\.managedObjectContext, fishData.container.viewContext)
+//                .onAppear {
+//                    if firstTime {
+//                        fishData.seedGlossary()
+//                        firstTime = false
+//                    }
+//                }
         }
     }
 }

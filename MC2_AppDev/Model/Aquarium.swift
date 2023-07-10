@@ -8,7 +8,7 @@
 import Foundation
 
 // Model Object Aquarium
-class Aquarium {
+struct Aquarium{
     var aquarium_id: Int
     var aquarium_size: String
     var fish_array: [Fish]
