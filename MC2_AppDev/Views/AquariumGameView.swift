@@ -31,11 +31,6 @@ struct AquariumGameView: View {
     
     var body: some View {
         NavigationStack{
-            
-            //            VStack {
-            //                DraggableIcon()
-            //            }
-            
             ZStack{
                 VStack{
                     HStack{
@@ -220,9 +215,7 @@ struct AquariumGameView: View {
                                                     .font(.system(size: 40))
                                                     .foregroundColor(.primary)
                                             }
-                                            
                                         }
-                                        
                                         Text("Objectives")
                                             .font(.caption)
                                     }
