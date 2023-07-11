@@ -62,6 +62,7 @@ struct InLevel_StorylineView: View {
                     naration1_count = naration1_count + 1
                 } label: {
                     Text("\(naration1[naration1_count])")
+                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                         .foregroundColor(.black)
                         .padding(.horizontal, 50)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -78,6 +79,7 @@ struct InLevel_StorylineView: View {
                                 .resizable()
                                 .scaledToFit()
                             Text("\(michelleDialogue1[michelleDialogue1_count])")
+                                .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                 .foregroundColor(.black)
                                 .padding(.bottom, 40)
                                 .padding(.horizontal, 20)
@@ -92,6 +94,7 @@ struct InLevel_StorylineView: View {
                             naration2_count = naration2_count + 1
                         } label: {
                             Text("\(naration2[naration2_count])")
+                                .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 50)
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -108,6 +111,7 @@ struct InLevel_StorylineView: View {
                                         .resizable()
                                         .scaledToFit()
                                     Text("\(salesPersonDialogue1[salesPersonDialogue1_count])")
+                                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                         .foregroundColor(.black)
                                         .padding(.bottom, 40)
                                         .padding(.horizontal, 20)
@@ -123,6 +127,7 @@ struct InLevel_StorylineView: View {
                                     naration3_count = naration3_count + 1
                                 } label: {
                                     Text("\(naration3[naration3_count])")
+                                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                         .foregroundColor(.black)
                                         .padding(.horizontal, 50)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -139,6 +144,7 @@ struct InLevel_StorylineView: View {
                                                 .resizable()
                                                 .scaledToFit()
                                             Text("\(michelleDialogue2[michelleDialogue2_count])")
+                                                .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                 .foregroundColor(.black)
                                                 .padding(.bottom, 40)
                                                 .padding(.horizontal, 20)
@@ -165,22 +171,28 @@ struct InLevel_StorylineView: View {
                                             if naration4_count == naration4.count - 1 {
                                                 VStack{
                                                     Text("\(naration4[naration4_count])\n")
+                                                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                         .foregroundColor(.black)
                                                         .padding(.horizontal, 50)
                                                     
-                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
-                                                        Text("Alright! I got it!")
-                                                            .foregroundColor(.primary)
-                                                            .padding(.vertical, 8)
-                                                            .padding(.horizontal, 50)
-                                                            .background(.gray)
-                                                            .cornerRadius(8)
-                                                    })
+                                                                                                        NavigationLink(destination: AquariumGameViewTemporary(
+//                                                                                                            levelId: levelId,
+//                                                                                                            hintCount: hintCount
+                                                                                                        ), label: {
+                                                    Text("Alright! I got it!")
+                                                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
+                                                        .foregroundColor(.primary)
+                                                        .padding(.vertical, 8)
+                                                        .padding(.horizontal, 50)
+                                                        .background(.gray)
+                                                        .cornerRadius(8)
+                                                })
                                                 }
                                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                                 
                                             } else {
                                                 Text("\(naration4[naration4_count])")
+                                                    .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                     .foregroundColor(.black)
                                                     .padding(.horizontal, 50)
                                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -232,7 +244,7 @@ struct InLevel_StorylineView: View {
                 .padding(.bottom, 70)
             }
             if(mascotTalking){
-            
+                
                 Image("bg_storyline_air")
                     .resizable()
                     .ignoresSafeArea()

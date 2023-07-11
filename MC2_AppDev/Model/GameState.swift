@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameState {
+struct GameState {
     
     let listFish = GameFishData().fish_list
     

@@ -8,7 +8,7 @@
 import Foundation
 
 // Model Object Fish
-class Fish {
+struct Fish{
     var latin_name: String
     var english_name: String
     var colony: [String]

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Metropolis-Black.ttf</string>
+		<string>Metropolis-BlackItalic.ttf</string>
+		<string>Metropolis-Bold.ttf</string>
+		<string>Metropolis-BoldItalic.ttf</string>
+		<string>Metropolis-ExtraBold.ttf</string>
+		<string>Metropolis-ExtraBoldItalic.ttf</string>
+		<string>Metropolis-ExtraLight.ttf</string>
+		<string>Metropolis-ExtraLightItalic.ttf</string>
+		<string>Metropolis-Light.ttf</string>
+		<string>Metropolis-LightItalic.ttf</string>
+		<string>Metropolis-Medium.ttf</string>
+		<string>Metropolis-MediumItalic.ttf</string>
+		<string>Metropolis-Regular.ttf</string>
+		<string>Metropolis-RegularItalic.ttf</string>
+		<string>Metropolis-SemiBold.ttf</string>
+		<string>Metropolis-SemiBoldItalic.ttf</string>
+		<string>Metropolis-Thin.ttf</string>
+		<string>Metropolis-ThinItalic.ttf</string>
+	</array>
+</dict>
+</plist>

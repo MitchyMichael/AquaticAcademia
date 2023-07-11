@@ -14,6 +14,26 @@
 		551A27392A52D68800534E99 /* GameFishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A27382A52D68800534E99 /* GameFishData.swift */; };
 		551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273B2A53F59E00534E99 /* LevelRender.swift */; };
 		551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273D2A540AFA00534E99 /* LevelSolution.swift */; };
+		556048F32A56B4CD00F5675E /* AquariumGameViewTemporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556048F22A56B4CD00F5675E /* AquariumGameViewTemporary.swift */; };
+		55A1855F2A56A2AB00591618 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1855E2A56A2AB00591618 /* FontsManager.swift */; };
+		55A185602A56A69300591618 /* Metropolis-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185522A569FF400591618 /* Metropolis-Black.ttf */; };
+		55A185612A56A6C600591618 /* Metropolis-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185582A569FF400591618 /* Metropolis-BoldItalic.ttf */; };
+		55A185622A56A72B00591618 /* Metropolis-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185512A569FF400591618 /* Metropolis-BlackItalic.ttf */; };
+		55A185632A56A72E00591618 /* Metropolis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1854B2A569FF400591618 /* Metropolis-Bold.ttf */; };
+		55A185642A56A73200591618 /* Metropolis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1854E2A569FF400591618 /* Metropolis-ExtraBold.ttf */; };
+		55A185652A56A73500591618 /* Metropolis-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185532A569FF400591618 /* Metropolis-ExtraBoldItalic.ttf */; };
+		55A185662A56A73700591618 /* Metropolis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185592A569FF400591618 /* Metropolis-ExtraLight.ttf */; };
+		55A185672A56A73900591618 /* Metropolis-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185562A569FF400591618 /* Metropolis-ExtraLightItalic.ttf */; };
+		55A185682A56A73B00591618 /* Metropolis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1854F2A569FF400591618 /* Metropolis-Light.ttf */; };
+		55A185692A56A73D00591618 /* Metropolis-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185552A569FF400591618 /* Metropolis-LightItalic.ttf */; };
+		55A1856A2A56A73F00591618 /* Metropolis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185502A569FF400591618 /* Metropolis-Medium.ttf */; };
+		55A1856B2A56A74200591618 /* Metropolis-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1854D2A569FF400591618 /* Metropolis-MediumItalic.ttf */; };
+		55A1856C2A56A74400591618 /* Metropolis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1854C2A569FF400591618 /* Metropolis-Regular.ttf */; };
+		55A1856D2A56A74600591618 /* Metropolis-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1855B2A569FF400591618 /* Metropolis-RegularItalic.ttf */; };
+		55A1856E2A56A74800591618 /* Metropolis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1855C2A569FF500591618 /* Metropolis-SemiBold.ttf */; };
+		55A1856F2A56A74A00591618 /* Metropolis-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185542A569FF400591618 /* Metropolis-SemiBoldItalic.ttf */; };
+		55A185702A56A74C00591618 /* Metropolis-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A1855A2A569FF400591618 /* Metropolis-Thin.ttf */; };
+		55A185712A56A74F00591618 /* Metropolis-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185572A569FF400591618 /* Metropolis-ThinItalic.ttf */; };
 		B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032C42A2A569C420078377D /* GuidingInformation.swift */; };
 		FC8F644A2A54137900C07A6D /* OpeningDialogues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64462A54137900C07A6D /* OpeningDialogues.swift */; };
 		FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64472A54137900C07A6D /* EndingResult.swift */; };
@@ -46,6 +66,27 @@
 		551A27382A52D68800534E99 /* GameFishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFishData.swift; sourceTree = "<group>"; };
 		551A273B2A53F59E00534E99 /* LevelRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRender.swift; sourceTree = "<group>"; };
 		551A273D2A540AFA00534E99 /* LevelSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSolution.swift; sourceTree = "<group>"; };
+		556048F22A56B4CD00F5675E /* AquariumGameViewTemporary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquariumGameViewTemporary.swift; sourceTree = "<group>"; };
+		55A1854B2A569FF400591618 /* Metropolis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Bold.ttf"; sourceTree = "<group>"; };
+		55A1854C2A569FF400591618 /* Metropolis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Regular.ttf"; sourceTree = "<group>"; };
+		55A1854D2A569FF400591618 /* Metropolis-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-MediumItalic.ttf"; sourceTree = "<group>"; };
+		55A1854E2A569FF400591618 /* Metropolis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		55A1854F2A569FF400591618 /* Metropolis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Light.ttf"; sourceTree = "<group>"; };
+		55A185502A569FF400591618 /* Metropolis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Medium.ttf"; sourceTree = "<group>"; };
+		55A185512A569FF400591618 /* Metropolis-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-BlackItalic.ttf"; sourceTree = "<group>"; };
+		55A185522A569FF400591618 /* Metropolis-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Black.ttf"; sourceTree = "<group>"; };
+		55A185532A569FF400591618 /* Metropolis-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		55A185542A569FF400591618 /* Metropolis-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		55A185552A569FF400591618 /* Metropolis-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-LightItalic.ttf"; sourceTree = "<group>"; };
+		55A185562A569FF400591618 /* Metropolis-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		55A185572A569FF400591618 /* Metropolis-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ThinItalic.ttf"; sourceTree = "<group>"; };
+		55A185582A569FF400591618 /* Metropolis-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-BoldItalic.ttf"; sourceTree = "<group>"; };
+		55A185592A569FF400591618 /* Metropolis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraLight.ttf"; sourceTree = "<group>"; };
+		55A1855A2A569FF400591618 /* Metropolis-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Thin.ttf"; sourceTree = "<group>"; };
+		55A1855B2A569FF400591618 /* Metropolis-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-RegularItalic.ttf"; sourceTree = "<group>"; };
+		55A1855C2A569FF500591618 /* Metropolis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-SemiBold.ttf"; sourceTree = "<group>"; };
+		55A1855D2A56A11300591618 /* MC2-AppDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MC2-AppDev-Info.plist"; sourceTree = SOURCE_ROOT; };
+		55A1855E2A56A2AB00591618 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
 		B032C42A2A569C420078377D /* GuidingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidingInformation.swift; sourceTree = "<group>"; };
 		FC8F64462A54137900C07A6D /* OpeningDialogues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningDialogues.swift; sourceTree = "<group>"; };
 		FC8F64472A54137900C07A6D /* EndingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingResult.swift; sourceTree = "<group>"; };
@@ -103,6 +144,32 @@
 			path = Level;
 			sourceTree = "<group>";
 		};
+		55A1854A2A569EB700591618 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				55A185522A569FF400591618 /* Metropolis-Black.ttf */,
+				55A185512A569FF400591618 /* Metropolis-BlackItalic.ttf */,
+				55A1854B2A569FF400591618 /* Metropolis-Bold.ttf */,
+				55A185582A569FF400591618 /* Metropolis-BoldItalic.ttf */,
+				55A1854E2A569FF400591618 /* Metropolis-ExtraBold.ttf */,
+				55A185532A569FF400591618 /* Metropolis-ExtraBoldItalic.ttf */,
+				55A185592A569FF400591618 /* Metropolis-ExtraLight.ttf */,
+				55A185562A569FF400591618 /* Metropolis-ExtraLightItalic.ttf */,
+				55A1854F2A569FF400591618 /* Metropolis-Light.ttf */,
+				55A185552A569FF400591618 /* Metropolis-LightItalic.ttf */,
+				55A185502A569FF400591618 /* Metropolis-Medium.ttf */,
+				55A1854D2A569FF400591618 /* Metropolis-MediumItalic.ttf */,
+				55A1854C2A569FF400591618 /* Metropolis-Regular.ttf */,
+				55A1855B2A569FF400591618 /* Metropolis-RegularItalic.ttf */,
+				55A1855C2A569FF500591618 /* Metropolis-SemiBold.ttf */,
+				55A185542A569FF400591618 /* Metropolis-SemiBoldItalic.ttf */,
+				55A1855A2A569FF400591618 /* Metropolis-Thin.ttf */,
+				55A185572A569FF400591618 /* Metropolis-ThinItalic.ttf */,
+				55A1855E2A56A2AB00591618 /* FontsManager.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FC8F64442A54137900C07A6D /* Story */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +209,8 @@
 		FC9C30A92A3997DF00B10C97 /* MC2_AppDev */ = {
 			isa = PBXGroup;
 			children = (
+				55A1855D2A56A11300591618 /* MC2-AppDev-Info.plist */,
+				55A1854A2A569EB700591618 /* Fonts */,
 				FC9C30AA2A3997DF00B10C97 /* MC2_AppDevApp.swift */,
 				FC9C30BE2A39AFD300B10C97 /* Views */,
 				551A273A2A53F58100534E99 /* Level */,
@@ -170,6 +239,7 @@
 				FC9C30B82A399E1A00B10C97 /* MapView.swift */,
 				FC9C30E72A4973C400B10C97 /* InLevel_StorylineView.swift */,
 				FC8F64522A5BE19400C07A6D /* AquariumGameView.swift */,
+				556048F22A56B4CD00F5675E /* AquariumGameViewTemporary.swift */,
 				FC9C30BA2A39ADB300B10C97 /* CollectionView.swift */,
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
 				551670322A51C37100202B13 /* GlossaryView.swift */,
@@ -256,8 +326,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A185612A56A6C600591618 /* Metropolis-BoldItalic.ttf in Resources */,
+				55A1856E2A56A74800591618 /* Metropolis-SemiBold.ttf in Resources */,
+				55A185602A56A69300591618 /* Metropolis-Black.ttf in Resources */,
+				55A185652A56A73500591618 /* Metropolis-ExtraBoldItalic.ttf in Resources */,
+				55A185632A56A72E00591618 /* Metropolis-Bold.ttf in Resources */,
+				55A185702A56A74C00591618 /* Metropolis-Thin.ttf in Resources */,
+				55A185622A56A72B00591618 /* Metropolis-BlackItalic.ttf in Resources */,
+				55A185642A56A73200591618 /* Metropolis-ExtraBold.ttf in Resources */,
+				55A185692A56A73D00591618 /* Metropolis-LightItalic.ttf in Resources */,
+				55A185712A56A74F00591618 /* Metropolis-ThinItalic.ttf in Resources */,
+				55A185672A56A73900591618 /* Metropolis-ExtraLightItalic.ttf in Resources */,
+				55A185682A56A73B00591618 /* Metropolis-Light.ttf in Resources */,
+				55A1856A2A56A73F00591618 /* Metropolis-Medium.ttf in Resources */,
+				55A185662A56A73700591618 /* Metropolis-ExtraLight.ttf in Resources */,
+				55A1856F2A56A74A00591618 /* Metropolis-SemiBoldItalic.ttf in Resources */,
+				55A1856D2A56A74600591618 /* Metropolis-RegularItalic.ttf in Resources */,
+				55A1856B2A56A74200591618 /* Metropolis-MediumItalic.ttf in Resources */,
 				FC9C30B22A3997E000B10C97 /* Preview Assets.xcassets in Resources */,
 				FC9C30AF2A3997E000B10C97 /* Assets.xcassets in Resources */,
+				55A1856C2A56A74400591618 /* Metropolis-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +370,7 @@
 				FC9C30E32A44525E00B10C97 /* ModelData.xcdatamodeld in Sources */,
 				FC9C30BD2A39AF0B00B10C97 /* DetailsView.swift in Sources */,
 				FC9C30EE2A4AE41B00B10C97 /* SmallAquarium.swift in Sources */,
+				556048F32A56B4CD00F5675E /* AquariumGameViewTemporary.swift in Sources */,
 				551A27332A52C3CB00534E99 /* GameState.swift in Sources */,
 				FC8F64512A5BE0EE00C07A6D /* TutorialDragnDrop.swift in Sources */,
 				FC8F644E2A54141200C07A6D /* FishData.swift in Sources */,
@@ -289,6 +378,7 @@
 				FC9C30B92A399E1A00B10C97 /* MapView.swift in Sources */,
 				FC9C30BB2A39ADB300B10C97 /* CollectionView.swift in Sources */,
 				551A27352A52C4A700534E99 /* AquariumModel.swift in Sources */,
+				55A1855F2A56A2AB00591618 /* FontsManager.swift in Sources */,
 				FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */,
 				551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */,
 				551670332A51C37100202B13 /* GlossaryView.swift in Sources */,
@@ -427,6 +517,7 @@
 				DEVELOPMENT_TEAM = 5JU3YBPL7M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC2-AppDev-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +547,7 @@
 				DEVELOPMENT_TEAM = 5JU3YBPL7M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC2-AppDev-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
