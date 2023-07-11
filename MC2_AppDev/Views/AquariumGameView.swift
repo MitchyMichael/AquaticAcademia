@@ -9,8 +9,10 @@ import SwiftUI
 
 struct AquariumGameView: View {
     
-    @State var aquariums: [AquariumModel] = [AquariumModel(name: "Aquarium 1", fishes: ["🐟"])]
-    @State var aquariumsTemp: [AquariumModel_Temp] = [AquariumModel_Temp(name: "Aquarium 1", fishes: ["🐟"])]
+    //    @State var aquariums: [AquariumModel] = [AquariumModel(name: "Aquarium 1", fishes: ["🐟"])]
+    @State var aquariumList: [Aquarium] = [Aquarium(aquarium_id: 0, aquarium_size: "medium", fish_array: [], fish_amount: [])]
+    
+    let listFish = GameFishData().fish_list
     
     @State var levelId: Int
     @State var hintCount: Int
@@ -101,7 +103,7 @@ struct AquariumGameView: View {
                     // Aquariums
                     VStack{
                         ScrollView {
-                            ForEach(Array(zip(aquariums.indices, aquariums)), id: \.0) { index, item in
+                            ForEach(Array(zip(aquariumList.indices, aquariumList)), id: \.0) { index, item in
                                 VStack{
                                     ZStack{
                                         Image("aquarium_foundation")
@@ -111,17 +113,40 @@ struct AquariumGameView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .padding(.horizontal, 50)
-                                        HStack {
-                                            ForEach(aquariums[index].fishes, id:\.self) { fish in
-                                                Text(fish)
+                                        //                                        LazyHGrid (rows:[GridItem(.flexible())]){
+                                        ZStack{
+                                            ForEach(aquariumList[index].fish_array, id:\.english_name) { fish in
+                                                
+                                                let randomTopPadding = CGFloat(randomLocation(minValue: -70, maxValue: 60))
+                                                let randomLeadingPadding = CGFloat(randomLocation(minValue: -100, maxValue: 150))
+                                                
+                                                VStack{
+                                                    Image("fish_\(fish.english_name)")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 65, height: 65)
+                                                        .padding(.top, randomTopPadding)
+                                                        .padding(.leading, randomLeadingPadding)
+                                                }
+//                                                .background(.red)
+//                                                .padding(.top, String(50))
+//                                                .padding(.leading, 50)
+                                                
                                             }
                                         }
+                                        .frame(maxWidth: .infinity)
                                     }
                                 }
                                 .padding(.top)
                                 .padding(.horizontal)
                                 .dropDestination(for: String.self) { items, location in
-                                    aquariums[index].fishes.append(contentsOf: items)
+                                    //                            aquariums[index].fishes.append(contentsOf: items)
+                                    
+                                    guard let fishQuery = listFish[items.first ?? ""] else {return false}
+                                    //
+                                    //                            let addedFish = Fish(latin_name: "tes", english_name: "\(items.first ?? "")", colony: ["tes"], environment: ["tes"], temperament: ["Tes"], diet: "Omnivore", compatibility: ["tes"], incompatibility: ["tes"])
+                                    //                            aquariums[index].fish_array.append(addedFish)
+                                    aquariumList[index].fish_array.append(fishQuery)
                                     return true
                                 }
                             }
@@ -129,8 +154,8 @@ struct AquariumGameView: View {
                             // If in edit -> Aquariums
                             if isEdit {
                                 Button {
-                                    aquariums.append(
-                                        AquariumModel(name: "Aquarium \(aquariums.count+1)", fishes: [])
+                                    aquariumList.append(
+                                        Aquarium(aquarium_id: aquariumList.count, aquarium_size: "Large", fish_array: [], fish_amount: [])
                                     )
                                 } label: {
                                     Image("btn_add_aquarium")
@@ -231,6 +256,21 @@ struct AquariumGameView: View {
                         }
                         
                         HStack {
+                            VStack {
+                                Spacer()
+                                ZStack {
+                                    Image("aquarium_add")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 100)
+                                    Image("fish_Neon Tetra")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 60)
+                                }
+                                .draggable("Neon Tetra")
+                            }.padding(.leading, 24)
+                            
                             Spacer()
                             VStack{
                                 Spacer()
@@ -323,29 +363,6 @@ struct AquariumGameView: View {
                     
                     
                     
-                    //                    HStack {
-                    //                        Text("🐟")
-                    //                            .padding()
-                    //                            .background(.green)
-                    //                            .draggable("🐟") {
-                    //                                Text("🐟")
-                    //                            }
-                    //
-                    //                        Text("🐠")
-                    //                            .padding()
-                    //                            .background(.pink)
-                    //                            .draggable("🐠")
-                    //
-                    //                        Text("🐡")
-                    //                            .padding()
-                    //                            .background(.gray)
-                    //                            .draggable("🐡")
-                    //
-                    //                        Spacer()
-                    //
-                    //                    }
-                    //                    .padding()
-                    //                    .background(.blue)
                 }
                 
                 // Pop up objectives
@@ -364,6 +381,12 @@ struct AquariumGameView: View {
             
         }
         
+    }
+    
+    func randomLocation(minValue: Int, maxValue: Int) -> Int{
+        let randomInt = Int.random(in: minValue..<maxValue)
+        
+        return randomInt
     }
     
     func popUpObjectives() -> some View {
