@@ -361,7 +361,6 @@
 				FC8F64532A5BE19400C07A6D /* AquariumGameView.swift in Sources */,
 				FC9C30EA2A49840D00B10C97 /* AquariumGame_ObjectivesPopUpView.swift in Sources */,
 				B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */,
-				FC9C30EA2A49840D00B10C97 /* AquariumGame_ObjectivesPopUpView.swift in Sources */,
 				551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */,
 				FC9C30E82A4973C400B10C97 /* InLevel_StorylineView.swift in Sources */,
 				FC9C30EC2A4AE3CE00B10C97 /* LargeAquarium.swift in Sources */,
