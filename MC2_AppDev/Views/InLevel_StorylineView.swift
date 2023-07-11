@@ -168,7 +168,7 @@ struct InLevel_StorylineView: View {
                                                         .foregroundColor(.black)
                                                         .padding(.horizontal, 50)
                                                     
-                                                    NavigationLink(destination: AquariumGame2_View(levelId: levelId, hintCount: hintCount), label: {
+                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount), label: {
                                                         Text("Alright! I got it!")
                                                             .foregroundColor(.primary)
                                                             .padding(.vertical, 8)
