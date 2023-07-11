@@ -15,7 +15,7 @@ struct GameState {
     var editAccess = false
     var featuredFish:[Fish] = []
     var fishAmount:[Int] = []
-    var aquariumList = [Aquarium]()
+    var aquariumList = [AquariumModel]()
     
     // function buat CRUD
 }

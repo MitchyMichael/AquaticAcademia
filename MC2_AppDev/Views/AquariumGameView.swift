@@ -1,332 +1,371 @@
 //
-//  AquariumGameView.swift
+//  AquariumGame2_View.swift
 //  MC2_AppDev
 //
-//  Created by Michael Wijaya Sutrisna on 22/06/23.
+//  Created by Michael Wijaya Sutrisna on 10/07/23.
 //
 
 import SwiftUI
 
 struct AquariumGameView: View {
-    @Environment(\.dismiss) private var dismiss
-    @State private var showObjectives = true
-    @State private var showHint = false
     
-    @State private var circleDragset1 = CGSize.zero
-    @State private var circleDragset2 = CGSize.zero
-    @State private var circleDragset3 = CGSize.zero
-    
-    @State private var savedXPosition = 0.0
-    @State private var savedYPosition = 0.0
+    @State var aquariums: [AquariumModel] = [AquariumModel(name: "Aquarium 1", fishes: ["🐟"])]
+    @State var aquariumsTemp: [AquariumModel_Temp] = [AquariumModel_Temp(name: "Aquarium 1", fishes: ["🐟"])]
     
     @State var levelId: Int
+    @State var hintCount: Int
     
+    @State private var showObjectives = false
     @State var isEdit = false
     @State var isAquariumClicked = false
-    @State var aquariumId = 0
+    @State var isGoodEnding = false
+    @State var isInputFish = false
     
-    @State var isSmallerClicked = false
-    
-    @State var hintCount: Int
+    @State private var heartCount = 3
     
     var body: some View {
         NavigationStack{
-            
-            //            VStack {
-            //                DraggableIcon()
-            //            }
-            
-            ZStack{
-                VStack{
+            GeometryReader { geo in
+                ZStack {
+                    
+                    // Background
+                    Image("bg_ingame_coklat1")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    VStack{
+                        Image("bg_ingame_atas")
+                            .resizable()
+                            .scaledToFit()
+                        Spacer()
+                    }
+                    
+                    // Character
                     HStack{
-                        // === Map Navigation Button
-                        NavigationLink(destination: MapView(), label: {
-                            Image(systemName: "globe.asia.australia.fill")
-                                .foregroundColor(.primary)
-                        })
+                        Image("ingame_char_confused")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100)
+                        Spacer()
+                    }
+                    .padding(.leading, 70)
+                    .padding(.bottom, 547)
+                    
+                    // Heart
+                    ZStack{
+                        HStack{
+                            Image("ingame_chat_bubble")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 120)
+                                .padding(.leading, 140)
+                                .padding(.bottom, 480)
+                            
+                            Spacer()
+                        }
+                        
+                        HStack{
+                            ForEach(0..<heartCount) { index in
+                                Image("ingame_heart")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 28)
+                            }
+                            Spacer()
+                        }
+                        .padding(.leading, 150)
+                        .padding(.bottom, 450)
+                    }
+                    
+                    // Navigation
+                    if !isEdit {
+                        VStack {
+                            HStack{
+                                // === Map Navigation Button
+                                NavigationLink(destination: MapView(), label: {
+                                    Image("btn_back")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding(.trailing, 300)
+                                })
+                                Spacer()
+                                
+                            }
+                            .padding()
+                            .padding(.top, 40)
+                            
+                            Spacer()
+                        }
+                    }
+                    
+                    // Aquariums
+                    VStack{
+                        ScrollView {
+                            ForEach(Array(zip(aquariums.indices, aquariums)), id: \.0) { index, item in
+                                VStack{
+                                    ZStack{
+                                        Image("aquarium_foundation")
+                                            .resizable()
+                                            .scaledToFit()
+                                        Image("aquarium_besar")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .padding(.horizontal, 50)
+                                        HStack {
+                                            ForEach(aquariums[index].fishes, id:\.self) { fish in
+                                                Text(fish)
+                                            }
+                                        }
+                                    }
+                                }
+                                .padding(.top)
+                                .padding(.horizontal)
+                                .dropDestination(for: String.self) { items, location in
+                                    aquariums[index].fishes.append(contentsOf: items)
+                                    return true
+                                }
+                            }
+                            
+                            // If in edit -> Aquariums
+                            if isEdit {
+                                Button {
+                                    aquariums.append(
+                                        AquariumModel(name: "Aquarium \(aquariums.count+1)", fishes: [])
+                                    )
+                                } label: {
+                                    Image("btn_add_aquarium")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding()
+                                }
+                            }
+                            
+                        }
+                        //                                                .background(.blue)
+                        .padding(.top, 270)
+                        .padding(.bottom, 170)
+                        
+                    }
+                    
+                }
+                
+                // Button Objectives
+                if !isEdit {
+                    HStack{
                         Spacer()
                         Button {
-                            isEdit.toggle()
-                            if isAquariumClicked == true {
-                                isAquariumClicked = false
-                            }
+                            showObjectives = true
                         } label: {
-                            if isEdit == false {
-                                Image(systemName: "pencil")
-                                    .foregroundColor(.primary)
-                            } else {
-                                Image(systemName: "fish.fill")
-                                    .foregroundColor(.primary)
-                            }
-                            
+                            Image("btn_hints")
+                                .resizable()
+                                .scaledToFit()
                         }
+                        .padding(.top, 600)
+                        .padding(.trailing)
+                        .padding(.leading, 300)
                     }
-                    .padding(.horizontal)
-                    .frame(height: 40)
-                    
-                    VStack{
-                        // === If in edit mode - Aquarium size
-                        if isEdit == true {
+                }
+                
+                // If in edit -> Action Button
+                if isEdit {
+                    ZStack {
+                        VStack{
+                            Spacer()
+                            Image("bg_ingame_button_edit")
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        
+                        VStack {
+                            Spacer()
                             HStack{
-                                Button {
-                                    isAquariumClicked = true
-                                } label: {
-                                    if isSmallerClicked == true {
-                                        SmallAquarium()
+                                VStack{
+                                    // Button remove
+                                    Button {
                                         
-                                    } else {
-                                        LargeAquarium()
+                                    } label: {
+                                        Image("btn_ingame_remove")
+                                            .resizable()
+                                            .scaledToFit()
                                     }
-                                    
                                 }
-                                .onChange(of: isAquariumClicked){ newValue in
-                                    aquariumId = 1
+                                .frame(width: 80)
+                                
+                                VStack{
+                                    // Button x
+                                    Button {
+                                        isEdit = false
+                                    } label: {
+                                        Image("btn_ingame_x")
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
                                 }
-                                //                                .background(.blue)
-                                if isSmallerClicked == true{
-                                    Spacer()
+                                .frame(width: 80)
+                                
+                                VStack{
+                                    // Button agree
+                                    Button {
+                                        isEdit = false
+                                    } label: {
+                                        Image("btn_ingame_agree")
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
                                 }
+                                .frame(width: 80)
                                 
                             }
-                            
-                            // === If not in edit mode - Aquarium size
-                        } else {
-                            ScrollView{
-                                
-                                HStack{
-                                    if isSmallerClicked == true {
-                                        SmallAquarium()
-                                    } else {
-                                        LargeAquarium()
-                                    }
-                                    if isSmallerClicked == true{
-                                        Spacer()
-                                    }
-                                }
-                            }
-                            
+                            .padding()
+                            .padding(.bottom, 20)
                         }
-                        
-                        // === Add aquarium button
-                        Button{
-                            
-                        } label: {
-                            VStack{
-                                Image(systemName: "plus.app.fill")
-                                    .font(.system(size: 60))
-                                Text("Add")
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical)
-                            .background(.gray)
-                            .foregroundColor(.primary)
-                        }
-                        Spacer()
-                        // ini spacer aquarium
                     }
-                    .padding(.horizontal)
                     
-                    VStack{
-                        if isEdit == true {
-                            // === If in edit mode - Aquarium ID indicator text view (green background)
-                            VStack{
-                                if isAquariumClicked == true {
-                                    Text("Edit Mode (Aquarium \(aquariumId))")
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 8)
-                                        .background(.green)
-                                        .padding(.bottom, -10)
-                                } else {
-                                    Text("Edit Mode")
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 8)
-                                        .background(.green)
-                                        .padding(.bottom, -10)
-                                }
-                            }
+                } else if isInputFish {
+                    ZStack {
+                        VStack{
+                            Spacer()
+                            Image("bg_ingame_button_fish")
+                                .resizable()
+                                .scaledToFit()
                         }
                         
-                        // === If in edit mode
-                        if isEdit == true {
+                        HStack {
+                            Spacer()
                             VStack{
-                                // === If aquarium clicked, then show action button
-                                if isAquariumClicked == true {
-                                    //                                    Text("Aquarium \(aquariumId)")
-                                    HStack{
-                                        Spacer()
-                                        Button {
-                                            
-                                        } label: {
-                                            ZStack{
-                                                Image(systemName: "circle.fill")
-                                                    .foregroundColor(.white)
-                                                    .font(.system(size: 50))
-                                                Image(systemName: "trash.fill")
-                                                    .foregroundColor(.primary)
-                                                    .font(.title2)
-                                            }
-                                            
-                                        }
-                                        Spacer()
-                                        Button {
-                                            isSmallerClicked.toggle()
-                                        } label: {
-                                            ZStack{
-                                                Image(systemName: "circle.fill")
-                                                    .foregroundColor(.white)
-                                                    .font(.system(size: 50))
-                                                Image(systemName: "pip.swap")
-                                                    .foregroundColor(.primary)
-                                                    .font(.title2)
-                                            }
-                                            
-                                        }
-                                        .onChange(of: isSmallerClicked){ newValue in
-                                            isSmallerClicked.toggle()
-                                        }
-                                        Spacer()
-                                    }
-                                } else {
-                                    Text("No fish tank selected.")
-                                        .fontWeight(.bold)
+                                Spacer()
+                                // Button agree
+                                Button {
+                                    isInputFish = false
+                                } label: {
+                                    Image("btn_ingame_reset")
+                                        .resizable()
+                                        .scaledToFit()
                                 }
                             }
-                            .padding(.horizontal)
-                            .frame(height: 100)
-                            .frame(maxWidth: .infinity)
-                            .background(.gray)
+                            .frame(width: 80)
                             
-                            // === If not in edit mode
-                        } else {
                             VStack{
-                                HStack{
-                                    Spacer()
-                                    VStack{
-                                        
-                                        // === Objectives button
-                                        Button{
-                                            showObjectives = true
-                                        } label: {
-                                            VStack{
-                                                Image(systemName: "lightbulb.circle.fill")
-                                                    .font(.system(size: 40))
-                                                    .foregroundColor(.primary)
-                                            }
-                                            
-                                        }
-                                        
-                                        Text("Objectives")
-                                            .font(.caption)
-                                    }
-                                    .padding(.horizontal)
+                                Spacer()
+                                // Button agree
+                                Button {
+                                    isInputFish = false
+                                } label: {
+                                    Image("btn_ingame_agree")
+                                        .resizable()
+                                        .scaledToFit()
                                 }
-                                
-                                // Future fish drag and drop location
-                                HStack{
-                                    ZStack{
-                                        Image(systemName: "circle")
-                                            .font(.system(size: 60))
-                                        Image(systemName: "circle")
-                                            .font(.system(size: 60))
-                                            .offset(x: circleDragset1.width, y: circleDragset1.height)
-                                            .gesture(
-                                                DragGesture()
-                                                    .onChanged { gesture in
-                                                        let screenWidth = UIScreen.main.bounds.width
-                                                        let minOffset = -screenWidth
-                                                        let maxOffset = screenWidth
-                                                        let screenHeight = UIScreen.main.bounds.height
-                                                        let minOffsetHeight = -screenHeight
-                                                        let maxOffsetHeight = screenHeight
-                                                        
-                                                        circleDragset1 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                    }
-                                                    .onEnded { _ in
-                                                        circleDragset1 = .zero
-                                                    }
-                                            )
-                                    }
-                                    ZStack{
-                                        Image(systemName: "circle")
-                                            .font(.system(size: 60))
-                                        Image(systemName: "circle")
-                                            .font(.system(size: 60))
-                                            .offset(x: circleDragset2.width, y: circleDragset2.height)
-                                            .gesture(
-                                                DragGesture()
-                                                    .onChanged { gesture in
-                                                        let screenWidth = UIScreen.main.bounds.width
-                                                        let minOffset = -screenWidth
-                                                        let maxOffset = screenWidth
-                                                        let screenHeight = UIScreen.main.bounds.height
-                                                        let minOffsetHeight = -screenHeight
-                                                        let maxOffsetHeight = screenHeight
-                                                        
-                                                        circleDragset2 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                    }
-                                                    .onEnded { _ in
-                                                        circleDragset2 = .zero
-                                                    }
-                                            )
-                                    }
-                                    ZStack{
-                                        Image(systemName: "circle")
-                                            .font(.system(size: 60))
-                                        Image(systemName: "circle")
-                                            .font(.system(size: 60))
-                                            .offset(x: circleDragset3.width, y: circleDragset3.height)
-                                            .gesture(
-                                                DragGesture()
-                                                    .onChanged { gesture in
-                                                        let screenWidth = UIScreen.main.bounds.width
-                                                        let minOffset = -screenWidth
-                                                        let maxOffset = screenWidth
-                                                        let screenHeight = UIScreen.main.bounds.height
-                                                        let minOffsetHeight = -screenHeight
-                                                        let maxOffsetHeight = screenHeight
-                                                        
-                                                        circleDragset3 = CGSize(width: min(max(gesture.translation.width, minOffset), maxOffset), height: min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight))
-                                                        savedXPosition = min(max(gesture.translation.width, minOffset), maxOffset)
-                                                        savedYPosition = min(max(gesture.translation.height, minOffsetHeight), maxOffsetHeight)
-//                                                        let _ = print(savedYPosition)
-//                                                        let _ = print(savedXPosition)
-//                                                        checkPosition()
-//                                                        let _ = print(UIScreen.main.bounds.size.height / 4)
-                                                    }
-                                                    .onEnded { _ in
-                                                        circleDragset3 = .zero
-                                                    }
-                                            )
-                                    }
-                                    
-                                    Spacer()
-                                }
-                                .padding(.horizontal)
-                                .frame(height: 100)
-                                .frame(maxWidth: .infinity)
-                                .background(.gray)
                             }
+                            .frame(width: 80)
                             
                         }
+                        .padding()
+                        .padding(.bottom, 20)
+                        .padding(.trailing, 8)
                     }
+                    
+                } else {
+                    ZStack {
+                        VStack{
+                            Spacer()
+                            Image("bg_ingame_button")
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        
+                        VStack {
+                            Spacer()
+                            HStack{
+                                VStack{
+                                    // Button build
+                                    Button {
+                                        isEdit = true
+                                    } label: {
+                                        Image("btn_build")
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.trailing)
+                                
+                                VStack{
+                                    // Button add fish
+                                    Button {
+                                        isInputFish = true
+                                    } label: {
+                                        Image("btn_fish")
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.leading)
+                                
+                                
+                            }
+                            .padding()
+                            .padding(.bottom)
+                        }
+                    }
+                    
+                }
+                
+                VStack {
+                    Spacer()
+                    
+                    //                    // == Button Good Ending / Bad Ending
+                    //                    Button {
+                    //                        isGoodEnding = true
+                    //                    } label: {
+                    //                        Text("Good Ending")
+                    //                    }
+                    
+                    
+                    
+                    //                    HStack {
+                    //                        Text("🐟")
+                    //                            .padding()
+                    //                            .background(.green)
+                    //                            .draggable("🐟") {
+                    //                                Text("🐟")
+                    //                            }
+                    //
+                    //                        Text("🐠")
+                    //                            .padding()
+                    //                            .background(.pink)
+                    //                            .draggable("🐠")
+                    //
+                    //                        Text("🐡")
+                    //                            .padding()
+                    //                            .background(.gray)
+                    //                            .draggable("🐡")
+                    //
+                    //                        Spacer()
+                    //
+                    //                    }
+                    //                    .padding()
+                    //                    .background(.blue)
                 }
                 
                 // Pop up objectives
                 if showObjectives == true {
                     popUpObjectives()
-                    
+                }
+                
+                // Pop up good ending
+                if isGoodEnding == true {
+                    popUpGoodEnding()
                 }
                 
             }
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
+            
         }
-        .navigationBarBackButtonHidden(true)
+        
     }
-    func checkPosition(){
-        if savedYPosition <= -461 && savedXPosition <= 136
-        {
-//        print("hehe")
-        }
-    }
+    
     func popUpObjectives() -> some View {
         ZStack{
             Text("")
@@ -336,7 +375,6 @@ struct AquariumGameView: View {
             
             AquariumGame_ObjectivesPopUpView(levelId: levelId)
                 .padding(.bottom, 70)
-            
             
             VStack{
                 ScrollView{
@@ -390,11 +428,68 @@ struct AquariumGameView: View {
             .padding(.horizontal, 120)
         }
         
+        
+    }
+    
+    func popUpGoodEnding() -> some View {
+        ZStack{
+            Text("")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.black)
+                .opacity(0.5)
+            
+            VStack{
+                Image("goodending_popup")
+                    .resizable()
+                    .scaledToFit()
+                    .ignoresSafeArea()
+                Spacer()
+            }
+            
+            HStack{
+                Spacer()
+                Image("balon_biru")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.trailing)
+                    .padding(.leading, 300)
+                    .padding(.top, 400)
+            }
+            
+            HStack{
+                Image("balon_merahkuning")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.trailing, 270)
+                    .padding(.leading)
+                    .padding(.top, 550)
+                Spacer()
+            }
+            
+            VStack{
+                ScrollView{
+                    Text("\(good_ending[0])")
+                    //                        .font(.caption)
+                        .multilineTextAlignment(.center)
+                }
+            }
+            .padding(.top, 480)
+            .padding(.horizontal, 80)
+            .padding(.bottom, 130)
+            
+            VStack{
+                NavigationLink(destination: MapView(), label: {
+                    Text("Back to Map")
+                })
+            }
+            .padding(.top, 550)
+        }
+        
     }
     
 }
 
-struct AquariumGameView_Previews: PreviewProvider {
+struct AquariumGame2_View_Previews: PreviewProvider {
     static var previews: some View {
         AquariumGameView(levelId: 0, hintCount: 0)
     }

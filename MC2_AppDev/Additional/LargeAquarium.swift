@@ -9,12 +9,12 @@ import SwiftUI
 
 struct LargeAquarium: View {
     var body: some View {
-        Text("Gambar Aquarium 1")
+        Text("")
             .foregroundColor(.primary)
             .frame(maxWidth: .infinity)
             .frame(height: 250)
             .background(.gray)
-            .padding(.bottom)
+//            .padding(.bottom)
     }
 }
 

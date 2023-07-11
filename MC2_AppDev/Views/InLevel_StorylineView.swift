@@ -185,19 +185,16 @@ struct InLevel_StorylineView: View {
                                                         .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                         .foregroundColor(.black)
                                                         .padding(.horizontal, 50)
-                                                    
-                                                                                                        NavigationLink(destination: AquariumGameViewTemporary(
-//                                                                                                            levelId: levelId,
-//                                                                                                            hintCount: hintCount
-                                                                                                        ), label: {
-                                                    Text("Alright! I got it!")
-                                                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
-                                                        .foregroundColor(.primary)
-                                                        .padding(.vertical, 8)
-                                                        .padding(.horizontal, 50)
-                                                        .background(.gray)
-                                                        .cornerRadius(8)
-                                                })
+                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount
+                                                    ), label: {
+                                                        Text("Alright! I got it!")
+                                                            .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
+                                                            .foregroundColor(.primary)
+                                                            .padding(.vertical, 8)
+                                                            .padding(.horizontal, 50)
+                                                            .background(.gray)
+                                                            .cornerRadius(8)
+                                                    })
                                                 }
                                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                                 
