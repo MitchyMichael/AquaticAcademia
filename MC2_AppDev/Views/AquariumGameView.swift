@@ -19,6 +19,7 @@ struct AquariumGameView: View {
     @State var isEdit = false
     @State var isAquariumClicked = false
     @State var isGoodEnding = false
+    @State var isInputFish = false
     
     @State private var heartCount = 3
     
@@ -220,6 +221,49 @@ struct AquariumGameView: View {
                         }
                     }
                     
+                } else if isInputFish {
+                    ZStack {
+                        VStack{
+                            Spacer()
+                            Image("bg_ingame_button_fish")
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            VStack{
+                                Spacer()
+                                // Button agree
+                                Button {
+                                    isInputFish = false
+                                } label: {
+                                    Image("btn_ingame_reset")
+                                        .resizable()
+                                        .scaledToFit()
+                                }
+                            }
+                            .frame(width: 80)
+                            
+                            VStack{
+                                Spacer()
+                                // Button agree
+                                Button {
+                                    isInputFish = false
+                                } label: {
+                                    Image("btn_ingame_agree")
+                                        .resizable()
+                                        .scaledToFit()
+                                }
+                            }
+                            .frame(width: 80)
+                            
+                        }
+                        .padding()
+                        .padding(.bottom, 20)
+                        .padding(.trailing, 8)
+                    }
+                    
                 } else {
                     ZStack {
                         VStack{
@@ -248,7 +292,7 @@ struct AquariumGameView: View {
                                 VStack{
                                     // Button add fish
                                     Button {
-                                        
+                                        isInputFish = true
                                     } label: {
                                         Image("btn_fish")
                                             .resizable()
