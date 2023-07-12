@@ -45,7 +45,8 @@ class LevelRender {
         
         // Used to render the aquarium on stage (put the fishes in a specific aquarium)
 //        aquariumList.append(Aquarium(aquarium_id: 0, aquarium_size: "small", fish_array: [], fish_amount: []))
-        aquariumList.append(Aquarium(aquarium_id: 0, aquarium_size: "large", fish_array: [], fish_amount: []))
+        aquariumList.append(Aquarium(aquarium_id: 0, aquarium_size: "small", fish_array: []))
+        aquariumList.append(Aquarium(aquarium_id: 1, aquarium_size: "medium", fish_array: []))
         
         // featureFfish adalah ikan yang nanti bisa didrag and drop
         // fishAmount adalah jumlah masing masing ikan

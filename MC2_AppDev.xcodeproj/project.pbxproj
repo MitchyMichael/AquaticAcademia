@@ -15,6 +15,7 @@
 		551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273B2A53F59E00534E99 /* LevelRender.swift */; };
 		551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273D2A540AFA00534E99 /* LevelSolution.swift */; };
 		553DD36B2A5D59C000480F36 /* Aquarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DD36A2A5D59C000480F36 /* Aquarium.swift */; };
+		553DD36D2A5EC89700480F36 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DD36C2A5EC89700480F36 /* GameResultView.swift */; };
 		55A1855F2A56A2AB00591618 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1855E2A56A2AB00591618 /* FontsManager.swift */; };
 		55A185602A56A69300591618 /* Metropolis-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185522A569FF400591618 /* Metropolis-Black.ttf */; };
 		55A185612A56A6C600591618 /* Metropolis-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185582A569FF400591618 /* Metropolis-BoldItalic.ttf */; };
@@ -67,6 +68,7 @@
 		551A273B2A53F59E00534E99 /* LevelRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRender.swift; sourceTree = "<group>"; };
 		551A273D2A540AFA00534E99 /* LevelSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSolution.swift; sourceTree = "<group>"; };
 		553DD36A2A5D59C000480F36 /* Aquarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aquarium.swift; sourceTree = "<group>"; };
+		553DD36C2A5EC89700480F36 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		55A1854B2A569FF400591618 /* Metropolis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Bold.ttf"; sourceTree = "<group>"; };
 		55A1854C2A569FF400591618 /* Metropolis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Regular.ttf"; sourceTree = "<group>"; };
 		55A1854D2A569FF400591618 /* Metropolis-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				FC9C30BC2A39AF0B00B10C97 /* DetailsView.swift */,
 				551670322A51C37100202B13 /* GlossaryView.swift */,
 				FC8F644F2A569CB200C07A6D /* PopUpViews */,
+				553DD36C2A5EC89700480F36 /* GameResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				551A27352A52C4A700534E99 /* AquariumModel.swift in Sources */,
 				55A1855F2A56A2AB00591618 /* FontsManager.swift in Sources */,
 				FC9C30DF2A444B3900B10C97 /* DraggableIcon.swift in Sources */,
+				553DD36D2A5EC89700480F36 /* GameResultView.swift in Sources */,
 				551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */,
 				551670332A51C37100202B13 /* GlossaryView.swift in Sources */,
 				551A27372A52C5ED00534E99 /* Fish.swift in Sources */,
