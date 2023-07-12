@@ -25,6 +25,8 @@ struct AquariumGameView: View {
     
     @State private var heartCount = 3
     
+    @State var fish_padding = [String:[Int]]()
+    
     var body: some View {
         NavigationStack{
             GeometryReader { geo in
@@ -105,6 +107,7 @@ struct AquariumGameView: View {
                         ScrollView {
                             ForEach(Array(zip(aquariumList.indices, aquariumList)), id: \.0) { index, item in
                                 VStack{
+//                                    Text("Index:\(index)")
                                     ZStack{
                                         Image("aquarium_foundation")
                                             .resizable()
@@ -115,18 +118,25 @@ struct AquariumGameView: View {
                                             .padding(.horizontal, 50)
                                         //                                        LazyHGrid (rows:[GridItem(.flexible())]){
                                         ZStack{
-                                            ForEach(aquariumList[index].fish_array, id:\.english_name) { fish in
-                                                
-                                                let randomTopPadding = CGFloat(randomLocation(minValue: -70, maxValue: 60))
-                                                let randomLeadingPadding = CGFloat(randomLocation(minValue: -100, maxValue: 150))
+//                                            ForEach(Array(aquariumList[index].fish_array.enumerated()), id: \.element.english_name) { (innerIndex, fish) in
+                                                ForEach(Array(zip(aquariumList[index].fish_array.indices, aquariumList[index].fish_array)), id: \.0){ innerIndex, fish in
+//                                                print(fish_padding["aquarium_0_fish_0)"] ?? 0)
+//                                                guard let currentPadding = fish_padding["aquarium_\(index)_fish_\(innerIndex)" ?? ""] else {}
                                                 
                                                 VStack{
-                                                    Image("fish_\(fish.english_name)")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 65, height: 65)
-                                                        .padding(.top, randomTopPadding)
-                                                        .padding(.leading, randomLeadingPadding)
+//                                                    Text("Inner Index: \(innerIndex)").background(.blue)
+                                                    if let fish_padding = fish_padding["aquarium_\(index)_fish_\(innerIndex)"]{
+                                                        Image("fish_\(fish.english_name)")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 65, height: 65)
+                                                            .padding(.top, CGFloat(fish_padding[0]))
+                                                            .padding(.leading, CGFloat(fish_padding[1]))
+//                                                        Text("\(fish_padding[0])")
+                                                    }
+                                                    
+                                                    
+//                                                        .padding(.leading, randomLeadingPadding)
                                                 }
 //                                                .background(.red)
 //                                                .padding(.top, String(50))
@@ -147,6 +157,13 @@ struct AquariumGameView: View {
                                     //                            let addedFish = Fish(latin_name: "tes", english_name: "\(items.first ?? "")", colony: ["tes"], environment: ["tes"], temperament: ["Tes"], diet: "Omnivore", compatibility: ["tes"], incompatibility: ["tes"])
                                     //                            aquariums[index].fish_array.append(addedFish)
                                     aquariumList[index].fish_array.append(fishQuery)
+                                    
+                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -70, maxValue: 60), randomLocation(minValue: -100, maxValue: 150)]
+                                    //                                    print("MASUK\(index)")
+                                    print("Kondisii loop",aquariumList[index].fish_array.enumerated())
+                                    print("tes, ", "aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)")
+                                    print(fish_padding)
+//                                    print(fish_padding)
                                     return true
                                 }
                             }
