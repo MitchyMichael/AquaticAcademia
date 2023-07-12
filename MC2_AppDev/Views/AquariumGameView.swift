@@ -287,18 +287,23 @@ struct AquariumGameView: View {
                         HStack {
                             VStack {
                                 Spacer()
-                                ZStack {
-                                    Image("aquarium_add")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 100)
-                                    Image("fish_Neon Tetra")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 60, height: 60)
+                                ScrollView{
+                                    ZStack {
+                                        Image("aquarium_add")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 80, height: 80)
+                                        Image("fish_Neon Tetra")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50)
+                                    }
+                                    .draggable("Neon Tetra")
                                 }
-                                .draggable("Neon Tetra")
-                            }.padding(.leading, 24)
+                                .padding(.top, 690)
+                                
+                            }
+                            .padding(.leading, 40)
                             
                             Spacer()
                             VStack{
@@ -380,19 +385,19 @@ struct AquariumGameView: View {
                     
                 }
                 
-                VStack {
-                    Spacer()
-                    
-                    //                    // == Button Good Ending / Bad Ending
-                    //                    Button {
-                    //                        isGoodEnding = true
-                    //                    } label: {
-                    //                        Text("Good Ending")
-                    //                    }
-                    
-                    
-                    
-                }
+//                VStack {
+//                    Spacer()
+//                    
+//                                        // == Button Good Ending / Bad Ending
+//                                        Button {
+//                                            isGoodEnding = true
+//                                        } label: {
+//                                            Text("Good Ending")
+//                                        }
+//                    
+//                    
+//                    
+//                }
                 
                 // Pop up objectives
                 if showObjectives == true {
