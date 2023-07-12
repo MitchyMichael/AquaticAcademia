@@ -31,15 +31,6 @@ struct TutorialDragnDrop: View {
                                 Spacer()
                             }
                             
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                         }
                         .padding()
                         .dropDestination(for: String.self) { items, location in

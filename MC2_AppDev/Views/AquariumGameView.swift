@@ -15,7 +15,7 @@ struct AquariumGameView: View {
     @State var levelId: Int
     @State var hintCount: Int
     
-    @State private var showObjectives = false
+    @State private var showObjectives = true
     @State var isEdit = false
     @State var isAquariumClicked = false
     @State var isGoodEnding = false
@@ -42,10 +42,22 @@ struct AquariumGameView: View {
                     
                     // Character
                     HStack{
-                        Image("ingame_char_confused")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100)
+                        if heartCount == 3 {
+                            Image("ingame_char_happy")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100)
+                        } else if heartCount == 2 {
+                            Image("ingame_char_confused")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100)
+                        } else if heartCount == 1 {
+                            Image("ingame_char_sad")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100)
+                        }
                         Spacer()
                     }
                     .padding(.leading, 70)
@@ -78,7 +90,7 @@ struct AquariumGameView: View {
                     }
                     
                     // Navigation
-                    if !isEdit {
+                    if !isEdit && !isInputFish{
                         VStack {
                             HStack{
                                 // === Map Navigation Button
@@ -150,7 +162,7 @@ struct AquariumGameView: View {
                 }
                 
                 // Button Objectives
-                if !isEdit {
+                if !isEdit && !isInputFish{
                     HStack{
                         Spacer()
                         Button {
@@ -234,9 +246,9 @@ struct AquariumGameView: View {
                             Spacer()
                             VStack{
                                 Spacer()
-                                // Button agree
+                                // Button reset
                                 Button {
-                                    isInputFish = false
+                                    
                                 } label: {
                                     Image("btn_ingame_reset")
                                         .resizable()
@@ -412,8 +424,8 @@ struct AquariumGameView: View {
                         }
                     }
                 }
-                .padding(.top, 280)
-                .padding(.bottom, 340)
+                .padding(.top, 320)
+                .padding(.bottom, 380)
                 .padding(.horizontal, 80)
             }
             
