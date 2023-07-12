@@ -159,6 +159,17 @@ struct InLevel_StorylineView: View {
                                         
                                     }
                                 } else {
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     if naration4_count < naration4.count {
                                         Button{
                                             if naration4_count == naration4.count - 1 {
