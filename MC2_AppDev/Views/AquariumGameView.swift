@@ -9,13 +9,19 @@ import SwiftUI
 
 struct AquariumGameView: View {
     
-    //    @State var aquariums: [AquariumModel] = [AquariumModel(name: "Aquarium 1", fishes: ["🐟"])]
-    @State var aquariumList: [Aquarium] = [Aquarium(aquarium_id: 0, aquarium_size: "medium", fish_array: [], fish_amount: [])]
+    
+    
     
     let listFish = GameFishData().fish_list
     
     @State var levelId: Int
     @State var hintCount: Int
+    
+    // In Game Render
+    @State var featuredFish: [Fish] = []
+    @State var fishAmount: [Int] = []
+    @State var editAccess = false
+    @State var aquariumList: [Aquarium] = []
     
     @State private var showObjectives = true
     @State var isEdit = false
@@ -26,6 +32,31 @@ struct AquariumGameView: View {
     @State private var heartCount = 3
     
     @State var fish_padding = [String:[Int]]()
+    
+    
+    
+//
+//    init(levelId: Int, hintCount: Int, featuredFish: [Fish], fishAmount: [Int], editAccess: Bool = false, aquariumList: [Aquarium], showObjectives: Bool = true, isEdit: Bool = false, isAquariumClicked: Bool = false, isGoodEnding: Bool = false, isInputFish: Bool = false, heartCount: Int = 3, fish_padding: [String : [Int]] = [String:[Int]]()) {
+//        self.levelId = levelId
+//        self.hintCount = hintCount
+//        self.featuredFish = featuredFish
+//        self.fishAmount = fishAmount
+//        self.editAccess = editAccess
+//        self.aquariumList = aquariumList
+//        self.showObjectives = showObjectives
+//        self.isEdit = isEdit
+//        self.isAquariumClicked = isAquariumClicked
+//        self.isGoodEnding = isGoodEnding
+//        self.isInputFish = isInputFish
+//        self.heartCount = heartCount
+//        self.fish_padding = fish_padding
+//
+//        RenderLevel()
+////        print(featuredFish)
+////                        print(fishAmount)
+////                        print(editAccess)
+////                        print(aquariumList)
+//    }
     
     var body: some View {
         NavigationStack{
@@ -208,7 +239,8 @@ struct AquariumGameView: View {
                     HStack{
                         Spacer()
                         Button {
-                            showObjectives = true
+//                            showObjectives = true
+                            RenderLevel()
                         } label: {
                             Image("btn_hints")
                                 .resizable()
@@ -288,17 +320,23 @@ struct AquariumGameView: View {
                             VStack {
                                 Spacer()
                                 ScrollView{
-                                    ZStack {
-                                        Image("aquarium_add")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 80, height: 80)
-                                        Image("fish_Neon Tetra")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 50, height: 50)
+                                    
+                                    VStack {
+                                        ForEach(featuredFish, id: \.english_name){ fish in
+                                            
+                                            ZStack {
+                                                Image("aquarium_add")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 80, height: 80)
+                                                Image("fish_\(fish.english_name)")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 50, height: 50)
+                                            }
+                                            .draggable("\(fish.english_name)")
+                                        }
                                     }
-                                    .draggable("Neon Tetra")
                                 }
                                 .padding(.top, 690)
                                 
@@ -413,6 +451,8 @@ struct AquariumGameView: View {
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
             
+        }.onAppear(){
+            RenderLevel()
         }
         
     }
@@ -544,10 +584,20 @@ struct AquariumGameView: View {
         
     }
     
+    func RenderLevel() {
+        (featuredFish, fishAmount, editAccess, aquariumList) = LevelRender().level1()
+        print("MASUK")
+        print(featuredFish)
+        print(fishAmount)
+        print(editAccess)
+        print(aquariumList)
+    }
+    
 }
 
 struct AquariumGame2_View_Previews: PreviewProvider {
     static var previews: some View {
+//        AquariumGameView(levelId: 1, hintCount: 3, featuredFish: [Fish(latin_name: "tes", english_name: "Neon Tetra", colony: [], environment: [], temperament: [], diet: "Omnivore", compatibility: [], incompatibility: [])], fishAmount: [1], aquariumList: [Aquarium(aquarium_id: 0, aquarium_size: "medium", fish_array: [], fish_amount: [])], fish_padding: ["aquarium_0_fish_0": [50, 50]])
         AquariumGameView(levelId: 0, hintCount: 0)
     }
 }

@@ -185,7 +185,7 @@ struct InLevel_StorylineView: View {
                                                         .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                         .foregroundColor(.black)
                                                         .padding(.horizontal, 50)
-                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount
+                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount, featuredFish: [], fishAmount: [], aquariumList: []
                                                     ), label: {
                                                         Text("Alright! I got it!")
                                                             .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))

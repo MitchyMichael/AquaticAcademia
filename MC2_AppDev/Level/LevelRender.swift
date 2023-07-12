@@ -15,11 +15,16 @@ class LevelRender {
     var editAccess = false
     var featuredFish:[Fish] = []
     var fishAmount:[Int] = []
-    var aquariumList = [AquariumModel]()
+    var aquariumList = [Aquarium]()
     
     // hardcoded value per stage
     // === LEVEL 1 ===
-    func level1() -> (featuredFish: [Fish], fishAmount: [Int], editAccess: Bool, aquriumList: [AquariumModel]) {
+    func level1() -> ([Fish], [Int], Bool, [Aquarium]) {
+//
+//        var featuredFish: [Fish]
+//        var fishAmount: [Int]
+//        var editAccess = false
+//        var aquariumList: [Aquarium]
         
         // If needed
         // editAccess = true
@@ -40,7 +45,7 @@ class LevelRender {
         
         // Used to render the aquarium on stage (put the fishes in a specific aquarium)
 //        aquariumList.append(Aquarium(aquarium_id: 0, aquarium_size: "small", fish_array: [], fish_amount: []))
-//        aquariumList.append(Aquarium(aquarium_id: 1, aquarium_size: "medium", fish_array: [], fish_amount: []))
+        aquariumList.append(Aquarium(aquarium_id: 0, aquarium_size: "large", fish_array: [], fish_amount: []))
         
         // featureFfish adalah ikan yang nanti bisa didrag and drop
         // fishAmount adalah jumlah masing masing ikan
