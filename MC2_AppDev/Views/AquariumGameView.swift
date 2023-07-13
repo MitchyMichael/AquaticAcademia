@@ -138,19 +138,19 @@ struct AquariumGameView: View {
                                             Image("aquarium_\(item.aquarium_size)")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .padding(.horizontal, 90)
+                                                .padding(.horizontal, 95)
 //                                                .background(.tertiary)
                                         } else if (item.aquarium_size == "medium") {
                                             Image("aquarium_\(item.aquarium_size)")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .padding(.horizontal, 70)
+                                                .padding(.horizontal, 75)
 //                                                .background(.tertiary)
                                         } else if (item.aquarium_size == "large") {
                                             Image("aquarium_\(item.aquarium_size)")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .padding(.horizontal, 40)
+                                                .padding(.horizontal, 55)
 //                                                .background(.tertiary)
                                         }
                                         ZStack{
@@ -181,12 +181,16 @@ struct AquariumGameView: View {
                                     aquariumList[index].fish_array.append(fishQuery)
                                     
 //                                    if(aquariumList[index].aquarium_size == "large"){
-//                                        //                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -120, maxValue: 175)]
+//                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -120, maxValue: 175)]
+//                                    } else if (aquariumList[index].aquarium_size == "medium"){
+                                    //                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -75, maxValue: 85)]
+//                                    } else if (aquariumList[index].aquarium_size == "large"){
+//                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -75, maxValue: 85)]
 //                                    }
-                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [60, 145]
+                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [60, -95]
                                     
                                     // ORIGINAL
-                                  
+                                    
                                     return true
                                 }
                             }
