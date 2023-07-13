@@ -23,11 +23,11 @@ struct AquariumGameView: View {
     
     @State var editAccess = false
     @State private var showObjectives = true
-//    @State var isEdit = false
+    //    @State var isEdit = false
     @State var isAquariumClicked = false
     @State var isInputFish = false
     @State var isWinGame = false
-   
+    
     @State private var heartCount = 3
     
     @State var isActiveIndex: Int = -1
@@ -97,7 +97,7 @@ struct AquariumGameView: View {
                                 }
                                 
                                 
-                               
+                                
                                 
                             }
                             Spacer()
@@ -136,14 +136,14 @@ struct AquariumGameView: View {
                                         Image("aquarium_foundation")
                                             .resizable()
                                             .scaledToFit()
-
+                                        
                                         if isActiveIndex == index {
                                             Image("aquarium_foundation")
                                                 .resizable()
                                                 .scaledToFit()
                                                 .brightness(0.25)
                                         }
-
+                                        
                                         if editAccess{
                                             if (item.aquarium_size == "small") {
                                                 VStack {
@@ -154,7 +154,6 @@ struct AquariumGameView: View {
                                                         }else {
                                                             isActiveIndex = index
                                                         }
-                                                        print(isActiveIndex)
                                                     } label: {
                                                         Image("aquarium_\(item.aquarium_size)")
                                                             .resizable()
@@ -287,7 +286,7 @@ struct AquariumGameView: View {
                                     
                                     guard let fishQuery = listFish[items.first ?? ""] else {return false}
                                     aquariumList[index].fish_array.append(fishQuery)
-//
+                                    //
                                     if(aquariumList[index].aquarium_size == "large"){
                                         fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -75, maxValue: 50), randomLocation(minValue: -105, maxValue: 150)]
                                     } else if (aquariumList[index].aquarium_size == "medium"){
@@ -382,7 +381,6 @@ struct AquariumGameView: View {
                                     
                                     // check if there's empty aqarium
                                     if current_aquarium_fishes[index].count == 0 {
-                                        print("WOE GABOLEH")
                                         if heartCount > 0 {
                                             heartCount = heartCount - 1
                                         } else {
@@ -421,7 +419,7 @@ struct AquariumGameView: View {
                                     .resizable()
                                     .scaledToFit()
                             }
-                          
+                            
                         }
                         .padding(.top, 500)
                         .padding(.trailing)
@@ -461,19 +459,19 @@ struct AquariumGameView: View {
                                 
                                 
                                 Spacer()
-//                                VStack{
-//                                    // Button x
-//                                    Button {
-//                                        editAccess = false
-//                                        isActiveIndex = -1
-//                                    } label: {
-//                                        Image("btn_ingame_x")
-//                                            .resizable()
-//                                            .scaledToFit()
-//                                    }
-//                                }
-//                                .frame(width: 80)
-//
+                                //                                VStack{
+                                //                                    // Button x
+                                //                                    Button {
+                                //                                        editAccess = false
+                                //                                        isActiveIndex = -1
+                                //                                    } label: {
+                                //                                        Image("btn_ingame_x")
+                                //                                            .resizable()
+                                //                                            .scaledToFit()
+                                //                                    }
+                                //                                }
+                                //                                .frame(width: 80)
+                                //
                                 VStack{
                                     // Button agree
                                     Button {
