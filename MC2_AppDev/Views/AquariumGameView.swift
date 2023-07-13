@@ -9,9 +9,6 @@ import SwiftUI
 
 struct AquariumGameView: View {
     
-    
-    
-    
     let listFish = GameFishData().fish_list
     
     @State var levelId: Int
@@ -68,12 +65,13 @@ struct AquariumGameView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100)
-                        } else if heartCount == 1 {
+                        } else if heartCount < 2 {
                             Image("ingame_char_sad")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100)
                         }
+                        
                         Spacer()
                     }
                     .padding(.leading, 70)
@@ -93,11 +91,15 @@ struct AquariumGameView: View {
                         }
                         
                         HStack{
-                            ForEach(0..<heartCount) { index in
-                                Image("ingame_heart")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 28)
+                            // Heart Count
+                            ForEach(0..<heartCount, id:\.self) { index in
+                                if heartCount >= 0 {
+                                    Image("ingame_heart")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 28)
+                                }
+                                
                             }
                             Spacer()
                         }
@@ -105,7 +107,7 @@ struct AquariumGameView: View {
                         .padding(.bottom, 450)
                     }
                     
-                    // Navigation
+                    // Navigation Back Button
                     if !isEdit && !isInputFish{
                         VStack {
                             HStack{
@@ -140,10 +142,9 @@ struct AquariumGameView: View {
                                             .scaledToFit()
                                             .padding(.horizontal, 50)
                                         ZStack{
-//                                            ForEach(Array(aquariumList[index].fish_array.enumerated()), id: \.element.english_name) { (innerIndex, fish) in
-                                                ForEach(Array(zip(aquariumList[index].fish_array.indices, aquariumList[index].fish_array)), id: \.0){ innerIndex, fish in
-//                                                print(fish_padding["aquarium_0_fish_0)"] ?? 0)
-//                                                guard let currentPadding = fish_padding["aquarium_\(index)_fish_\(innerIndex)" ?? ""] else {}
+                                            
+                                            ForEach(Array(zip(aquariumList[index].fish_array.indices, aquariumList[index].fish_array)), id: \.0){ innerIndex, fish in
+                                              
                                                 
                                                 VStack{
                                                     if let fish_padding = fish_padding["aquarium_\(index)_fish_\(innerIndex)"]{
@@ -153,16 +154,8 @@ struct AquariumGameView: View {
                                                             .frame(width: 65, height: 65)
                                                             .padding(.top, CGFloat(fish_padding[0]))
                                                             .padding(.leading, CGFloat(fish_padding[1]))
-//                                                        Text("\(fish_padding[0])")
                                                     }
-                                                    
-                                                    
-//                                                        .padding(.leading, randomLeadingPadding)
                                                 }
-//                                                .background(.red)
-//                                                .padding(.top, String(50))
-//                                                .padding(.leading, 50)
-                                                
                                             }
                                         }
                                         .frame(maxWidth: .infinity)
@@ -171,20 +164,11 @@ struct AquariumGameView: View {
                                 .padding(.top)
                                 .padding(.horizontal)
                                 .dropDestination(for: String.self) { items, location in
-                                    //                            aquariums[index].fishes.append(contentsOf: items)
-                                    
                                     guard let fishQuery = listFish[items.first ?? ""] else {return false}
-                                    //
-                                    //                            let addedFish = Fish(latin_name: "tes", english_name: "\(items.first ?? "")", colony: ["tes"], environment: ["tes"], temperament: ["Tes"], diet: "Omnivore", compatibility: ["tes"], incompatibility: ["tes"])
-                                    //                            aquariums[index].fish_array.append(addedFish)
                                     aquariumList[index].fish_array.append(fishQuery)
                                     
                                     fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -70, maxValue: 60), randomLocation(minValue: -100, maxValue: 150)]
-                                    //                                    print("MASUK\(index)")
-//                                    print("Kondisii loop",aquariumList[index].fish_array.enumerated())
-//                                    print("tes, ", "aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)")
-//                                    print(fish_padding)
-//                                    print(fish_padding)
+                                  
                                     return true
                                 }
                             }
@@ -204,7 +188,6 @@ struct AquariumGameView: View {
                             }
                             
                         }
-                        //                                                .background(.blue)
                         .padding(.top, 270)
                         .padding(.bottom, 170)
                         
@@ -216,112 +199,104 @@ struct AquariumGameView: View {
                 if !isEdit && !isInputFish{
                     HStack{
                         Spacer()
-                        Button {
+                        VStack {
+                            // Button for objectives
+                            Button {
+                                showObjectives = true
+                            } label: {
+                                Image("btn_hints")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
                             
-                            // CURRENT AQUARIUM
-                            var current_aquarium_fishes = [[String]]()
-                            var index = 0
-                            
-                            for aquarium in aquariumList{
+                            // Button for checking
+                            Button {
                                 
-                                var fishes_temp = [String]()
+                                // CURRENT AQUARIUM
+                                var current_aquarium_fishes = [[String]]()
+                                var index = 0
                                 
-                                for current_fishes in aquarium.fish_array {
-                                    fishes_temp.append(current_fishes.english_name)
+                                for aquarium in aquariumList{
+                                    var fishes_temp = [String]()
+                                    
+                                    for current_fishes in aquarium.fish_array {
+                                        fishes_temp.append(current_fishes.english_name)
+                                    }
+                                    
+                                    current_aquarium_fishes.append(fishes_temp)
+                                    index += 1
                                 }
                                 
-                                current_aquarium_fishes.append(fishes_temp)
-                                index+=1
-
-                            }
-                            print("current : ", current_aquarium_fishes)
-                            
-                            // SOLUTION
-                            aquariumListSolution = LevelSolution().level1_solution()
-                            
-                            
-                            var current_aquarium_fishes_solution = [[String]]()
-                            
-                            index = 0
-                            
-                            for aquarium in aquariumListSolution{
+                                print("current : ", current_aquarium_fishes)
                                 
-                                var fishes_temp = [String]()
+                                // SOLUTION
+                                aquariumListSolution = LevelSolution().level1_solution()
+                                var current_aquarium_fishes_solution = [[String]]()
+                                index = 0
                                 
-                                for current_fishes in aquarium.fish_array {
-                                    fishes_temp.append(current_fishes.english_name)
+                                for aquarium in aquariumListSolution{
+                                    var fishes_temp = [String]()
+                                    
+                                    for current_fishes in aquarium.fish_array {
+                                        fishes_temp.append(current_fishes.english_name)
+                                    }
+                                    
+                                    current_aquarium_fishes_solution.append(fishes_temp)
+                                    index += 1
+                                }
+                                print("solution : ", current_aquarium_fishes_solution)
+                                
+                                
+                                // SORT
+                                // CURRENT
+                                
+                                // Sort each array inside multidimensional array
+                                for index in 0...current_aquarium_fishes.count-1 {
+                                    
+                                    // check if there's empty aqarium
+                                    if current_aquarium_fishes[index].count == 0 {
+                                        print("WOE GABOLEH")
+                                        if heartCount > 0 {
+                                            heartCount = heartCount - 1
+                                        } else {
+                                            heartCount = 0
+                                        }
+                                        
+                                        return
+                                    }
+                                    current_aquarium_fishes[index].sort()
                                 }
                                 
-                                current_aquarium_fishes_solution.append(fishes_temp)
-                                index+=1
-
-                            }
-                            print("solution : ", current_aquarium_fishes_solution)
-
-                            
-                            // SORT
-                            // CURRENT
-                            
-                            // Sort each array inside multidimensional array
-                            for index in 0...current_aquarium_fishes.count-1 {
-                                
-                                // check if there's empty aqarium
-                                if current_aquarium_fishes[index].count == 0 {
-                                    print("WOE GABOLEH")
-                                    return
+                                current_aquarium_fishes.sort{
+                                    $0[0] < $1[0]
                                 }
-                                current_aquarium_fishes[index].sort()
-                            }
-                            
-                            current_aquarium_fishes.sort{
-                                $0[0] < $1[0]
-                            }
-                            
-                            // SOLUTION
-                            for index in 0...current_aquarium_fishes_solution.count-1 {
-                                current_aquarium_fishes_solution[index].sort()
-                            }
-                            
-                            current_aquarium_fishes_solution.sort{
                                 
-                                $0[0] < $1[0]
+                                // SOLUTION
+                                for index in 0...current_aquarium_fishes_solution.count-1 {
+                                    current_aquarium_fishes_solution[index].sort()
+                                }
+                                
+                                current_aquarium_fishes_solution.sort{
+                                    
+                                    $0[0] < $1[0]
+                                }
+                                
+                                if current_aquarium_fishes == current_aquarium_fishes_solution{
+                                    isWinGame = true
+                                } else {
+                                    heartCount = heartCount - 1
+                                }
+                                
+                            } label: {
+                                Image("btn_check")
+                                    .resizable()
+                                    .scaledToFit()
                             }
-                            
-                            if current_aquarium_fishes == current_aquarium_fishes_solution{
-                                isWinGame = true
-                            } else {
-                                heartCount -= 1
-                            }
-                            
-                            //                            print(" ")
-                            //                            print("AFTER SORTING")
-                            //                            print("current : ", current_aquarium_fishes)
-                            //                            print("solution : ", current_aquarium_fishes_solution)
-                            
-                            //                            RenderLevel()
-                        } label: {
-                            Image("btn_hints")
-                                .resizable()
-                                .scaledToFit()
+                          
                         }
-                        .padding(.top, 600)
+                        .padding(.top, 500)
                         .padding(.trailing)
-                        //                        .padding(.leading, 300)
-                        
-                        NavigationLink(destination: GameResultView(), isActive: $isWinGame) {
-                            EmptyView()
-                        }
-                        
-                        Button {
-                            showObjectives = true
-                        } label: {
-                            Image("btn_hints")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                        .padding(.top, 600)
-                        .padding(.trailing)
-//                        .padding(.leading, 300)
+                        .padding(.leading, 300)
                     }
                 }
                 
@@ -393,10 +368,8 @@ struct AquariumGameView: View {
                             VStack {
                                 Spacer()
                                 ScrollView{
-                                    
                                     VStack {
                                         ForEach(featuredFish, id: \.english_name){ fish in
-                                            
                                             ZStack {
                                                 Image("aquarium_add")
                                                     .resizable()
@@ -496,20 +469,6 @@ struct AquariumGameView: View {
                     
                 }
                 
-//                VStack {
-//                    Spacer()
-//                    
-//                                        // == Button Good Ending / Bad Ending
-//                                        Button {
-//                                            isGoodEnding = true
-//                                        } label: {
-//                                            Text("Good Ending")
-//                                        }
-//                    
-//                    
-//                    
-//                }
-                
                 // Pop up objectives
                 if showObjectives == true {
                     popUpObjectives()
@@ -520,11 +479,16 @@ struct AquariumGameView: View {
                     popUpGoodEnding()
                 }
                 
+                // Pop up ending
+                if isWinGame == true {
+                    popUpGoodEnding()
+                }
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
             
-        }.onAppear(){
+        }
+        .onAppear(){
             RenderLevel()
         }
         
@@ -659,18 +623,13 @@ struct AquariumGameView: View {
     
     func RenderLevel() {
         (featuredFish, fishAmount, editAccess, aquariumList) = LevelRender().level1()
-//        print("MASUK")
-//        print(featuredFish)
-//        print(fishAmount)
-//        print(editAccess)
-//        print(aquariumList)
+        
     }
     
 }
 
 struct AquariumGame2_View_Previews: PreviewProvider {
     static var previews: some View {
-//        AquariumGameView(levelId: 1, hintCount: 3, featuredFish: [Fish(latin_name: "tes", english_name: "Neon Tetra", colony: [], environment: [], temperament: [], diet: "Omnivore", compatibility: [], incompatibility: [])], fishAmount: [1], aquariumList: [Aquarium(aquarium_id: 0, aquarium_size: "medium", fish_array: [], fish_amount: [])], fish_padding: ["aquarium_0_fish_0": [50, 50]])
         AquariumGameView(levelId: 0, hintCount: 0)
     }
 }
