@@ -23,7 +23,7 @@ struct AquariumGameView: View {
     
     @State var editAccess = false
     @State private var showObjectives = true
-    @State var isEdit = false
+//    @State var isEdit = false
     @State var isAquariumClicked = false
     @State var isInputFish = false
     @State var isWinGame = false
@@ -105,7 +105,7 @@ struct AquariumGameView: View {
                     }
                     
                     // Navigation Back Button
-                    if !isEdit && !isInputFish && !isWinGame && heartCount > 0 && !showObjectives {
+                    if !editAccess && !isInputFish && !isWinGame && heartCount > 0 && !showObjectives {
                         VStack {
                             HStack{
                                 // === Map Navigation Button
@@ -138,25 +138,63 @@ struct AquariumGameView: View {
                                             Image("aquarium_\(item.aquarium_size)")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .padding(.horizontal, 90)
+                                                .padding(.horizontal, 95)
 //                                                .background(.tertiary)
                                         } else if (item.aquarium_size == "medium") {
                                             Image("aquarium_\(item.aquarium_size)")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .padding(.horizontal, 70)
+                                                .padding(.horizontal, 75)
 //                                                .background(.tertiary)
                                         } else if (item.aquarium_size == "large") {
                                             Image("aquarium_\(item.aquarium_size)")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .padding(.horizontal, 40)
+                                                .padding(.horizontal, 55)
 //                                                .background(.tertiary)
                                         }
+                                        
+                                        if editAccess {
+                                            HStack{
+                                                Button{
+                                                    if (item.aquarium_size == "small") {
+                                                        aquariumList[index].aquarium_size = "large"
+                                                    } else if (item.aquarium_size == "medium") {
+                                                        aquariumList[index].aquarium_size = "small"
+                                                    } else if (item.aquarium_size == "large") {
+                                                        aquariumList[index].aquarium_size = "medium"
+                                                    }
+                                                } label: {
+                                                    Image("btn_left")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 20)
+                                                }
+                                                
+                                                Spacer()
+                                                
+                                                Button {
+                                                    if (item.aquarium_size == "small") {
+                                                        aquariumList[index].aquarium_size = "medium"
+                                                    } else if (item.aquarium_size == "medium") {
+                                                        aquariumList[index].aquarium_size = "large"
+                                                    } else if (item.aquarium_size == "large") {
+                                                        aquariumList[index].aquarium_size = "small"
+                                                    }
+                                                } label: {
+                                                    Image("btn_right")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 20)
+                                                }
+                                                
+                                            }
+                                            .padding(.horizontal, 10)
+                                        }
+                                        
                                         ZStack{
                                             
                                             ForEach(Array(zip(aquariumList[index].fish_array.indices, aquariumList[index].fish_array)), id: \.0){ innerIndex, fish in
-                                                
                                                 
                                                 VStack{
                                                     if let fish_padding = fish_padding["aquarium_\(index)_fish_\(innerIndex)"]{
@@ -177,6 +215,7 @@ struct AquariumGameView: View {
                                 .padding(.top)
                                 .padding(.horizontal)
                                 .dropDestination(for: String.self) { items, location in
+                                    
                                     guard let fishQuery = listFish[items.first ?? ""] else {return false}
                                     aquariumList[index].fish_array.append(fishQuery)
                                     
@@ -192,7 +231,7 @@ struct AquariumGameView: View {
                             }
                             
                             // If in edit -> Aquariums
-                            if isEdit {
+                            if editAccess {
                                 Button {
                                     aquariumList.append(
                                         Aquarium(aquarium_id: aquariumList.count, aquarium_size: "Large", fish_array: [])
@@ -214,7 +253,7 @@ struct AquariumGameView: View {
                 }
                 
                 // Button Objectives
-                if !isEdit && !isInputFish && !isWinGame && heartCount > 0 && !showObjectives {
+                if !editAccess && !isInputFish && !isWinGame && heartCount > 0 && !showObjectives {
                     HStack{
                         Spacer()
                         VStack {
@@ -321,7 +360,7 @@ struct AquariumGameView: View {
                 }
                 
                 // If in edit -> Action Button
-                if isEdit {
+                if editAccess {
                     ZStack {
                         VStack{
                             Spacer()
@@ -348,7 +387,7 @@ struct AquariumGameView: View {
                                 VStack{
                                     // Button x
                                     Button {
-                                        isEdit = false
+                                        editAccess = false
                                     } label: {
                                         Image("btn_ingame_x")
                                             .resizable()
@@ -360,7 +399,7 @@ struct AquariumGameView: View {
                                 VStack{
                                     // Button agree
                                     Button {
-                                        isEdit = false
+                                        editAccess = false
                                     } label: {
                                         Image("btn_ingame_agree")
                                             .resizable()
@@ -459,7 +498,7 @@ struct AquariumGameView: View {
                                     VStack{
                                         // Button build
                                         Button {
-                                            isEdit = true
+                                            editAccess = true
                                         } label: {
                                             Image("btn_build")
                                                 .resizable()
