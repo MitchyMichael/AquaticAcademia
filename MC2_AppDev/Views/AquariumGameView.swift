@@ -134,14 +134,29 @@ struct AquariumGameView: View {
                                         Image("aquarium_foundation")
                                             .resizable()
                                             .scaledToFit()
-                                        Image("aquarium_\(item.aquarium_size)")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(.horizontal, 50)
+                                        if (item.aquarium_size == "small") {
+                                            Image("aquarium_\(item.aquarium_size)")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(.horizontal, 90)
+//                                                .background(.tertiary)
+                                        } else if (item.aquarium_size == "medium") {
+                                            Image("aquarium_\(item.aquarium_size)")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(.horizontal, 70)
+//                                                .background(.tertiary)
+                                        } else if (item.aquarium_size == "large") {
+                                            Image("aquarium_\(item.aquarium_size)")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(.horizontal, 40)
+//                                                .background(.tertiary)
+                                        }
                                         ZStack{
                                             
                                             ForEach(Array(zip(aquariumList[index].fish_array.indices, aquariumList[index].fish_array)), id: \.0){ innerIndex, fish in
-                                              
+                                                
                                                 
                                                 VStack{
                                                     if let fish_padding = fish_padding["aquarium_\(index)_fish_\(innerIndex)"]{
@@ -149,6 +164,7 @@ struct AquariumGameView: View {
                                                             .resizable()
                                                             .scaledToFit()
                                                             .frame(width: 65, height: 65)
+                                                            .background(.tertiary)
                                                             .padding(.top, CGFloat(fish_padding[0]))
                                                             .padding(.leading, CGFloat(fish_padding[1]))
                                                     }
@@ -164,7 +180,12 @@ struct AquariumGameView: View {
                                     guard let fishQuery = listFish[items.first ?? ""] else {return false}
                                     aquariumList[index].fish_array.append(fishQuery)
                                     
-                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -70, maxValue: 60), randomLocation(minValue: -100, maxValue: 150)]
+//                                    if(aquariumList[index].aquarium_size == "large"){
+//                                        //                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -120, maxValue: 175)]
+//                                    }
+                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [60, 145]
+                                    
+                                    // ORIGINAL
                                   
                                     return true
                                 }
@@ -379,6 +400,7 @@ struct AquariumGameView: View {
                                                     .scaledToFit()
                                                     .frame(width: 50, height: 50)
                                             }
+                                            .padding(.trailing, 40)
                                             .draggable("\(fish.english_name)")
                                         }
                                     }
