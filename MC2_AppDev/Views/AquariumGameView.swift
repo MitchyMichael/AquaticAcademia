@@ -224,6 +224,8 @@ struct AquariumGameView: View {
                                         }
                                         
                                         if editAccess {
+                                            
+                                            // Button for change aquarium size
                                             HStack{
                                                 Button{
                                                     if (item.aquarium_size == "small") {
