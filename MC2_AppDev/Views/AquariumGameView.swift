@@ -164,7 +164,6 @@ struct AquariumGameView: View {
                                                             .resizable()
                                                             .scaledToFit()
                                                             .frame(width: 65, height: 65)
-                                                            .background(.tertiary)
                                                             .padding(.top, CGFloat(fish_padding[0]))
                                                             .padding(.leading, CGFloat(fish_padding[1]))
                                                     }
@@ -179,17 +178,14 @@ struct AquariumGameView: View {
                                 .dropDestination(for: String.self) { items, location in
                                     guard let fishQuery = listFish[items.first ?? ""] else {return false}
                                     aquariumList[index].fish_array.append(fishQuery)
-                                    
-//                                    if(aquariumList[index].aquarium_size == "large"){
-//                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -120, maxValue: 175)]
-//                                    } else if (aquariumList[index].aquarium_size == "medium"){
-                                    //                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -75, maxValue: 85)]
-//                                    } else if (aquariumList[index].aquarium_size == "large"){
-//                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -80, maxValue: 60), randomLocation(minValue: -75, maxValue: 85)]
-//                                    }
-                                    fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [60, -95]
-                                    
-                                    // ORIGINAL
+//
+                                    if(aquariumList[index].aquarium_size == "large"){
+                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -75, maxValue: 50), randomLocation(minValue: -105, maxValue: 150)]
+                                    } else if (aquariumList[index].aquarium_size == "medium"){
+                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -75, maxValue: 55), randomLocation(minValue: -85, maxValue: 112)]
+                                    } else if (aquariumList[index].aquarium_size == "small"){
+                                        fish_padding["aquarium_\(index)_fish_\(aquariumList[index].fish_array.count-1)"] = [randomLocation(minValue: -75, maxValue: 60), randomLocation(minValue: -65, maxValue: 75)]
+                                    }
                                     
                                     return true
                                 }
@@ -199,7 +195,7 @@ struct AquariumGameView: View {
                             if isEdit {
                                 Button {
                                     aquariumList.append(
-                                        Aquarium(aquarium_id: aquariumList.count, aquarium_size: "Large", fish_array: [])
+                                        Aquarium(aquarium_id: aquariumList.count, aquarium_size: "large", fish_array: [])
                                     )
                                 } label: {
                                     Image("btn_add_aquarium")
