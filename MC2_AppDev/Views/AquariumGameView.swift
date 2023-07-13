@@ -17,24 +17,18 @@ struct AquariumGameView: View {
     // In Game Render
     @State var featuredFish: [Fish] = []
     @State var fishAmount: [Int] = []
-    @State var editAccess = false
     @State var aquariumList: [Aquarium] = []
-    
     @State var aquariumListSolution: [Aquarium] = []
+    @State var fish_padding = [String:[Int]]()
     
+    @State var editAccess = false
     @State private var showObjectives = true
     @State var isEdit = false
     @State var isAquariumClicked = false
-    @State var isGoodEnding = false
     @State var isInputFish = false
-    
     @State var isWinGame = false
-    @State var isLoseGame = false
-    
+   
     @State private var heartCount = 3
-    
-    @State var fish_padding = [String:[Int]]()
-    
     
     var body: some View {
         NavigationStack{
@@ -100,6 +94,9 @@ struct AquariumGameView: View {
                                         .frame(width: 28)
                                 }
                                 
+                                
+                               
+                                
                             }
                             Spacer()
                         }
@@ -108,7 +105,7 @@ struct AquariumGameView: View {
                     }
                     
                     // Navigation Back Button
-                    if !isEdit && !isInputFish{
+                    if !isEdit && !isInputFish && !isWinGame && heartCount > 0 && !showObjectives {
                         VStack {
                             HStack{
                                 // === Map Navigation Button
@@ -217,7 +214,7 @@ struct AquariumGameView: View {
                 }
                 
                 // Button Objectives
-                if !isEdit && !isInputFish{
+                if !isEdit && !isInputFish && !isWinGame && heartCount > 0 && !showObjectives {
                     HStack{
                         Spacer()
                         VStack {
@@ -307,6 +304,8 @@ struct AquariumGameView: View {
                                 } else {
                                     heartCount = heartCount - 1
                                 }
+                                
+                                
                                 
                             } label: {
                                 Image("btn_check")
@@ -455,37 +454,40 @@ struct AquariumGameView: View {
                         
                         VStack {
                             Spacer()
-                            HStack{
-                                VStack{
-                                    // Button build
-                                    Button {
-                                        isEdit = true
-                                    } label: {
-                                        Image("btn_build")
-                                            .resizable()
-                                            .scaledToFit()
+                            if !isWinGame && heartCount > 0 && !showObjectives {
+                                HStack{
+                                    VStack{
+                                        // Button build
+                                        Button {
+                                            isEdit = true
+                                        } label: {
+                                            Image("btn_build")
+                                                .resizable()
+                                                .scaledToFit()
+                                        }
                                     }
-                                }
-                                .padding(.horizontal, 30)
-                                .padding(.trailing)
-                                
-                                VStack{
-                                    // Button add fish
-                                    Button {
-                                        isInputFish = true
-                                    } label: {
-                                        Image("btn_fish")
-                                            .resizable()
-                                            .scaledToFit()
+                                    .padding(.horizontal, 30)
+                                    .padding(.trailing)
+                                    
+                                    VStack{
+                                        // Button add fish
+                                        Button {
+                                            isInputFish = true
+                                        } label: {
+                                            Image("btn_fish")
+                                                .resizable()
+                                                .scaledToFit()
+                                        }
                                     }
+                                    .padding(.horizontal, 30)
+                                    .padding(.leading)
+                                    
+                                    
                                 }
-                                .padding(.horizontal, 30)
-                                .padding(.leading)
-                                
-                                
+                                .padding()
+                                .padding(.bottom)
                             }
-                            .padding()
-                            .padding(.bottom)
+                            
                         }
                     }
                     
@@ -497,14 +499,15 @@ struct AquariumGameView: View {
                 }
                 
                 // Pop up good ending
-                if isGoodEnding == true {
-                    popUpGoodEnding()
-                }
-                
-                // Pop up ending
                 if isWinGame == true {
                     popUpGoodEnding()
                 }
+                
+                // Pop up bad ending
+                if heartCount <= 0 {
+                    popUpBadEnding()
+                }
+                
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
@@ -629,16 +632,61 @@ struct AquariumGameView: View {
                         .multilineTextAlignment(.center)
                 }
             }
-            .padding(.top, 480)
+            .padding(.top, 520)
             .padding(.horizontal, 80)
-            .padding(.bottom, 130)
+            .padding(.bottom, 170)
             
             VStack{
-                NavigationLink(destination: MapView(), label: {
-                    Text("Back to Map")
-                })
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: MapView(), label: {
+                        Text("Back to Map >>")
+                            .foregroundColor(.primary)
+                    })
+                }
             }
-            .padding(.top, 550)
+            .padding(.trailing, 70)
+            .padding(.top, 570)
+        }
+        
+    }
+    
+    func popUpBadEnding() -> some View {
+        ZStack{
+            Text("")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.black)
+                .opacity(0.5)
+            
+            VStack{
+                Image("badending_popup")
+                    .resizable()
+                    .scaledToFit()
+                    .ignoresSafeArea()
+                    .padding(.trailing)
+            }
+            
+            VStack{
+                ScrollView{
+                    Text("\(bad_ending_fish_incompatibility[0])")
+                        .multilineTextAlignment(.center)
+                }
+            }
+            .padding(.top, 530)
+            .padding(.horizontal, 70)
+            .padding(.bottom, 150)
+            
+            VStack{
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: MapView(), label: {
+                        Text("Back to Map >>")
+                            .foregroundColor(.primary)
+                    })
+                }
+            }
+            .padding(.trailing, 50)
+            .padding(.top, 620)
         }
         
     }
