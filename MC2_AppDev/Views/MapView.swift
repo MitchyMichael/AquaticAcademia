@@ -166,25 +166,25 @@ struct MapView: View {
                 }
                 .scrollIndicators(.hidden)
                 .ignoresSafeArea()
-                
-                VStack{
-                    HStack(alignment: .top){
-                        Spacer()
-                        VStack{
-                            NavigationLink(destination: CollectionView(), label: {
-                                Image("btn_collection")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80)
-                            })
-                        }
-                        .padding(.top, 80)
-                    }
-                    .font(.title2)
-                    .padding()
-                    Spacer()
-                }
-                .navigationBarBackButtonHidden(true)
+//
+//                VStack{
+//                    HStack(alignment: .top){
+//                        Spacer()
+//                        VStack{
+//                            NavigationLink(destination: CollectionView(), label: {
+//                                Image("btn_collection")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 80)
+//                            })
+//                        }
+//                        .padding(.top, 80)
+//                    }
+//                    .font(.title2)
+//                    .padding()
+//                    Spacer()
+//                }
+//                .navigationBarBackButtonHidden(true)
                 
                 if showLevelDescription == true {
                     popUpLevelDescription()
@@ -193,7 +193,7 @@ struct MapView: View {
                 
                 
             }
-            //            .background(.blue)
+            .navigationBarBackButtonHidden(true)
         }
         
     }
@@ -207,8 +207,6 @@ struct MapView: View {
             InLevel_DescriptionPopUpView(levelId: levelId, hintCount: hintCount)
             
             ScrollView{
-//                Text("\(level1_guiding_info[0])")
-//                    .font(.caption)
                 if levelId == 1 {
                     Text("\(level1_guiding_info[0])")
                         .font(.caption)

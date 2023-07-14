@@ -713,6 +713,7 @@ struct AquariumGameView: View {
     func popUpGoodEnding() -> some View {
         ZStack{
             Text("")
+                .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.black)
                 .opacity(0.5)
@@ -748,6 +749,7 @@ struct AquariumGameView: View {
             VStack{
                 ScrollView{
                     Text("\(good_ending[0])")
+                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                     //                        .font(.caption)
                         .multilineTextAlignment(.center)
                 }
@@ -761,6 +763,7 @@ struct AquariumGameView: View {
                     Spacer()
                     NavigationLink(destination: MapView(), label: {
                         Text("Back to Map >>")
+                            .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                             .foregroundColor(.primary)
                     })
                 }
@@ -789,6 +792,7 @@ struct AquariumGameView: View {
             VStack{
                 ScrollView{
                     Text("\(bad_ending_fish_incompatibility[0])")
+                        .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                         .multilineTextAlignment(.center)
                 }
             }
@@ -801,6 +805,7 @@ struct AquariumGameView: View {
                     Spacer()
                     NavigationLink(destination: MapView(), label: {
                         Text("Back to Map >>")
+                            .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                             .foregroundColor(.primary)
                     })
                 }
