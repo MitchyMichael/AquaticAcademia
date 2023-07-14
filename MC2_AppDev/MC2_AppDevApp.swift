@@ -28,6 +28,7 @@ struct MC2_AppDevApp: App {
                     
                     let sound = Bundle.main.path(forResource: "song", ofType: "mp3")
                     self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+                    self.audioPlayer.numberOfLoops = -1
                     self.audioPlayer.play()
                     
                 }

@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
+    
+    @State var audioPlayer: AVAudioPlayer!
+    @State var isNavigateNext = false
+    
     init(){
             UINavigationBar.setAnimationsEnabled(false)
         }
@@ -27,13 +32,18 @@ struct ContentView: View {
                         .padding(.horizontal, 40)
                         .padding(.bottom, 100)
                     
-                    NavigationLink(destination: MapView(), label: {
+                    NavigationLink(destination: MapView(), isActive: $isNavigateNext, label: {
                         Image("tombol_play")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 120)
+                            .onTapGesture {
+                                let sound = Bundle.main.path(forResource: "sfx_btn", ofType: "wav")
+                                self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+                                self.audioPlayer.play()
+                                isNavigateNext = true
+                            }
                     })
-                    
                 }
                 .padding(.bottom, 200)
                 

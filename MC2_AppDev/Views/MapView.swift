@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct MapView: View {
     
@@ -18,7 +19,9 @@ struct MapView: View {
     @State var isLevelClicked = false
     @State var showDecisionGameView = false
     @State var showLevelDescription = false
+    @State var isNavigateNext = false
     
+    @State var audioPlayer: AVAudioPlayer!
     
     var body: some View {
         NavigationStack{
@@ -36,12 +39,15 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 1
                                     hintCount = 3
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl1")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 110)
                                 }
+                                
                                 
                             }
                             .padding(.top, 230)
@@ -53,6 +59,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 2
                                     hintCount = 2
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl2")
                                         .resizable()
@@ -69,6 +77,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 3
                                     hintCount = 2
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl3")
                                         .resizable()
@@ -85,6 +95,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 4
                                     hintCount = 1
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl4")
                                         .resizable()
@@ -101,6 +113,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 5
                                     hintCount = 0
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl5")
                                         .resizable()
@@ -117,6 +131,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 6
                                     hintCount = 0
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl6")
                                         .resizable()
@@ -133,6 +149,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 7
                                     hintCount = 0
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl7")
                                         .resizable()
@@ -149,6 +167,8 @@ struct MapView: View {
                                     showLevelDescription = true
                                     levelId = 8
                                     hintCount = 0
+                                    
+                                    playSFX()
                                 } label: {
                                     Image("btn_lvl8")
                                         .resizable()
@@ -168,21 +188,21 @@ struct MapView: View {
                 .ignoresSafeArea()
                 
                 VStack{
-                    HStack(alignment: .top){
-                        Spacer()
-                        VStack{
-                            NavigationLink(destination: CollectionView(), label: {
-                                Image("btn_collection")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80)
-                            })
-                        }
-                        .padding(.top, 80)
-                    }
-                    .font(.title2)
-                    .padding()
-                    Spacer()
+//                    HStack(alignment: .top){
+//                        Spacer()
+//                        VStack{
+//                            NavigationLink(destination: CollectionView(), label: {
+//                                Image("btn_collection")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 80)
+//                            })
+//                        }
+//                        .padding(.top, 80)
+//                    }
+//                    .font(.title2)
+//                    .padding()
+//                    Spacer()
                 }
                 .navigationBarBackButtonHidden(true)
                 
@@ -190,12 +210,16 @@ struct MapView: View {
                     popUpLevelDescription()
                     
                 }
-                
-                
             }
             //            .background(.blue)
         }
         
+    }
+    
+    func playSFX() {
+        let sound = Bundle.main.path(forResource: "sfx_btn", ofType: "wav")
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        self.audioPlayer.play()
     }
     
     func popUpLevelDescription() -> some View {
@@ -235,6 +259,7 @@ struct MapView: View {
                 VStack{
                     Button {
                         showLevelDescription = false
+                        playSFX()
                     } label: {
                         Image("btn_x_red")
                             .resizable()
@@ -246,11 +271,16 @@ struct MapView: View {
                 .padding(.leading, 280)
                 
                 VStack{
-                    NavigationLink(destination: InLevel_StorylineView(levelId: levelId, hintCount: hintCount), label: {
+                    NavigationLink(destination: InLevel_StorylineView(levelId: levelId, hintCount: hintCount), isActive: $isNavigateNext, label: {
                         Image("btn_start_yellow")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150)
+                            .onTapGesture {
+                                playSFX()
+                                isNavigateNext = true
+                            }
+                        
                     })
                 }
                 .padding(.top, 450)

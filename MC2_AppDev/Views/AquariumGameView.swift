@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct AquariumGameView: View {
     
     let listFish = GameFishData().fish_list
+    
+    @State var audioPlayer: AVAudioPlayer!
+    @State var isNavigateNext = false
     
     @State var levelId: Int
     @State var hintCount: Int
@@ -23,7 +27,7 @@ struct AquariumGameView: View {
     
     @State var editAccess = false
     @State private var showObjectives = true
-    //    @State var isEdit = false
+    // @State var isEdit = false
     @State var isAquariumClicked = false
     @State var isInputFish = false
     @State var isWinGame = false
@@ -95,10 +99,6 @@ struct AquariumGameView: View {
                                         .scaledToFit()
                                         .frame(width: 28)
                                 }
-                                
-                                
-                                
-                                
                             }
                             Spacer()
                         }
@@ -111,11 +111,15 @@ struct AquariumGameView: View {
                         VStack {
                             HStack{
                                 // === Map Navigation Button
-                                NavigationLink(destination: MapView(), label: {
+                                NavigationLink(destination: MapView(), isActive: $isNavigateNext, label: {
                                     Image("btn_back")
                                         .resizable()
                                         .scaledToFit()
                                         .padding(.trailing, 300)
+                                        .onTapGesture {
+                                            playSFX()
+                                            isNavigateNext = true
+                                        }
                                 })
                                 Spacer()
                                 
@@ -154,6 +158,7 @@ struct AquariumGameView: View {
                                                         }else {
                                                             isActiveIndex = index
                                                         }
+                                                        playSFX()
                                                     } label: {
                                                         Image("aquarium_\(item.aquarium_size)")
                                                             .resizable()
@@ -170,6 +175,7 @@ struct AquariumGameView: View {
                                                         }else {
                                                             isActiveIndex = index
                                                         }
+                                                        playSFX()
                                                         print(isActiveIndex)
                                                     } label: {
                                                         Image("aquarium_\(item.aquarium_size)")
@@ -189,6 +195,7 @@ struct AquariumGameView: View {
                                                         }else {
                                                             isActiveIndex = index
                                                         }
+                                                        playSFX()
                                                         print(isActiveIndex)
                                                     } label: {
                                                         Image("aquarium_\(item.aquarium_size)")
@@ -235,6 +242,7 @@ struct AquariumGameView: View {
                                                     } else if (item.aquarium_size == "large") {
                                                         aquariumList[index].aquarium_size = "medium"
                                                     }
+                                                    playSFX()
                                                 } label: {
                                                     Image("btn_left")
                                                         .resizable()
@@ -252,6 +260,7 @@ struct AquariumGameView: View {
                                                     } else if (item.aquarium_size == "large") {
                                                         aquariumList[index].aquarium_size = "small"
                                                     }
+                                                    playSFX()
                                                 } label: {
                                                     Image("btn_right")
                                                         .resizable()
@@ -307,6 +316,7 @@ struct AquariumGameView: View {
                                     aquariumList.append(
                                         Aquarium(aquarium_id: aquariumList.count, aquarium_size: "large", fish_array: [])
                                     )
+                                    playSFX()
                                 } label: {
                                     Image("btn_add_aquarium")
                                         .resizable()
@@ -331,6 +341,7 @@ struct AquariumGameView: View {
                             // Button for objectives
                             Button {
                                 showObjectives = true
+                                playSFX()
                             } label: {
                                 Image("btn_hints")
                                     .resizable()
@@ -414,7 +425,7 @@ struct AquariumGameView: View {
                                     heartCount = heartCount - 1
                                 }
                                 
-                                
+                                playSFX()
                                 
                             } label: {
                                 Image("btn_check")
@@ -451,6 +462,7 @@ struct AquariumGameView: View {
                                             aquariumList.remove(at: isActiveIndex)
                                             isActiveIndex = -1
                                         }
+                                        playSFX()
                                     } label: {
                                         Image("btn_ingame_remove")
                                             .resizable()
@@ -479,6 +491,7 @@ struct AquariumGameView: View {
                                     Button {
                                         editAccess = false
                                         isActiveIndex = -1
+                                        playSFX()
                                     } label: {
                                         Image("btn_ingame_agree")
                                             .resizable()
@@ -536,6 +549,7 @@ struct AquariumGameView: View {
                                 // Button reset
                                 Button {
                                     ResetFish()
+                                    playSFX()
                                 } label: {
                                     Image("btn_ingame_reset")
                                         .resizable()
@@ -549,6 +563,7 @@ struct AquariumGameView: View {
                                 // Button agree
                                 Button {
                                     isInputFish = false
+                                    playSFX()
                                 } label: {
                                     Image("btn_ingame_agree")
                                         .resizable()
@@ -580,6 +595,7 @@ struct AquariumGameView: View {
                                         // Button build
                                         Button {
                                             editAccess = true
+                                            playSFX()
                                         } label: {
                                             Image("btn_build")
                                                 .resizable()
@@ -593,6 +609,7 @@ struct AquariumGameView: View {
                                         // Button add fish
                                         Button {
                                             isInputFish = true
+                                            playSFX()
                                         } label: {
                                             Image("btn_fish")
                                                 .resizable()
@@ -637,6 +654,12 @@ struct AquariumGameView: View {
             RenderLevel()
         }
         
+    }
+    
+    func playSFX() {
+        let sound = Bundle.main.path(forResource: "sfx_btn", ofType: "wav")
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        self.audioPlayer.play()
     }
     
     func randomLocation(minValue: Int, maxValue: Int) -> Int{
@@ -698,6 +721,7 @@ struct AquariumGameView: View {
             
             Button{
                 showObjectives = false
+                playSFX()
             } label: {
                 Image("btn_start_yellow")
                     .resizable()
@@ -759,9 +783,13 @@ struct AquariumGameView: View {
             VStack{
                 HStack{
                     Spacer()
-                    NavigationLink(destination: MapView(), label: {
+                    NavigationLink(destination: MapView(), isActive: $isNavigateNext, label: {
                         Text("Back to Map >>")
                             .foregroundColor(.primary)
+                            .onTapGesture {
+                                playSFX()
+                                isNavigateNext = true
+                            }
                     })
                 }
             }
@@ -799,9 +827,13 @@ struct AquariumGameView: View {
             VStack{
                 HStack{
                     Spacer()
-                    NavigationLink(destination: MapView(), label: {
+                    NavigationLink(destination: MapView(), isActive: $isNavigateNext, label: {
                         Text("Back to Map >>")
                             .foregroundColor(.primary)
+                            .onTapGesture {
+                                playSFX()
+                                isNavigateNext = true
+                            }
                     })
                 }
             }
