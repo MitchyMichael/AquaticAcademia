@@ -350,6 +350,7 @@ struct AquariumGameView: View {
                             
                             // Button for checking
                             Button {
+                                playSFX()
                                 
                                 // CURRENT AQUARIUM
                                 var current_aquarium_fishes = [[String]]()
@@ -425,7 +426,7 @@ struct AquariumGameView: View {
                                     heartCount = heartCount - 1
                                 }
                                 
-                                playSFX()
+                                
                                 
                             } label: {
                                 Image("btn_check")
