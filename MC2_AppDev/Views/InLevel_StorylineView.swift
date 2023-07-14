@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct InLevel_StorylineView: View {
+    @State var audioPlayer: AVAudioPlayer!
+    @State var isNavigateNext = false
+    
     @State var levelId: Int
     @State var hintCount: Int
     
@@ -60,6 +64,7 @@ struct InLevel_StorylineView: View {
             if naration1_count < naration1.count {
                 Button{
                     naration1_count = naration1_count + 1
+                    playSFX()
                 } label: {
                     Text("\(naration1[naration1_count])")
                         .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
@@ -73,6 +78,7 @@ struct InLevel_StorylineView: View {
                 if michelleDialogue1_count < michelleDialogue1.count {
                     Button {
                         michelleDialogue1_count = michelleDialogue1_count + 1
+                        playSFX()
                     } label: {
                         ZStack{
                             Image("chat_left")
@@ -92,6 +98,7 @@ struct InLevel_StorylineView: View {
                     if naration2_count < naration2.count {
                         Button{
                             naration2_count = naration2_count + 1
+                            playSFX()
                         } label: {
                             Text("\(naration2[naration2_count])")
                                 .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
@@ -105,6 +112,7 @@ struct InLevel_StorylineView: View {
                         if salesPersonDialogue1_count < salesPersonDialogue1.count {
                             Button {
                                 salesPersonDialogue1_count = salesPersonDialogue1_count + 1
+                                playSFX()
                             } label: {
                                 ZStack{
                                     Image("chat_right")
@@ -125,6 +133,7 @@ struct InLevel_StorylineView: View {
                             if naration3_count < naration3.count {
                                 Button{
                                     naration3_count = naration3_count + 1
+                                    playSFX()
                                 } label: {
                                     Text("\(naration3[naration3_count])")
                                         .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
@@ -138,6 +147,7 @@ struct InLevel_StorylineView: View {
                                 if michelleDialogue2_count < michelleDialogue2.count {
                                     Button {
                                         michelleDialogue2_count = michelleDialogue2_count + 1
+                                        playSFX()
                                     } label: {
                                         ZStack{
                                             Image("chat_left")
@@ -158,18 +168,8 @@ struct InLevel_StorylineView: View {
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                                         
                                     }
+                                    
                                 } else {
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     if naration4_count < naration4.count {
                                         Button{
                                             if naration4_count == naration4.count - 1 {
@@ -178,6 +178,8 @@ struct InLevel_StorylineView: View {
                                                 naration4_count = naration4_count + 1
                                             }
                                             
+                                            playSFX()
+                                            
                                         } label: {
                                             if naration4_count == naration4.count - 1 {
                                                 VStack{
@@ -185,8 +187,7 @@ struct InLevel_StorylineView: View {
                                                         .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                         .foregroundColor(.black)
                                                         .padding(.horizontal, 50)
-                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount, featuredFish: [], fishAmount: [], aquariumList: []
-                                                    ), label: {
+                                                    NavigationLink(destination: AquariumGameView(levelId: levelId, hintCount: hintCount, featuredFish: [], fishAmount: [], aquariumList: []), isActive: $isNavigateNext, label: {
                                                         Text("Alright! I got it!")
                                                             .font(.custom(FontsManager.Metropolis.REGULAR, size: FontsManager.FontSize.Dialog))
                                                             .foregroundColor(.primary)
@@ -194,6 +195,10 @@ struct InLevel_StorylineView: View {
                                                             .padding(.horizontal, 50)
                                                             .background(.gray)
                                                             .cornerRadius(8)
+                                                            .onTapGesture {
+                                                                playSFX()
+                                                                isNavigateNext = true
+                                                            }
                                                     })
                                                 }
                                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -219,6 +224,12 @@ struct InLevel_StorylineView: View {
             }
             
         }
+    }
+    
+    func playSFX() {
+        let sound = Bundle.main.path(forResource: "sfx_btn", ofType: "wav")
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        self.audioPlayer.play()
     }
     
     func Level1View() -> some View {
@@ -287,7 +298,6 @@ struct InLevel_StorylineView: View {
     }
     
     func changeMascotTalkingStatus(){
-        
         mascotTalking.toggle()
     }
 }
