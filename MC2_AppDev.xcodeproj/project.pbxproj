@@ -15,6 +15,8 @@
 		551A273C2A53F59E00534E99 /* LevelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273B2A53F59E00534E99 /* LevelRender.swift */; };
 		551A273E2A540AFA00534E99 /* LevelSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A273D2A540AFA00534E99 /* LevelSolution.swift */; };
 		553DD36B2A5D59C000480F36 /* Aquarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DD36A2A5D59C000480F36 /* Aquarium.swift */; };
+		554BAD372A613DDE0030FA6F /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 554BAD352A613DDE0030FA6F /* song.mp3 */; };
+		554BAD382A613DDE0030FA6F /* sfx_btn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 554BAD362A613DDE0030FA6F /* sfx_btn.wav */; };
 		55A1855F2A56A2AB00591618 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1855E2A56A2AB00591618 /* FontsManager.swift */; };
 		55A185602A56A69300591618 /* Metropolis-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185522A569FF400591618 /* Metropolis-Black.ttf */; };
 		55A185612A56A6C600591618 /* Metropolis-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185582A569FF400591618 /* Metropolis-BoldItalic.ttf */; };
@@ -36,8 +38,6 @@
 		55A185712A56A74F00591618 /* Metropolis-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A185572A569FF400591618 /* Metropolis-ThinItalic.ttf */; };
 		B032C42B2A569C420078377D /* GuidingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032C42A2A569C420078377D /* GuidingInformation.swift */; };
 		FC7368152A5D4F1600120438 /* TutorialDragnDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7368142A5D4F1600120438 /* TutorialDragnDrop.swift */; };
-		FC7368182A612E1D00120438 /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC7368172A612E1D00120438 /* song.mp3 */; };
-		FC73681A2A61304C00120438 /* sfx_btn.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC7368192A61304C00120438 /* sfx_btn.wav */; };
 		FC8F644A2A54137900C07A6D /* OpeningDialogues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64462A54137900C07A6D /* OpeningDialogues.swift */; };
 		FC8F644B2A54137900C07A6D /* EndingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64472A54137900C07A6D /* EndingResult.swift */; };
 		FC8F644C2A54137900C07A6D /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F64482A54137900C07A6D /* Objective.swift */; };
@@ -69,6 +69,8 @@
 		551A273B2A53F59E00534E99 /* LevelRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRender.swift; sourceTree = "<group>"; };
 		551A273D2A540AFA00534E99 /* LevelSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSolution.swift; sourceTree = "<group>"; };
 		553DD36A2A5D59C000480F36 /* Aquarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aquarium.swift; sourceTree = "<group>"; };
+		554BAD352A613DDE0030FA6F /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song.mp3; sourceTree = "<group>"; };
+		554BAD362A613DDE0030FA6F /* sfx_btn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_btn.wav; sourceTree = "<group>"; };
 		55A1854B2A569FF400591618 /* Metropolis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Bold.ttf"; sourceTree = "<group>"; };
 		55A1854C2A569FF400591618 /* Metropolis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Regular.ttf"; sourceTree = "<group>"; };
 		55A1854D2A569FF400591618 /* Metropolis-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -91,8 +93,6 @@
 		55A1855E2A56A2AB00591618 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
 		B032C42A2A569C420078377D /* GuidingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidingInformation.swift; sourceTree = "<group>"; };
 		FC7368142A5D4F1600120438 /* TutorialDragnDrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialDragnDrop.swift; sourceTree = "<group>"; };
-		FC7368172A612E1D00120438 /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = song.mp3; path = ../../../../../../Downloads/song.mp3; sourceTree = "<group>"; };
-		FC7368192A61304C00120438 /* sfx_btn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfx_btn.wav; path = ../../../../../../Downloads/sfx_btn.wav; sourceTree = "<group>"; };
 		FC8F64462A54137900C07A6D /* OpeningDialogues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningDialogues.swift; sourceTree = "<group>"; };
 		FC8F64472A54137900C07A6D /* EndingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingResult.swift; sourceTree = "<group>"; };
 		FC8F64482A54137900C07A6D /* Objective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 		FC7368162A612DE100120438 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				FC7368172A612E1D00120438 /* song.mp3 */,
-				FC7368192A61304C00120438 /* sfx_btn.wav */,
+				554BAD362A613DDE0030FA6F /* sfx_btn.wav */,
+				554BAD352A613DDE0030FA6F /* song.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -346,12 +346,13 @@
 				55A185652A56A73500591618 /* Metropolis-ExtraBoldItalic.ttf in Resources */,
 				55A185632A56A72E00591618 /* Metropolis-Bold.ttf in Resources */,
 				55A185702A56A74C00591618 /* Metropolis-Thin.ttf in Resources */,
-				FC7368182A612E1D00120438 /* song.mp3 in Resources */,
 				55A185622A56A72B00591618 /* Metropolis-BlackItalic.ttf in Resources */,
 				55A185642A56A73200591618 /* Metropolis-ExtraBold.ttf in Resources */,
 				55A185692A56A73D00591618 /* Metropolis-LightItalic.ttf in Resources */,
 				55A185712A56A74F00591618 /* Metropolis-ThinItalic.ttf in Resources */,
+				554BAD382A613DDE0030FA6F /* sfx_btn.wav in Resources */,
 				55A185672A56A73900591618 /* Metropolis-ExtraLightItalic.ttf in Resources */,
+				554BAD372A613DDE0030FA6F /* song.mp3 in Resources */,
 				55A185682A56A73B00591618 /* Metropolis-Light.ttf in Resources */,
 				55A1856A2A56A73F00591618 /* Metropolis-Medium.ttf in Resources */,
 				55A185662A56A73700591618 /* Metropolis-ExtraLight.ttf in Resources */,
@@ -359,7 +360,6 @@
 				55A1856D2A56A74600591618 /* Metropolis-RegularItalic.ttf in Resources */,
 				55A1856B2A56A74200591618 /* Metropolis-MediumItalic.ttf in Resources */,
 				FC9C30B22A3997E000B10C97 /* Preview Assets.xcassets in Resources */,
-				FC73681A2A61304C00120438 /* sfx_btn.wav in Resources */,
 				FC9C30AF2A3997E000B10C97 /* Assets.xcassets in Resources */,
 				55A1856C2A56A74400591618 /* Metropolis-Regular.ttf in Resources */,
 			);
