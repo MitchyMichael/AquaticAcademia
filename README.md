@@ -1,21 +1,28 @@
 # Aquatic Academia
 
-Introducing "Aquatic Academia: The Fish Life Education Game"
+Dive into the world of underwater wonders with Aquatic Academia, the ultimate companion for fish enthusiasts and aquarium hobbyists. Whether you're a novice or an experienced aquarist, Aquatic Academia is designed to provide you with the knowledge and tools you need to create a harmonious and thriving aquatic ecosystem right in your own aquarium.
 
-Embark on an exciting challenge on keeping fish alive through the end with an element contains aboard game card physic and a companion app that can help user to play the game!
+Features:
 
-Key Features:
-Card Description:
-1. Engaging Gameplay: Experience a unique decision making and educate user.
+1. Fish Compatibility Checker:
+   Wondering which fish can peacefully coexist in your aquarium? Aquatic Academia offers a comprehensive fish compatibility checker. Simply input the types of fish you're interested in, and the app will provide you with detailed insights into their compatibility levels, potential conflicts, and ideal tank conditions.
 
-2. Fish Compatibility: Learn about different fish species and their compatibility with each other.
+2. Extensive Fish Database:
+   Explore a vast database of fish species, each accompanied by in-depth information about their behavior, habitat, size, and care requirements. Make informed decisions about the inhabitants of your tank based on expert advice and user experiences.
 
-3. Educational Elements: Immerse yourself in a rich educational experience, where each card provides valuable information that is divide into some category such as: disease, food, etc. this can expand your knowledge in a fun way
+3. Virtual Aquarium Designer:
+   Visualize your dream aquarium using our virtual aquarium designer. Drag and drop different fish species into your tank setup to see how they interact and whether they're a suitable match. Experiment with various combinations before making a final decision.
 
-4. Realistic Simulation: Ian immersed boardgames that it feels like we taking care of a real fish
+4. Personalized Recommendations:
+   Tell Aquatic Academia about your current aquarium setup, including tank size, water parameters, and existing fish. Receive personalized recommendations for new fish additions that are likely to thrive alongside your current aquatic residents.
 
-5. App Integration: Enhance your gameplay with a companion app that serves as a comprehensive educational resource. Access detailed information about fish species, their requirements, and tips for creating thriving habitats by scanning QR code by each card .
+5. Care Guides and Tips:
+   Access a treasure trove of care guides, tips, and best practices to ensure the well-being of your aquatic companions. Learn about feeding habits, water quality management, disease prevention, and more.
 
-6. Multiplayer Mode: Challenge your opponents. Collaborate to build the most diverse and well-maintained aquarium, and compete for the title of the ultimate fish caretaker.
+6. Community Interaction:
+   Connect with a vibrant community of fellow fish enthusiasts. Share your aquarium creations, seek advice, and exchange experiences with like-minded individuals. Participate in forums, discussions, and even organize local meet-ups to further enrich your aquatic journey.
 
-App Description: receive knowledge on how to taking care of a fish with a companion app! This board game brings the excitement of scanning a QR card and information, tips about taking care of a fish.
+7. Notifications and Updates:
+   Stay informed about your fish community with timely notifications and updates. Receive alerts about water parameter fluctuations, feeding schedules, and other essential tasks to keep your aquarium thriving.
+
+Embark on a journey of discovery and creativity with Aquatic Academia. Let the app empower you to curate a captivating and harmonious aquatic world that mesmerizes both you and your fishy friends. Whether you're a casual hobbyist or a dedicated aquarist, Aquatic Academia is your gateway to unlocking the secrets of underwater harmony. Download now and make a splash in the world of fishkeeping!
