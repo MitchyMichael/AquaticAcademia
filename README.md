@@ -1,4 +1,4 @@
-# AquaticAcademia
+# Aquatic Academia
 
 Introducing "Aquatic Academia: The Fish Life Education Game"
 
