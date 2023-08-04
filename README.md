@@ -13,16 +13,7 @@ Features:
 3. Virtual Aquarium Designer:
    Visualize your dream aquarium using our virtual aquarium designer. Drag and drop different fish species into your tank setup to see how they interact and whether they're a suitable match. Experiment with various combinations before making a final decision.
 
-4. Personalized Recommendations:
-   Tell Aquatic Academia about your current aquarium setup, including tank size, water parameters, and existing fish. Receive personalized recommendations for new fish additions that are likely to thrive alongside your current aquatic residents.
-
-5. Care Guides and Tips:
+4. Care Guides and Tips:
    Access a treasure trove of care guides, tips, and best practices to ensure the well-being of your aquatic companions. Learn about feeding habits, water quality management, disease prevention, and more.
-
-6. Community Interaction:
-   Connect with a vibrant community of fellow fish enthusiasts. Share your aquarium creations, seek advice, and exchange experiences with like-minded individuals. Participate in forums, discussions, and even organize local meet-ups to further enrich your aquatic journey.
-
-7. Notifications and Updates:
-   Stay informed about your fish community with timely notifications and updates. Receive alerts about water parameter fluctuations, feeding schedules, and other essential tasks to keep your aquarium thriving.
 
 Embark on a journey of discovery and creativity with Aquatic Academia. Let the app empower you to curate a captivating and harmonious aquatic world that mesmerizes both you and your fishy friends. Whether you're a casual hobbyist or a dedicated aquarist, Aquatic Academia is your gateway to unlocking the secrets of underwater harmony. Download now and make a splash in the world of fishkeeping!
